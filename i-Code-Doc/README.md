@@ -26,6 +26,6 @@ vision task, text task, layout task, and mixed task. We show the task prompts (l
 (question answering and layout analysis).
 
 <p align="center">
-  <img align="middle" width="800" src="udop.png"/>
+  <img align="middle" width="800" src="assets/udop.png"/>
 </p>
 
