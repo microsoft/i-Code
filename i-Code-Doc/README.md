@@ -43,6 +43,5 @@ pip install -r requirements.txt
 ### Pretraining Script
 
 ```
-# Example
 bash scripts/pretraining.sh
 ```
