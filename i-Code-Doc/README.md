@@ -1,9 +1,32 @@
-# Unifying Vision, Text, and Layout for Universal Document Processing
+# [Unifying Vision, Text, and Layout for Universal Document Processing](https://arxiv.org/pdf/2212.02623)
+[Zineng Tang](https://zinengtang.github.io/),
+[Ziyi Yang](https://www.microsoft.com/en-us/research/people/ziyiyang/),
+[Guoxin Wang](https://www.guoxwang.com/),
+[Yuwei Fang](https://www.microsoft.com/en-us/research/people/yuwfan/),
+[Yang Liu](https://nlp-yang.github.io/),
+[Chenguang Zhu](https://cs.stanford.edu/people/cgzhu/),
+[Michael Zeng](https://www.microsoft.com/en-us/research/people/nzeng/),
+[Cha Zhang](https://www.microsoft.com/en-us/research/people/chazhang/),
+[Mohit Bansal](https://www.cs.unc.edu/~mbansal/)
+              
+Code Coming Soon ...
 
-Official repository of UDOP, a foundation Document AI model. UDOP is part of the multimodal research endeavor [i-Code](https://github.com/microsoft/i-Code).
+Open Source Checklist:
 
-## Introduction
-We propose Universal Document Processing (UDOP), a foundation Document AI model which unifies text, image, and layout modalities together with varied task formats, including document understanding and generation. UDOP leverages the spatial correlation between textual content and document image to model image, text, and layout modalities with one uniform representation. With a novel Vision-Text-Layout Transformer, UDOP unifies pretraining and multi-domain downstream tasks into a prompt-based sequence generation scheme. UDOP is pretrained on both large-scale unlabeled document corpora using innovative self-supervised objectives and diverse labeled data. UDOP also learns to generate document images from text and layout modalities via masked image reconstruction. To the best of our knowledge, this is the first time in the field of document AI that one model simultaneously achieves high-quality neural document editing and content customization. Our method sets the state-of-the-art on 9 Document AI tasks, e.g., document understanding and QA, across diverse data domains like finance reports, academic papers, and websites. UDOP ranks first on the leaderboard of the Document Understanding Benchmark (DUE).. More details can be found in the paper:
+- [x] Release Model (Encoder + Text decoder)
+- [x] Release Pretraining
+- [ ] Release Downstream
+- [ ] Vision Decoder / Weights (Due to fake document generation ethical consideration: we don't have plan on this part yet)
+- [ ] Demos
 
-[Unifying Vision, Text, and Layout for Universal Document Processing](https://arxiv.org/abs/2212.02623) Zineng Tang, Ziyi Yang, Guoxin Wang, Yuwei Fang, Yang Liu, Chenguang Zhu, Michael Zeng, Cha Zhang, Mohit Bansal.
+## Introduction 
+
+UDOP unifies vision, text, and layout through vision-text-layout Transformer and unified generative pretraining tasks including
+vision task, text task, layout task, and mixed task. We show the task prompts (left) and task targets (right) for all self-supervised objectives
+(joint text-layout reconstruction, visual text recognition, layout modeling, and masked autoencoding) and two example supervised objectives
+(question answering and layout analysis).
+
+<p align="center">
+  <img align="middle" width="800" src="udop.png"/>
+</p>
 
