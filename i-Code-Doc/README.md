@@ -29,3 +29,12 @@ vision task, text task, layout task, and mixed task. We show the task prompts (l
   <img align="middle" width="800" src="assets/udop.png"/>
 </p>
 
+## Install
+### Setup `python` environment
+```
+conda create -n UDOP python=3.8   # You can also use other environment.
+```
+### Install other dependencies
+```
+pip install -r requirements.txt
+```
