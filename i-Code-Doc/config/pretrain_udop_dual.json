@@ -1,0 +1,30 @@
+{
+  "train_file": "cdip_stat.txt.14627461.list",
+  "do_train": true,
+  "do_selfsupervised": true,
+  "do_supervised": true,
+  "do_selfsupervised_vis": true,
+  "logging_steps": 100,
+  "max_seq_length": 1024,
+  "max_seq_length_decoder": 512,
+  "image_size": 224,
+  "max_steps": 500000,
+  "gradient_accumulation_steps": 8,
+  "model_name_or_path": "t5-large",
+  "model_type": "baseline",
+  "output_dir": "baseline_large_pretrain_ss+s+vss",
+  "ocr_dir": "cdip-images-full-clean-ocr021121",
+  "img_dir": "cdip-images",
+  "mae_version": "mae_vit_large_patch16",
+  "mae_checkpoint": "mae-models/mae_pretrain_vit_large_full.pth",
+  "dataloader_num_workers": 8,
+  "overwrite_output_dir": true,
+  "per_device_train_batch_size": 1,
+  "save_steps": 5000,
+  "learning_rate": 5e-5,
+  "warmup_ratio": 0.0001,
+  "weight_decay": 0.01,
+  "whole_word_masking": false
+}
+
+ 
