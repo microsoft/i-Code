@@ -1,31 +1,17 @@
-import copy
 import logging
 import os
-import yaml 
 from typing import Any, Dict, Optional, Sequence, Tuple
 from dataclasses import dataclass
 
 import numpy as np
 import torch
 from torch import nn
-from torch.nn import CrossEntropyLoss, MSELoss, BCEWithLogitsLoss
-from transformers import BertConfig, BertModel, BertPreTrainedModel
-from transformers.models.bert.modeling_bert import BertOnlyMLMHead
-from transformers.activations import get_activation
-import torch.nn.functional as F
 from torch import Tensor
-from einops import rearrange
-from torch.utils.checkpoint import checkpoint
+import torch.nn.functional as F
 
 from transformers import T5Config, T5PreTrainedModel
-from transformers.modeling_outputs import (
-    BaseModelOutputWithPastAndCrossAttentions,
-    BaseModelOutput, 
-    Seq2SeqLMOutput,
-    Seq2SeqModelOutput,
-)
+from transformers.modeling_outputs import BaseModelOutput
 from transformers.models.t5.modeling_t5 import T5Block, T5ForConditionalGeneration, T5LayerNorm
-
 
 from core.models.embedding.cell_embed import CellEmbeddings
 from core.models.embedding.relative.relative import (
@@ -34,7 +20,6 @@ from core.models.embedding.relative.relative import (
     RelativePositionBiasBase,
     create_relative_bias,
 )
-
 from core.models.mae.build import mae_model
 
 logger = logging.getLogger(__name__)
@@ -453,7 +438,7 @@ class T52dStack(T5PreTrainedModel):
         )
 
 
-class UDOPUnimodelForConditionalGeneration(T5ForConditionalGeneration):
+class UdopUnimodelForConditionalGeneration(T5ForConditionalGeneration):
     """
     Copied from original T5ForConditionalGeneration class with signature extended with 2D data.
     :param config: a `T5Config` instance
