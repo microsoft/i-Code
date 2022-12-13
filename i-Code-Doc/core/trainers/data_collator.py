@@ -3,8 +3,7 @@ from typing import Dict, List, Optional, Union
 
 import torch
 from transformers.tokenization_utils import PreTrainedTokenizer
-from transformers.tokenization_utils_base import (BatchEncoding,
-                                                  PaddingStrategy,)
+from transformers.tokenization_utils_base import BatchEncoding, PaddingStrategy
 from transformers.tokenization_utils_fast import PreTrainedTokenizerFast
 
 
@@ -29,7 +28,7 @@ class DataCollator:
     max_length_char: Optional[int] = 1024+512   
     pad_to_multiple_of: Optional[int] = None
 
-    def __call__(self, features: List[Dict[str, Union[List[int], torch.Tensor]]]): -> Dict[str, torch.Tensor]:
+    def __call__(self, features: List[Dict[str, Union[List[int], torch.Tensor]]]):# -> Dict[str, torch.Tensor]:
         if features[0] is None:
             return {'placeholder': torch.zeros(size=(2, 2), dtype=torch.long)}
         batch_size = len(features)

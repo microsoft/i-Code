@@ -1,3 +1,5 @@
+# Code taken from Due Benchmark https://github.com/due-benchmark/baselines
+
 import random
 from abc import ABC, abstractmethod
 from copy import deepcopy
@@ -9,7 +11,7 @@ from torch import nn as nn
 from transformers import T5Config
 from transformers.models.t5.modeling_t5 import T5Attention
 
-from core.models.baseline_config import BaselineConfig
+from core.models.udop_config import UdopConfig
 
 # get function for bucket computation
 # protected member access seems to be lesser evil than copy paste whole function
@@ -90,7 +92,6 @@ class RelativePositionBiasBase(nn.Module, ABC):
             new_bias = nn.Embedding(self.relative_attention_num_buckets + 2, self.num_heads)
             new_bias.weight.data[:self.relative_attention_num_buckets] = self.relative_attention_bias.weight.data
             new_bias.weight.data[self.relative_attention_num_buckets:] = 0.1
-#             new_bias = new_bias.to(self.relative_attention_bias.weight.device)
             self.relative_attention_bias = new_bias
             self.expand = False
  
@@ -168,11 +169,6 @@ class RelativePositionBiasHorizontal(RelativePositionBiasBase):
         assert seg_data is not None
         horizontal_position: Tensor = seg_data[:, :, [0, 2]].mean(dim=-1)
 
-#         # expand features if necessary
-#         if self.level != "tokens":
-#             token_map = seg_data[self.level]["token_map"]
-#             horizontal_position = expand_feature(token_map, horizontal_position)
-
         return self.get_relative_position(horizontal_position)
 
 
@@ -191,11 +187,6 @@ class RelativePositionBiasVertical(RelativePositionBiasBase):
         # get y positions of middle of bbox
         assert seg_data is not None
         vertical_position: Tensor = seg_data[:, :, [1, 3]].mean(dim=-1)
-
-        # expand features if necessary
-#         if self.level != "tokens":
-#             token_map = seg_data[self.level]["token_map"]
-#             vertical_position = expand_feature(token_map, vertical_position)
 
         return self.get_relative_position(vertical_position)
 
@@ -227,7 +218,7 @@ BIAS_CLASSES = {"1d": RelativePositionBias1D,
                 }
 
 
-def create_relative_bias(config: Union[BaselineConfig, T5Config]) -> Sequence[RelativePositionBiasBase]:
+def create_relative_bias(config: Union[UdopConfig, T5Config]) -> Sequence[RelativePositionBiasBase]:
     """
     Creates empty list or one/multiple relative biases.
 

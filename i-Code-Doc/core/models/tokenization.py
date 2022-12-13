@@ -3,14 +3,9 @@ import re
 import sentencepiece as spm
 
 # The special tokens of T5Tokenizer is hard-coded with <extra_id_{}>
-# I create another class VLT5Tokenizer extending it to add <loc_{}> and <other_{}> 
+# Created another class UDOPTokenizer extending it to add special visual tokens like <loc_{}>
 
-class UDOPTokenizer(T5Tokenizer):
-
-    # vocab_files_names = VOCAB_FILES_NAMES
-    # pretrained_vocab_files_map = PRETRAINED_VOCAB_FILES_MAP
-    # max_model_input_sizes = PRETRAINED_POSITIONAL_EMBEDDINGS_SIZES
-    # model_input_names = ["attention_mask"]
+class UdopTokenizer(T5Tokenizer):
 
     def __init__(
         self,
@@ -135,11 +130,11 @@ class UDOPTokenizer(T5Tokenizer):
 # Below are for Rust-based Fast Tokenizer
 
 from transformers.convert_slow_tokenizer import SpmConverter
-from tokenizers import Tokenizer, decoders, normalizers, pre_tokenizers, processors
-from typing import Any, Dict, List, Optional, Tuple, Union
+from tokenizers import Tokenizer, processors
+from typing import List
 
 
-class UDOPConverter(SpmConverter):
+class UdopConverter(SpmConverter):
     def vocab(self, proto):
         vocab = [(piece.piece, piece.score) for piece in proto.pieces]
         num_extra_ids = self.original_tokenizer._extra_ids
@@ -174,18 +169,13 @@ class UDOPConverter(SpmConverter):
         )
 
 
-def convert_slow_vlt5tokenizer(vlt5tokenizer):
-    return VLT5Converter(vlt5tokenizer).converted()
+def convert_slow_udoptokenizer(UdopTokenizer):
+    return UdopConverter(UdopTokenizer).converted()
 
 
-class VLT5TokenizerFast(T5TokenizerFast):
+class UdopTokenizerFast(T5TokenizerFast):
 
-    # vocab_files_names = VOCAB_FILES_NAMES
-    # pretrained_vocab_files_map = PRETRAINED_VOCAB_FILES_MAP
-    # max_model_input_sizes = PRETRAINED_POSITIONAL_EMBEDDINGS_SIZES
-    # model_input_names = ["attention_mask"]
-    slow_tokenizer_class = VLT5Tokenizer
-
+    slow_tokenizer_class = UdopTokenizer
     prefix_tokens: List[int] = []
 
     def __init__(
@@ -226,7 +216,7 @@ class VLT5TokenizerFast(T5TokenizerFast):
             other_extra_ids=other_extra_ids,
             **kwargs
         )
-        fast_tokenizer = convert_slow_vlt5tokenizer(slow_tokenizer)
+        fast_tokenizer = convert_slow_udoptokenizer(slow_tokenizer)
         self._tokenizer = fast_tokenizer
 
         PreTrainedTokenizerBase.__init__(

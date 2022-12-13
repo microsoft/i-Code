@@ -12,7 +12,7 @@ from torch.utils.data import Dataset
 import torchvision.transforms as transforms
 
 from core.common.utils import img_trans_torchvision, get_visual_bbox
-from core.datasets.supervised import DataCollatorForT5DocIE, DataCollatorForT5DocLayout
+from core.datasets.collate_supervised import DataCollatorForT5DocIE, DataCollatorForT5DocLayout
 
 logger = logging.getLogger(__name__)
 
