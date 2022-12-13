@@ -45,3 +45,17 @@ pip install -r requirements.txt
 ```
 bash scripts/pretraining.sh
 ```
+
+## Citation
+```
+@article{tang2022unifying,
+  title={Unifying Vision, Text, and Layout for Universal Document Processing},
+  author={Tang, Zineng and Yang, Ziyi and Wang, Guoxin and Fang, Yuwei and Liu, Yang and Zhu, Chenguang and Zeng, Michael and Zhang, Cha and Bansal, Mohit},
+  journal={arXiv preprint arXiv:2212.02623},
+  year={2022}
+}
+```
+
+## Contact
+
+Zineng Tang (zn.tang.terran@gmail.com)
