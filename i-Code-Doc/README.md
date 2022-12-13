@@ -40,7 +40,7 @@ pip install -r requirements.txt
 ```
 ## Training
 
-### Pretraining (Data + scripts) -> [TVLT Pretraining](PT.md)
+### Pretraining Script
 
 ```
 # Example
