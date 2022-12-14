@@ -13,8 +13,7 @@
 Open Source Checklist:
 
 - [x] Release Model (Encoder + Text decoder)
-- [ ] Release Pretraining
-- [ ] Release Downstream
+- [ ] Release Scripts
 - [ ] Vision Decoder / Weights (Due to fake document generation ethical consideration: we don't have plan on this part yet)
 - [ ] Demos
 
