@@ -286,10 +286,6 @@ class T52dStack(T5PreTrainedModel):
             attention_mask = torch.zeros((4, 1024), device=input_ids.device, dtype=input_ids.dtype)
             seg_data = torch.zeros((4, 1024, 4), device=input_ids.device, dtype=input_ids.dtype)
             input_shape = input_ids.size()
-            position_bias = torch.zeros_like(
-                self.get_extended_attention_mask(attention_mask, input_shape, attention_mask.device)
-            )
-            # encoder_attention_mask = attention_mask
             logger.warning('Empty batch')
         elif inputs_embeds is not None:
             input_shape = inputs_embeds.size()[:-1]
