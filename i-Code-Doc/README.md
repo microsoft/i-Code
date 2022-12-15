@@ -1,6 +1,6 @@
 # [Unifying Vision, Text, and Layout for Universal Document Processing](https://arxiv.org/pdf/2212.02623)
 [Zineng Tang](https://zinengtang.github.io/),
-[Ziyi Yang](https://www.microsoft.com/en-us/research/people/ziyiyang/),
+[Ziyi Yang](https://ziyi-yang.github.io/),
 [Guoxin Wang](https://www.guoxwang.com/),
 [Yuwei Fang](https://www.microsoft.com/en-us/research/people/yuwfan/),
 [Yang Liu](https://nlp-yang.github.io/),
