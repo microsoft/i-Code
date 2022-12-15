@@ -24,7 +24,7 @@ from transformers import (
 from transformers.trainer_utils import get_last_checkpoint, is_main_process
 from transformers.utils import check_min_version
 
-from core.datasets import RvlCdipImageDataset, get_rvl_cdip_labels
+from core.datasets import RvlCdipImageDataset, get_rvlcdip_labels
 from core.trainers import DataCollator
 from core.models import UdopDualForConditionalGeneration, UdopUnimodelForConditionalGeneration, UdopConfig, UdopTokenizer
 
@@ -270,7 +270,7 @@ def main():
     # Distributed training:
     # The .from_pretrained methods guarantee that only one local process can concurrently
     # download model & vocab.
-    num_labels = RvlCdipImageDataset.NUM_LABELS
+    num_labels = RvlCdipDataset.NUM_LABELS
 
     config = config_type.from_pretrained(
         model_args.config_name if model_args.config_name else model_args.model_name_or_path,
@@ -298,12 +298,12 @@ def main():
     )
 
    # Get datasets
-    train_dataset = (RvlCdipImageDataset(data_args=data_args, tokenizer=tokenizer,
+    train_dataset = (RvlCdipDataset(data_args=data_args, tokenizer=tokenizer,
                                          mode='train', is_image_needed=model_args.is_image_needed,
                                          is_layout_needed=model_args.is_layout_needed)
                      if training_args.do_train else None)
     # TODO: for now use use test dataset for all evaluation -- will use both later                     
-    eval_dataset = (RvlCdipImageDataset(data_args=data_args, tokenizer=tokenizer,
+    eval_dataset = (RvlCdipDataset(data_args=data_args, tokenizer=tokenizer,
                                         mode='test', is_image_needed=model_args.is_image_needed,
                                          is_layout_needed=model_args.is_layout_needed)
                      if (training_args.do_eval or training_args.do_predict) else None)                     
@@ -364,7 +364,7 @@ def main():
         trainer.save_metrics("eval", metrics)
 
     # Predict
-    label_list = get_rvl_cdip_labels()
+    label_list = get_rvlcdip_labels()
     if training_args.do_predict:
         logger.info("*** Predict ***")
 
