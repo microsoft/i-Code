@@ -48,7 +48,7 @@ def get_bb(bb):
     return [min(xs), min(ys), max(xs), max(ys)]
 
 
-def get_rvl_cdip_labels():
+def get_rvlcdip_labels():
     return [
         "letter",
         "form",
@@ -69,15 +69,11 @@ def get_rvl_cdip_labels():
     ]
 
 
-class RvlCdipImageDataset(Dataset):
+class RVLCdipDataset(Dataset):
     
     NUM_LABELS = 16
 
-    def __init__(self, data_args, tokenizer,
-                 mode='train', 
-                 is_layout_needed=True, 
-                 is_image_needed=False,
-                 task='cls'):
+    def __init__(self, data_args, tokenizer, mode='train'):
         
         """ Structure of data directory: 
             
@@ -119,13 +115,10 @@ class RvlCdipImageDataset(Dataset):
         self.max_seq_length = data_args.max_seq_length
         self.num_img_embeds = 0
         
-        label_list = get_rvl_cdip_labels()
+        label_list = get_rvlcdip_labels()
         self.n_classes = len(label_list)
         self.label_list = label_list
 
-        self.is_image_needed = is_image_needed
-        self.is_layout_needed = is_layout_needed
-        
         self.image_size = data_args.image_size
         
         self.examples = []
