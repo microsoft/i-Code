@@ -274,9 +274,7 @@ class MaskedAutoencoderViT(nn.Module):
         # masking: length -> length * mask_ratio
         if ids_keep is not None:
             x = torch.gather(x, dim=1, index=ids_keep.unsqueeze(-1).repeat(1, 1, x.size(-1)))      
-#         else:
-#             x, mask, ids_restore = self.random_masking(x, mask_ratio)
-        
+
         # append cls token
         cls_token = self.cls_token + self.pos_embed[:, :1, :]
         cls_tokens = cls_token.expand(x.shape[0], -1, -1)
