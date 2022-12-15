@@ -3,6 +3,7 @@ import logging
 import os
 import random
 
+from tqdm import tqdm
 import numpy as np
 from PIL import Image
 
@@ -135,8 +136,10 @@ class RvlCdipDataset(Dataset):
 'specification', 'file folder', 'news article', 'budget', 'invoice', 'presentation', 'questionnaire', 'resume', 'memo']
         self.label_map = dict(zip(list(range(len(self.label_list))), self.label_list))
         
-        self.labels = np.load(os.path.join(data_args.data_dir, 'labels.npy'), allow_pickle=True)
-        self.examples = np.load(os.path.join(data_args.data_dir, 'examples.npy'), allow_pickle=True)
+        results = [self.load_file(filepath, image_dir) for filepath in tqdm(file_list)]
+        for labels, examples in results: 
+            self.labels += labels 
+            self.examples += examples 
         self.image_dir = image_dir
         
         assert len(self.labels) == len(self.examples) 
