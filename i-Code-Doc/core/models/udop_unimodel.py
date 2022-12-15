@@ -391,8 +391,6 @@ class T52dStack(T5PreTrainedModel):
             if use_cache:
                 present_key_value_states = present_key_value_states + (present_key_value_state,)
 
-            #import pdb; pdb.set_trace()
-
             if output_attentions:
                 all_attentions = all_attentions + (layer_outputs[2],)  # We keep only self-attention weights for now
                 if self.is_decoder:
