@@ -116,6 +116,8 @@ class RvlCdipDataset(Dataset):
         self.num_img_embeds = 0
         
         label_list = get_rvlcdip_labels()
+        self.label_list = label_list
+        self.label_map = dict(zip(list(range(len(self.label_list))), self.label_list))
         self.n_classes = len(label_list)
         self.label_list = label_list
 
@@ -132,16 +134,11 @@ class RvlCdipDataset(Dataset):
                 decoder_start_token_id=0,
             )
         
-        self.label_list = ['letter', 'form', 'email', 'handwritten', 'advertisement', 'scientific report', 'scientific publication', 
-'specification', 'file folder', 'news article', 'budget', 'invoice', 'presentation', 'questionnaire', 'resume', 'memo']
-        self.label_map = dict(zip(list(range(len(self.label_list))), self.label_list))
-        
         results = [self.load_file(filepath, image_dir) for filepath in tqdm(file_list)]
         for labels, examples in results: 
             self.labels += labels 
             self.examples += examples 
         self.image_dir = image_dir
-        
         assert len(self.labels) == len(self.examples) 
         logger.info(f'There are {len(self.labels)} images with annotations')
 
