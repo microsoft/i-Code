@@ -80,7 +80,6 @@ class RvlCdipDataset(Dataset):
             args.data_dir             
                 ├── images
                 ├── labels
-                    ├── pretrain300k.txt
                     ├── test.txt
                     ├── train.txt
                     └── val.txt
