@@ -33,13 +33,15 @@ vision task, text task, layout task, and mixed task. We show the task prompts (l
 ```
 conda create -n UDOP python=3.8   # You can also use other environment.
 ```
-## Run Scripts (Finetuninng)
-```
-bash scripts/finetune_rvlcdip.sh   # Finetuning on RVLCDIP
-```
 ### Install other dependencies
 ```
 pip install -r requirements.txt
+```
+
+## Run Scripts
+### Finetuninng
+```
+bash scripts/finetune_rvlcdip.sh   # Finetuning on RVLCDIP
 ```
 
 ## Citation
