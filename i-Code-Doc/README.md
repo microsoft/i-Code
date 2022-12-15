@@ -41,7 +41,9 @@ pip install -r requirements.txt
 ## Run Scripts
 
 Switch model type by:
+
 --model_type "UdopDual"
+
 --model_type "UdopUnimodel"
 
 ### Finetuninng
