@@ -69,7 +69,7 @@ def get_rvl_cdip_labels():
     ]
 
 
-class RVLCDIPImageDataset(Dataset):
+class RvlCdipImageDataset(Dataset):
     
     NUM_LABELS = 16
 
