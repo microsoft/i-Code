@@ -8,7 +8,7 @@ CUDA_VISIBLE_DEVICES=0,1,2,3 PYTHONPATH='.' python run_rvlcdip.py \
 --do_eval \
 --do_predict \
 --model_name_or_path "t5-large" \
---model_type "UdopDual" \
+--model_type "UdopUnimodel" \
 --output_dir "./finetune_rvlcdip" \
 --gradient_accumulation_steps 8 \
 --dataloader_num_workers 8 \
