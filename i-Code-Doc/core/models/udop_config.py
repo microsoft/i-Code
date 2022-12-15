@@ -7,7 +7,6 @@ Udop_PRETRAINED_CONFIG_ARCHIVE_MAP = {}
 
 class UdopConfig(T5Config):
     pretrained_config_archive_map = Udop_PRETRAINED_CONFIG_ARCHIVE_MAP
-    #model_type = 'layoutlmv1'
 
     def __init__(self, 
                  max_2d_position_embeddings=1024,
