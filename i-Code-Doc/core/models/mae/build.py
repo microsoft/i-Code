@@ -1,9 +1,9 @@
 import os
+import logging
 
 import torch
 
 from .mae import mae_vit_base_patch16, mae_vit_large_patch16, mae_vit_huge_patch14
-import logging
 
 logger = logging.getLogger(__name__)
 
@@ -28,8 +28,7 @@ def on_load_checkpoint(model, checkpoint: dict) -> None:
 
             
 def mae_model(name, pretrained_weights, image_size, vocab_size, max_2d_position_embeddings, **kwargs):
-    cur_dir = '.'
-#     os.path.dirname(os.path.abspath(__file__))
+    cur_dir = os.path.dirname(os.path.abspath(__file__))
     mae_models = {
         'mae_vit_base_patch16': mae_vit_base_patch16,
         'mae_vit_large_patch16': mae_vit_large_patch16,
