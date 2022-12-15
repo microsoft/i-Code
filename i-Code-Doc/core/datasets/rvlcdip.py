@@ -135,8 +135,8 @@ class RvlCdipDataset(Dataset):
 'specification', 'file folder', 'news article', 'budget', 'invoice', 'presentation', 'questionnaire', 'resume', 'memo']
         self.label_map = dict(zip(list(range(len(self.label_list))), self.label_list))
         
-        self.labels = np.load(os.path.join(data_args.data_dir, data_args.rvlcdip_dir, 'labels.npy'), allow_pickle=True)
-        self.examples = np.load(os.path.join(data_args.data_dir, data_args.rvlcdip_dir, 'examples.npy'), allow_pickle=True)
+        self.labels = np.load(os.path.join(data_args.data_dir, 'labels.npy'), allow_pickle=True)
+        self.examples = np.load(os.path.join(data_args.data_dir, 'examples.npy'), allow_pickle=True)
         self.image_dir = image_dir
         
         assert len(self.labels) == len(self.examples) 
