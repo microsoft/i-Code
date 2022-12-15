@@ -1,1 +1,1 @@
-from .visual_rvlcdip import RVLCDIPImageDataset, get_rvl_cdip_labels
+from .visual_rvlcdip import RvlCdipImageDataset, get_rvl_cdip_labels
