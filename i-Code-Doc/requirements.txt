@@ -6,4 +6,4 @@ pdf2image==1.16.0
 setuptools==59.5.0
 sentencepiece
 pandas
-
+datasets
