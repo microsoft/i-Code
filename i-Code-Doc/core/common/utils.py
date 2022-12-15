@@ -118,14 +118,17 @@ def img_trans_torchvision(image, image_size=224):
     image = trans(image)  # copy to make it writeable
     return image
 
+
 def load_image(image_path):
     image = Image.open(image_path).resize((224,224)).convert('RGB')
     h, w = image.size
     image = torch.tensor(np.array(image))
     return image, (w, h)
 
+
 def convert_img_to_numpy(img):
     return np.array(img)
+
 
 def normalize_bbox(bbox, size, scale=1000):
     return [
