@@ -301,8 +301,7 @@ class T52dStack(T5PreTrainedModel):
             assert self.embed_tokens is not None, "You have to intialize the model with valid token embeddings"
             inputs_embeds = self.embed_tokens(input_ids)
                 
-        if inputs_patches is not None:
-            #===========================    
+        if inputs_patches is not None: 
             # combine OCR text and visual embed
             inputs_embeds, seg_data, attention_mask = collate_vlembed(inputs_patches, inputs_embeds, seg_data, visual_seg_data, special_vis_token, attention_mask, num_patches, 0)
             input_shape = inputs_embeds.size()[:-1]
