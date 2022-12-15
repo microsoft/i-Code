@@ -24,7 +24,7 @@ from transformers import (
 from transformers.trainer_utils import get_last_checkpoint, is_main_process
 from transformers.utils import check_min_version
 
-from core.datasets import RVLCdipDataset, get_rvlcdip_labels
+from core.datasets import RvlCdipDataset, get_rvlcdip_labels
 from core.trainers import DataCollator
 from core.models import UdopDualForConditionalGeneration, UdopUnimodelForConditionalGeneration, UdopConfig, UdopTokenizer
 
@@ -235,7 +235,7 @@ def main():
     # Distributed training:
     # The .from_pretrained methods guarantee that only one local process can concurrently
     # download model & vocab.
-    num_labels = RVLCdipDataset.NUM_LABELS
+    num_labels = RvlCdipDataset.NUM_LABELS
 
     config = config_type.from_pretrained(
         model_args.config_name if model_args.config_name else model_args.model_name_or_path,
@@ -263,10 +263,10 @@ def main():
     )
 
    # Get datasets
-    train_dataset = (RVLCdipDataset(data_args=data_args, tokenizer=tokenizer, mode='train')
+    train_dataset = (RvlCdipDataset(data_args=data_args, tokenizer=tokenizer, mode='train')
                      if training_args.do_train else None)
     # TODO: for now use use test dataset for all evaluation -- will use both later                     
-    eval_dataset = (RVLCdipDataset(data_args=data_args, tokenizer=tokenizer, mode='test')
+    eval_dataset = (RvlCdipDataset(data_args=data_args, tokenizer=tokenizer, mode='test')
                      if (training_args.do_eval or training_args.do_predict) else None)                     
 
     # Data collator
