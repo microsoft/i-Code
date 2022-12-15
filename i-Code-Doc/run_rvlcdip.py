@@ -27,7 +27,7 @@ from transformers.trainer_utils import get_last_checkpoint, is_main_process
 from transformers.utils import check_min_version
 
 from core.datasets.visual_rvl_cdip import RVLCdipImageDataset, get_image_transforms, get_rvl_cdip_labels
-from core.trainers import SequenceDataCollatorForKeyValueExtraction, LayoutLMPretrainingDataCollator
+from core.trainers import DataCollator
 from core.models import UdopDualForConditionalGeneration, UdopUnimodelForConditionalGeneration, UdopConfig, UdopTokenizer
 
 
@@ -312,7 +312,7 @@ def main():
 
     # Data collator
     padding = "max_length" if data_args.pad_to_max_length else False
-    data_collator = LayoutLMPretrainingDataCollator(
+    data_collator = DataCollator(
         tokenizer=tokenizer,
         padding=padding,
         max_length=data_args.max_seq_length,
