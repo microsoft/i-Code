@@ -298,7 +298,7 @@ class UdopDualForConditionalGeneration(T5ForConditionalGeneration):
     """
 
     def __init__(self, config):
-        super(DualForConditionalGeneration, self).__init__(config)
+        super(UdopDualForConditionalGeneration, self).__init__(config)
 
         # get max length of decoder part, for T5 decoder lenght depends
         # on the task and it can be modified by passing `_max_decoder_length` to the model/config
