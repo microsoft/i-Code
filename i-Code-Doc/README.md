@@ -47,7 +47,9 @@ Switch model type by:
 --model_type "UdopUnimodel"
 
 ### Finetuninng
-Download [RVLCDIP](https://huggingface.co/datasets/rvl_cdip) first and change the path
+
+Download RVLCDIP first and change the path
+For OCR, you might need to customize your code
 ```
 bash scripts/finetune_rvlcdip.sh   # Finetuning on RVLCDIP
 ```
