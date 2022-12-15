@@ -69,7 +69,7 @@ def get_rvlcdip_labels():
     ]
 
 
-class RVLCdipImageDataset(Dataset):
+class RVLCdipDataset(Dataset):
     
     NUM_LABELS = 16
 
