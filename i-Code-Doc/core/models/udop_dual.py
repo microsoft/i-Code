@@ -250,7 +250,6 @@ class T52dStack(T5PreTrainedModel):
             hidden_states, present_key_value_state = layer_outputs[:2]
             # We share the position biases between the layers - the first layer store them
 
-            #import pdb; pdb.set_trace()
             position_bias = layer_outputs[2]
             if self.is_decoder and encoder_hidden_states is not None:
                 encoder_decoder_position_bias = layer_outputs[4 if output_attentions else 3]
