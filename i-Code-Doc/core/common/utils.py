@@ -19,7 +19,6 @@ Text has boundings boxes. Since vision patches are also embedings,
 we also create bounding boxes for them by their respective locations in the image.
 This will be useful for joint vision-text embedding in UDOP Unimodel.
 """
-
 def get_visual_bbox(image_size=224):
     image_feature_pool_shape = [image_size//16, image_size//16]
     visual_bbox_x = (torch.arange(
