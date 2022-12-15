@@ -113,19 +113,6 @@ def img_trans_torchvision(image, image_size=224):
     image = trans(image)  # copy to make it writeable
     return image
 
-
-def img_trans_torchvision_int(image, image_size=384):
-    trans = T.Compose([
-            T.Resize([image_size,image_size]),
-            T.ToTensor(),
-            Normalize(
-            mean=[0.485, 0.456, 0.406],
-            std=[0.229, 0.224, 0.225])
-        ])
-
-    image = trans(image)  # copy to make it writeable
-    return image
-
 def load_image(image_path):
     image = Image.open(image_path).resize((224,224)).convert('RGB')
     h, w = image.size
