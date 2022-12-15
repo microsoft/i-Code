@@ -24,7 +24,7 @@ from transformers import (
 from transformers.trainer_utils import get_last_checkpoint, is_main_process
 from transformers.utils import check_min_version
 
-from core.datasets import RvlCdipImageDataset, get_rvlcdip_labels
+from core.datasets import RvlCdipDataset, get_rvlcdip_labels
 from core.trainers import DataCollator
 from core.models import UdopDualForConditionalGeneration, UdopUnimodelForConditionalGeneration, UdopConfig, UdopTokenizer
 
