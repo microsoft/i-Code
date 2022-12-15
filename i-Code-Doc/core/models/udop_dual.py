@@ -174,10 +174,6 @@ class T52dStack(T5PreTrainedModel):
             attention_mask = torch.zeros((4, 1024), device=input_ids.device, dtype=input_ids.dtype)
             seg_data['tokens']['bboxes'] = torch.zeros((4, 1024, 4), device=input_ids.device, dtype=input_ids.dtype)
             input_shape = input_ids.size()
-            position_bias = torch.zeros_like(
-                self.get_extended_attention_mask(attention_mask, input_shape, attention_mask.device)
-            )
-            # encoder_attention_mask = attention_mask
             logger.warning('Empty batch')
         elif inputs_embeds is not None:
             input_shape = inputs_embeds.size()[:-1]
@@ -205,11 +201,7 @@ class T52dStack(T5PreTrainedModel):
             encoder_attention_mask = torch.ones(
                 batch_size, encoder_seq_length, device=inputs_embeds.device, dtype=torch.long
             )
-
-        # initialize past_key_values with `None` if past does not exist
-        if past_key_values is None:
-            past_key_values = [None] * len(self.block)
-
+            
         # ourselves in which case we just need to make it broadcastable to all heads.
         extended_attention_mask = self.get_extended_attention_mask(attention_mask, input_shape, inputs_embeds.device)
 
@@ -257,18 +249,13 @@ class T52dStack(T5PreTrainedModel):
                 layer_outputs = layer_outputs[:1] + (None,) + layer_outputs[1:]
             hidden_states, present_key_value_state = layer_outputs[:2]
             # We share the position biases between the layers - the first layer store them
-            # layer_outputs = hidden-states, key-value-states (self-attention weights),
-            # (self-attention position bias), (cross-attention weights), (cross-attention position bias)
+
             #import pdb; pdb.set_trace()
             position_bias = layer_outputs[2]
             if self.is_decoder and encoder_hidden_states is not None:
                 encoder_decoder_position_bias = layer_outputs[4 if output_attentions else 3]
+                
             # append next layer key value states
-            if use_cache:
-                present_key_value_states = present_key_value_states + (present_key_value_state,)
-
-            #import pdb; pdb.set_trace()
-
             if output_attentions:
                 all_attentions = all_attentions + (layer_outputs[2],)  # We keep only self-attention weights for now
                 if self.is_decoder:
