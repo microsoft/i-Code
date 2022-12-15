@@ -1,7 +1,7 @@
 CUDA_VISIBLE_DEVICES=0,1,2,3 PYTHONPATH='.' python run_rvlcdip.py \
 --data_dir "./dataset/rvl-cdip" \
 --max_seq_length 1024 \
---image_size 1024 \
+--image_size 224 \
 --max_seq_length_decoder 16 \
 --max_steps 100000 \
 --do_train \
