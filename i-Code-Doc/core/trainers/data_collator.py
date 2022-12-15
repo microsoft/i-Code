@@ -2,6 +2,7 @@ from dataclasses import dataclass
 from typing import Dict, List, Optional, Union
 
 import torch
+
 from transformers.tokenization_utils import PreTrainedTokenizer
 from transformers.tokenization_utils_base import BatchEncoding, PaddingStrategy
 from transformers.tokenization_utils_fast import PreTrainedTokenizerFast
