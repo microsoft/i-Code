@@ -88,7 +88,7 @@ class RvlCdipDataset(Dataset):
         assert os.path.isdir(data_args.data_dir), f"Data dir {data_args.data_dir} does not exist!"
         logger.info(f'Loading RVL CDIP')
         label_dir = os.path.join(data_args.data_dir, 'labels')
-        image_dir = os.path.join(data_args.data_dir, 'cdip-images')
+        image_dir = os.path.join(data_args.data_dir, 'images')
         if mode == 'train': 
             filename = 'train.txt'
         elif mode == 'val': 
