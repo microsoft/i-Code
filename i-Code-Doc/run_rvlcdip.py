@@ -4,13 +4,11 @@
 import logging
 import os
 import sys
-
 from dataclasses import dataclass, field
 from typing import Optional
 
 import numpy as np
 from datasets import ClassLabel, load_dataset, load_metric
-
 
 import transformers
 from transformers import (
@@ -26,8 +24,8 @@ from transformers import (
 from transformers.trainer_utils import get_last_checkpoint, is_main_process
 from transformers.utils import check_min_version
 
-from core.datasets.visual_rvl_cdip import RVLCdipImageDataset, get_image_transforms, get_rvl_cdip_labels
-from core.trainers import DataCollator
+from core.datasets import RVLCdipImageDataset, get_rvl_cdip_labels
+from core.trainers import Collator
 from core.models import UdopDualForConditionalGeneration, UdopUnimodelForConditionalGeneration, UdopConfig, UdopTokenizer
 
 
@@ -312,7 +310,7 @@ def main():
 
     # Data collator
     padding = "max_length" if data_args.pad_to_max_length else False
-    data_collator = DataCollator(
+    data_collator = LayoutLMPretrainingDataCollator(
         tokenizer=tokenizer,
         padding=padding,
         max_length=data_args.max_seq_length,
