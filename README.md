@@ -1,5 +1,5 @@
 # i-Code Project
-The ambition of the i-Code project is to build integrative and composable multimodal Artificial Intelligence. .
+The ambition of the i-Code project is to build integrative and composable multimodal Artificial Intelligence. The "i" stands for integrative multimodal learning.
 
 ## Multimodal Foundation Models
 - [i-Code V1](https://github.com/microsoft/i-Code/tree/main/i-Code-V1): i-Code: An Integrative and Composable Multimodal Learning Framework 
