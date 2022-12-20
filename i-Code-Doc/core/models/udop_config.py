@@ -1,3 +1,6 @@
+# Copyright (c) Microsoft Corporation.
+# Licensed under the MIT license.
+
 from typing import Any, Dict, Optional, Sequence, Tuple
 
 from transformers.models.t5.configuration_t5 import T5Config
