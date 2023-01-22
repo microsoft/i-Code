@@ -93,7 +93,7 @@ class L5GenerationModule(BaseLightningModule):
         # self.metrics[prefix].append(all_metrics)  # callback writes this to self.metrics_save_path
         image = batch['seg_data']['lazyimages']['img_lst']
         batch_size, _, image_size, _ = image.shape
-        visual_seg_data = torch.tensor(get_visual_bbox(image_size).float())[None, :].repeat(batch_size, 1, 1)
+        visual_seg_data = torch.tensor(get_visual_bbox(image_size).float())[None, :].repeat(batch_size, 1, 1).to(image)
         
         outputs = self(
             src_ids,
@@ -229,7 +229,7 @@ class L5GenerationModule(BaseLightningModule):
 
         image = batch['seg_data']['lazyimages']['img_lst']
         batch_size, _, image_size, _ = image.shape
-        visual_seg_data = torch.tensor(get_visual_bbox(image_size).float())[None, :].repeat(batch_size, 1, 1)
+        visual_seg_data = torch.tensor(get_visual_bbox(image_size).float())[None, :].repeat(batch_size, 1, 1).to(image)
         
         generated_ids = self.model.generate(
             src_ids,
