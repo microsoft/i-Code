@@ -46,13 +46,15 @@ Switch model type by:
 
 --model_type "UdopUnimodel"
 
-### Finetuninng
+### Finetuninng on RVLCDIP
 
 Download RVLCDIP first and change the path
 For OCR, you might need to customize your code
 ```
 bash scripts/finetune_rvlcdip.sh   # Finetuning on RVLCDIP
 ```
+
+### Finetuninng on DUE Benchmark
 
 Download [Duebenchmark](https://github.com/due-benchmark/baselines) and follow its procedure to preprocess the data.
 
@@ -67,9 +69,9 @@ Evaluation of the output generation can be evaluated by [Duebenchmark due_evalua
 ### Model Checkpoints
 The model checkpoints are hosted here [Huggingface Hub](https://huggingface.co/ZinengTang/Udop)
 
-- UdopUnimodel-Large-224 [Download]()
+- UdopUnimodel-Large-224 [Download](https://huggingface.co/ZinengTang/Udop/resolve/main/UdopUnimodel-Large-224.zip)
 
-- UdopDual-Large-224 [Download]()
+- UdopDual-Large-224 [Download](https://huggingface.co/ZinengTang/Udop/resolve/main/UdopDual-Large-224.zip)
 
 ## Citation
 ```
