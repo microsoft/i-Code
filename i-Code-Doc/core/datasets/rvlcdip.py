@@ -1,13 +1,9 @@
-# Copyright (c) Microsoft Corporation.
-# Licensed under the MIT license.
-
 import json
 import logging
 import os
 import random
 
 from tqdm import tqdm
-import numpy as np
 from PIL import Image
 
 import torch
@@ -89,9 +85,11 @@ class RvlCdipDataset(Dataset):
                     └── val.txt
         """                 
         assert os.path.isdir(data_args.data_dir), f"Data dir {data_args.data_dir} does not exist!"
-        logger.info(f'Loading RVL CDIP')
-        label_dir = os.path.join(data_args.data_dir, 'labels')
-        image_dir = os.path.join(data_args.data_dir, 'images')
+        logger.info('Loading RVL-CDIP')
+        
+        ocr_dir = os.path.join(data_args.data_dir, data_args.mpdfs_dir, 'cdip-images-full-clean-ocr021121')
+        image_dir = os.path.join(data_args.data_dir, data_args.mpdfs_dir, 'cdip-images')
+        label_dir = os.path.join(data_args.data_dir, data_args.rvlcdip_dir, 'labels')
         if mode == 'train': 
             filename = 'train.txt'
         elif mode == 'val': 
@@ -128,53 +126,50 @@ class RvlCdipDataset(Dataset):
         
         self.examples = []
         self.labels = []
+        self.images = []
 
         self.cls_collator = DataCollatorForT5DocCLS(
                 tokenizer=tokenizer,
-                input_length=data_args.max_seq_length,
-                target_length=data_args.max_seq_length_decoder,
-                pad_token_id=tokenizer.pad_token_id,
-                decoder_start_token_id=0,
             )
         
-        results = [self.load_file(filepath, image_dir) for filepath in tqdm(file_list)]
-        for labels, examples in results: 
+        results = [self.load_file(filepath, ocr_dir, image_dir) for filepath in tqdm(file_list)]
+        for labels, examples, images in results: 
             self.labels += labels 
             self.examples += examples 
-        self.image_dir = image_dir
+            self.images += images
         assert len(self.labels) == len(self.examples) 
         logger.info(f'There are {len(self.labels)} images with annotations')
 
-    @staticmethod
-    def load_file(file_path, image_dir): 
-        labels, examples = [], []
+    def load_file(self, file_path, ocr_dir, image_dir): 
+        labels, examples, images = [], [], []
         img_path, label = file_path.split()
         
         # label = int(label)
         if img_path.endswith('.tif'):
-            file_path = img_path.replace('.tif', '') + '.ocr.json'
-            if os.path.exists(file_path):
-                labels.append(label)
-                examples.append(file_path)
+            file_path = img_path + '.ocr.json'
+            file_path = os.path.join(ocr_dir, file_path)
+            image = os.path.join(image_dir, img_path)
+#             if os.path.exists(file_path):
+            labels.append(label)
+            examples.append(file_path)
+            images.append(image)
         else:
             raise NotImplementedError
 
-        return labels, examples 
+        return labels, examples, images
 
     def __len__(self):
         return len(self.examples)
 
     def __getitem__(self, index):
         try:
-            example = os.path.join(self.image_dir, self.examples[index])
             label = self.labels[index]
             label = self.label_map[int(label)]
 
-
-            rets, n_split = read_ocr_core_engine(example, self.tokenizer, self.max_seq_length, self.num_img_embeds, self.image_size)
+            rets, n_split = read_ocr_core_engine(self.examples[index], self.images[index], self.tokenizer, self.max_seq_length, self.num_img_embeds, self.image_size)
             if n_split == 0:
                 # Something wrong with the .ocr.json file
-                print("EMPTY ENTRY:", example)
+                print("EMPTY ENTRY")
                 return self[(index + 1) % len(self)]
             for i in range(n_split):
                 text_list, bbox_list, image, page_size = rets[i]
@@ -208,6 +203,8 @@ class RvlCdipDataset(Dataset):
                 attention_mask = torch.tensor(attention_mask, dtype=torch.long)
                 decoder_attention_mask = torch.tensor(decoder_attention_mask, dtype=torch.long)
                 assert len(bbox_input) == len(input_ids)
+                assert len(bbox_input.size()) == 2
+                assert len(char_bbox_input.size()) == 2
                 
                 return_dict =  {
                     "input_ids": input_ids,
@@ -247,12 +244,13 @@ class RvlCdipDataset(Dataset):
         assert len(sentence) == len(bbox)
         return (sentence, mask, bbox, start_token, end_token) 
 
-
-def read_ocr_core_engine(file, tokenizer, max_seq_length, num_img_embeds, image_size):
+    
+# Might need to change to your own OCR processing
+def read_ocr_core_engine(file, image_dir, tokenizer, max_seq_length, num_img_embeds, image_size):
     with open(file, 'r', encoding='utf8') as f:
         try:
             data = json.load(f)
-        except Exception as e:
+        except:
             data = {}
     rets = []
     n_split = 0
@@ -260,15 +258,13 @@ def read_ocr_core_engine(file, tokenizer, max_seq_length, num_img_embeds, image_
     if 'analyzeResult' not in data or 'readResults' not in data['analyzeResult']:
         return rets, n_split
 
-    tiff_file = file.replace('.ocr.json', '.tif')
-
-    tiff_images = Image.open(tiff_file)
+    tiff_images = Image.open(image_dir)
 
     doc = data['analyzeResult']['readResults']
     
     pid = random.choice(list(range(len(doc))))
     page = doc[pid]
-    text_list, bbox_list, img_list = [], [], []
+    text_list, bbox_list = [], []
     lines = page['lines']
     height, width = float(page['height']), float(page['width'])
     page_size = (width, height)

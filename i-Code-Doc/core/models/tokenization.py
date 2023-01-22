@@ -1,12 +1,9 @@
-# Copyright (c) Microsoft Corporation.
-# Licensed under the MIT license.
-
-from transformers import T5Tokenizer, T5TokenizerFast, PreTrainedTokenizer, PreTrainedTokenizerFast, PreTrainedTokenizerBase
+from transformers import T5Tokenizer, T5TokenizerFast, PreTrainedTokenizer, PreTrainedTokenizerBase
 import re
 import sentencepiece as spm
 
 # The special tokens of T5Tokenizer is hard-coded with <extra_id_{}>
-# Created another class UDOPTokenizer extending it to add special visual tokens like <loc_{}>
+# Created another class UDOPTokenizer extending it to add special visual tokens like <loc_{}>, etc.
 
 class UdopTokenizer(T5Tokenizer):
 
@@ -24,22 +21,19 @@ class UdopTokenizer(T5Tokenizer):
         **kwargs
     ):
         # Add extra_ids to the special token list
-        if extra_ids > 0 and additional_special_tokens is None:
+        if extra_ids > 0 and not "<extra_id_0>" in additional_special_tokens:
             additional_special_tokens = ["<extra_id_{}>".format(i) for i in range(extra_ids)]
             additional_special_tokens.extend(["<extra_l_id_{}>".format(i) for i in range(extra_ids)])
             additional_special_tokens.extend(["</extra_l_id_{}>".format(i) for i in range(extra_ids)])
             additional_special_tokens.extend(["<extra_t_id_{}>".format(i) for i in range(extra_ids)])
             additional_special_tokens.extend(["</extra_t_id_{}>".format(i) for i in range(extra_ids)])
-        
-        elif extra_ids > 0 and additional_special_tokens is not None:
-            extra_ids = 0
 
         if loc_extra_ids > 0 and not "<loc_0>" in additional_special_tokens:
             additional_special_tokens.extend(["<loc_{}>".format(i) for i in range(loc_extra_ids)])
 
         if other_extra_ids > 0 and not "<other_0>" in additional_special_tokens:
             additional_special_tokens.extend(["<other_{}>".format(i) for i in range(other_extra_ids)])
-    
+        print(additional_special_tokens)
         PreTrainedTokenizer.__init__(
             self,
             eos_token=eos_token,
@@ -133,7 +127,7 @@ class UdopTokenizer(T5Tokenizer):
 # Below are for Rust-based Fast Tokenizer
 
 from transformers.convert_slow_tokenizer import SpmConverter
-from tokenizers import Tokenizer, processors
+from tokenizers import processors
 from typing import List
 
 

@@ -1,16 +1,11 @@
-# Copyright (c) Microsoft Corporation.
-# Licensed under the MIT license.
-
 import logging
 import os
 from typing import Any, Dict, Optional, Sequence, Tuple
 from dataclasses import dataclass
 
-import numpy as np
 import torch
 from torch import nn
 from torch import Tensor
-import torch.nn.functional as F
 
 from transformers import T5Config, T5PreTrainedModel
 from transformers.modeling_outputs import BaseModelOutput
@@ -177,6 +172,10 @@ class T52dStack(T5PreTrainedModel):
             attention_mask = torch.zeros((4, 1024), device=input_ids.device, dtype=input_ids.dtype)
             seg_data['tokens']['bboxes'] = torch.zeros((4, 1024, 4), device=input_ids.device, dtype=input_ids.dtype)
             input_shape = input_ids.size()
+            position_bias = torch.zeros_like(
+                self.get_extended_attention_mask(attention_mask, input_shape, attention_mask.device)
+            )
+            # encoder_attention_mask = attention_mask
             logger.warning('Empty batch')
         elif inputs_embeds is not None:
             input_shape = inputs_embeds.size()[:-1]
@@ -204,7 +203,11 @@ class T52dStack(T5PreTrainedModel):
             encoder_attention_mask = torch.ones(
                 batch_size, encoder_seq_length, device=inputs_embeds.device, dtype=torch.long
             )
-            
+
+        # initialize past_key_values with `None` if past does not exist
+        if past_key_values is None:
+            past_key_values = [None] * len(self.block)
+
         # ourselves in which case we just need to make it broadcastable to all heads.
         extended_attention_mask = self.get_extended_attention_mask(attention_mask, input_shape, inputs_embeds.device)
 
@@ -252,12 +255,18 @@ class T52dStack(T5PreTrainedModel):
                 layer_outputs = layer_outputs[:1] + (None,) + layer_outputs[1:]
             hidden_states, present_key_value_state = layer_outputs[:2]
             # We share the position biases between the layers - the first layer store them
-
+            # layer_outputs = hidden-states, key-value-states (self-attention weights),
+            # (self-attention position bias), (cross-attention weights), (cross-attention position bias)
+            #import pdb; pdb.set_trace()
             position_bias = layer_outputs[2]
             if self.is_decoder and encoder_hidden_states is not None:
                 encoder_decoder_position_bias = layer_outputs[4 if output_attentions else 3]
-                
             # append next layer key value states
+            if use_cache:
+                present_key_value_states = present_key_value_states + (present_key_value_state,)
+
+            #import pdb; pdb.set_trace()
+
             if output_attentions:
                 all_attentions = all_attentions + (layer_outputs[2],)  # We keep only self-attention weights for now
                 if self.is_decoder:
@@ -399,54 +408,43 @@ class UdopDualForConditionalGeneration(T5ForConditionalGeneration):
         if encoder_outputs is None:
             return None
 
-        if ids_restore is not None:
-            # print(char_ids.size(), char_seg_data.size(), input_ids.size())
-            image_output = self.encoder.vision_encoder.forward_decoder(encoder_outputs.vision_embeds, ids_restore, context=encoder_outputs.last_hidden_state, char_inputs=[char_ids, char_seg_data])
-            loss = self.encoder.vision_encoder.forward_loss(image, image_output, image_mask_label)
-            return VisSeq2SeqLMOutput(
-                loss=loss,
-                image_output=image_output,
-                image_target=image,
-                image_mask_label=image_mask_label
-            )
-        else:
-            if masked_lm_labels is not None:
-                labels = masked_lm_labels
-                
-            if decoder_input_ids is None and labels is not None:
-                decoder_input_ids = self._shift_right(labels)
-                
-            if encoder_outputs.vision_embeds is not None:
-                vision_embeds = self.decoder.vision_fc(encoder_outputs.vision_embeds)
-                vision_embeds = self.decoder.vision_norm(vision_embeds)
-                hidden_states = torch.cat([encoder_outputs.last_hidden_state, vision_embeds], 1)
-                encoder_outputs.last_hidden_state = hidden_states
-                encoder_outputs.vision_embeds = None                
-            
-            # ugly hack for model to work as an encoder
-            if decoder_input_ids is None and labels is None:
-                return encoder_outputs
-            
-            attention_mask = torch.cat([attention_mask, torch.ones_like(encoder_outputs.last_hidden_state[:, :encoder_outputs.last_hidden_state.size(1)-attention_mask.size(1), 0])], 1)
-    
-            outputs = super().forward(
-                input_ids=input_ids,
-                attention_mask=attention_mask,
-                decoder_input_ids=decoder_input_ids,
-                decoder_attention_mask=decoder_attention_mask,
-                encoder_outputs=encoder_outputs,
-                past_key_values=past_key_values,
-                head_mask=head_mask,
-                inputs_embeds=inputs_embeds,
-                decoder_inputs_embeds=decoder_inputs_embeds,
-                labels=labels,
-                use_cache=use_cache,
-                output_attentions=output_attentions,
-                output_hidden_states=output_hidden_states,
-                return_dict=return_dict,
-            )
+        if masked_lm_labels is not None:
+            labels = masked_lm_labels
 
-            return outputs  # type: ignore
+        if decoder_input_ids is None and labels is not None:
+            decoder_input_ids = self._shift_right(labels)
+
+        if encoder_outputs.vision_embeds is not None:
+            vision_embeds = self.decoder.vision_fc(encoder_outputs.vision_embeds)
+            vision_embeds = self.decoder.vision_norm(vision_embeds)
+            hidden_states = torch.cat([encoder_outputs.last_hidden_state, vision_embeds], 1)
+            encoder_outputs.last_hidden_state = hidden_states
+            encoder_outputs.vision_embeds = None                
+
+        # ugly hack for model to work as an encoder
+        if decoder_input_ids is None and labels is None:
+            return encoder_outputs
+
+        attention_mask = torch.cat([attention_mask, torch.ones_like(encoder_outputs.last_hidden_state[:, :encoder_outputs.last_hidden_state.size(1)-attention_mask.size(1), 0])], 1)
+
+        outputs = super().forward(
+            input_ids=input_ids,
+            attention_mask=attention_mask,
+            decoder_input_ids=decoder_input_ids,
+            decoder_attention_mask=decoder_attention_mask,
+            encoder_outputs=encoder_outputs,
+            past_key_values=past_key_values,
+            head_mask=head_mask,
+            inputs_embeds=inputs_embeds,
+            decoder_inputs_embeds=decoder_inputs_embeds,
+            labels=labels,
+            use_cache=use_cache,
+            output_attentions=output_attentions,
+            output_hidden_states=output_hidden_states,
+            return_dict=return_dict,
+        )
+
+        return outputs  # type: ignore
     
     def get_encoder(self):
         return self
