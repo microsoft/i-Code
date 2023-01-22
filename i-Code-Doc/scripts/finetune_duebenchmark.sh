@@ -9,7 +9,7 @@ PYTHONPATH="." CUDA_VISIBLE_DEVICES=0 python benchmarker/cli/l5/train.py \
 --test_data_dir  'memmaps/DocVQA/microsoft_cv/test' \
 --im_dir 'DocVQA/png' \
 --max_source_length 1024 \
---img_conf '{size: 224}' \
+--img_conf '{"size": 224}' \
 --max_target_length 256 \
 --eval_max_gen_length 256 \
 --dropout_rate 0.15 \
