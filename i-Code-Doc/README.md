@@ -13,7 +13,7 @@
 Open Source Checklist:
 
 - [x] Release Model (Encoder + Text decoder)
-- [ ] Release Most Scripts
+- [x] Release Most Scripts
 - [ ] Vision Decoder / Weights (Due to fake document generation ethical consideration, we plan to release this functionality as an Azure API)
 - [ ] Demos
 
@@ -53,6 +53,20 @@ For OCR, you might need to customize your code
 ```
 bash scripts/finetune_rvlcdip.sh   # Finetuning on RVLCDIP
 ```
+
+Download [Duebenchmark](https://github.com/due-benchmark/baselines) and follow its procedure to preprocess the data
+The training code adapted to our framework is hosted at benchmarker by running:
+```
+bash scripts/finetune_duebenchmark.sh   # Finetuning on DUE Benchmark, Switch tasks by changing path to the dataset
+```
+Evaluation of the output generation can be evaluated by [Duebenchmark due_evaluator](https://github.com/due-benchmark/evaluator)
+
+### Model Checkpoints
+The model checkpoints are hosted here [Huggingface Hub](https://huggingface.co/ZinengTang/Udop)
+
+- UdopUnimodel-Large-224 [Download]()
+
+- UdopDual-Large-224 [Download]()
 
 ## Citation
 ```
