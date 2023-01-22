@@ -54,11 +54,14 @@ For OCR, you might need to customize your code
 bash scripts/finetune_rvlcdip.sh   # Finetuning on RVLCDIP
 ```
 
-Download [Duebenchmark](https://github.com/due-benchmark/baselines) and follow its procedure to preprocess the data
+Download [Duebenchmark](https://github.com/due-benchmark/baselines) and follow its procedure to preprocess the data.
+
 The training code adapted to our framework is hosted at benchmarker by running:
+
 ```
 bash scripts/finetune_duebenchmark.sh   # Finetuning on DUE Benchmark, Switch tasks by changing path to the dataset
 ```
+
 Evaluation of the output generation can be evaluated by [Duebenchmark due_evaluator](https://github.com/due-benchmark/evaluator)
 
 ### Model Checkpoints
