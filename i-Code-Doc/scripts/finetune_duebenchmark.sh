@@ -1,15 +1,19 @@
 PYTHONPATH="." CUDA_VISIBLE_DEVICES=0 python benchmarker/cli/l5/train.py \
+--gpus 1 \
 --model_name_or_path "UdopUnimodel-Large-224" \
 --relative_bias_args '[{"type":"1d"},{"type":"horizontal"},{"type":"vertical"}]' \
---dropout_rate 0.15 \
---label_smoothing 0 \
 --model_type 'UdopUnimodel' \
 --data_dir './' \
 --train_data_dir 'memmaps/DocVQA/microsoft_cv/train' \
 --val_data_dir 'memmaps/DocVQA/microsoft_cv/dev' \
 --test_data_dir  'memmaps/DocVQA/microsoft_cv/test' \
 --im_dir 'DocVQA/png' \
---gpus 1 \
+--max_source_length 1024 \
+--img_conf '{size: 224}' \
+--max_target_length 256 \
+--eval_max_gen_length 256 \
+--dropout_rate 0.15 \
+--label_smoothing 0 \
 --num_workers 12 \
 --train_batch_size 1 \
 --eval_batch_size 1 \
@@ -17,8 +21,6 @@ PYTHONPATH="." CUDA_VISIBLE_DEVICES=0 python benchmarker/cli/l5/train.py \
 --max_epochs 30 \
 --val_check_interval 0.2 \
 --output_dir './results_docvqa_224' \
---max_target_length 256 \
---eval_max_gen_length 256 \
 --warmup_steps 100 \
 --learning_rate 5e-5 \
 --lr_scheduler constant \
@@ -33,6 +35,5 @@ PYTHONPATH="." CUDA_VISIBLE_DEVICES=0 python benchmarker/cli/l5/train.py \
 --trim_batches \
 --accelerator ddp \
 --seed 4 \
---max_source_length 1024 \
 --early_stopping_patience 20 \
 --overwrite_output_dir 
