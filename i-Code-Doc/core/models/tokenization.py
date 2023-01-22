@@ -16,7 +16,7 @@ class UdopTokenizer(T5Tokenizer):
         extra_ids=100,
         loc_extra_ids=501,
         other_extra_ids=200,
-        additional_special_tokens=None,
+        additional_special_tokens=[],
         sp_model_kwargs=None,
         **kwargs
     ):
