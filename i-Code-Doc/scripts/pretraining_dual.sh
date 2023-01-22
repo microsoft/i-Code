@@ -1,0 +1,28 @@
+CUDA_VISIBLE_DEVICES=0 PYTHONPATH='.' python run_pretraining.py \
+--train_file "cdip_stat.txt.14627461.list" \
+--data_dir "./" \
+--do_train true \
+--do_selfsupervised_vis \
+--do_selfsupervised \
+--do_supervised \
+--max_seq_length 1024 \
+--image_size 224 \
+--max_seq_length_decoder 512 \
+--max_steps 1000000 \
+--model_name_or_path "t5-large" \
+--tokenizer_name "t5-large" \
+--model_type "UdopDual" \
+--output_dir "./results_pretrain_dual" \
+--mae_version "mae_vit_large_patch16" \
+--mae_checkpoint "mae_models/mae_pretrain_vit_large_full.pth" \
+--ocr_dir "cdip-images-full-clean-ocr021121" \
+--img_dir "cdip-images" \
+--gradient_accumulation_steps 8 \
+--dataloader_num_workers 8 \
+--overwrite_output_dir true \
+--per_device_train_batch_size 1 \
+--save_steps 10000 \
+--learning_rate 5e-5 \
+--warmup_ratio 0.00 \
+--weight_decay 0.001 \
+--whole_word_masking false

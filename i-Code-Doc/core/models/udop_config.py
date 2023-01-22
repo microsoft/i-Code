@@ -1,7 +1,4 @@
-# Copyright (c) Microsoft Corporation.
-# Licensed under the MIT license.
-
-from typing import Any, Dict, Optional, Sequence, Tuple
+from typing import Any, Dict, Optional, Sequence
 
 from transformers.models.t5.configuration_t5 import T5Config
 
@@ -10,6 +7,7 @@ Udop_PRETRAINED_CONFIG_ARCHIVE_MAP = {}
 
 class UdopConfig(T5Config):
     pretrained_config_archive_map = Udop_PRETRAINED_CONFIG_ARCHIVE_MAP
+    #model_type = 'layoutlmv1'
 
     def __init__(self, 
                  max_2d_position_embeddings=1024,
