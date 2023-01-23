@@ -1,16 +1,11 @@
-# Copyright (c) Microsoft Corporation.
-# Licensed under the MIT license.
-
 import logging
 import os
 from typing import Any, Dict, Optional, Sequence, Tuple
 from dataclasses import dataclass
 
-import numpy as np
 import torch
 from torch import nn
 from torch import Tensor
-import torch.nn.functional as F
 
 from transformers import T5Config, T5PreTrainedModel
 from transformers.modeling_outputs import BaseModelOutput
@@ -81,7 +76,8 @@ def collate_vlembed(inputs_patches, inputs_embeds, seg_data, visual_segdata, vis
     if attention_mask is not None:
         attention_mask = torch.cat([attention_mask, visual_attention_mask], 1)
     return inputs_embeds, seg_data, attention_mask
-    
+
+
 @dataclass
 class BaseModelOutputWithVisionEmbeds(BaseModelOutput):
     """
@@ -289,6 +285,10 @@ class T52dStack(T5PreTrainedModel):
             attention_mask = torch.zeros((4, 1024), device=input_ids.device, dtype=input_ids.dtype)
             seg_data = torch.zeros((4, 1024, 4), device=input_ids.device, dtype=input_ids.dtype)
             input_shape = input_ids.size()
+            position_bias = torch.zeros_like(
+                self.get_extended_attention_mask(attention_mask, input_shape, attention_mask.device)
+            )
+            # encoder_attention_mask = attention_mask
             logger.warning('Empty batch')
         elif inputs_embeds is not None:
             input_shape = inputs_embeds.size()[:-1]
@@ -300,7 +300,8 @@ class T52dStack(T5PreTrainedModel):
             assert self.embed_tokens is not None, "You have to intialize the model with valid token embeddings"
             inputs_embeds = self.embed_tokens(input_ids)
                 
-        if inputs_patches is not None: 
+        if inputs_patches is not None:
+            #===========================    
             # combine OCR text and visual embed
             inputs_embeds, seg_data, attention_mask = collate_vlembed(inputs_patches, inputs_embeds, seg_data, visual_seg_data, special_vis_token, attention_mask, num_patches, 0)
             input_shape = inputs_embeds.size()[:-1]
@@ -387,6 +388,10 @@ class T52dStack(T5PreTrainedModel):
                 layer_outputs = layer_outputs[:1] + (None,) + layer_outputs[1:]
             hidden_states, present_key_value_state = layer_outputs[:2]
 
+            # We share the position biases between the layers - the first layer store them
+            # layer_outputs = hidden-states, key-value-states (self-attention weights),
+            # (self-attention position bias), (cross-attention weights), (cross-attention position bias)
+
             position_bias = layer_outputs[2]
             if self.is_decoder and encoder_hidden_states is not None:
                 encoder_decoder_position_bias = layer_outputs[4 if output_attentions else 3]
@@ -456,26 +461,8 @@ class UdopUnimodelForConditionalGeneration(T5ForConditionalGeneration):
         mae_model_tmp = mae_model(config.mae_version, os.path.join(config.data_dir, config.mae_checkpoint), config.image_size, config.vocab_size, config.max_2d_position_embeddings)
 
         self.patch_embed = mae_model_tmp.patch_embed
-        num_patches = self.patch_embed.num_patches
         self.embed_dim = mae_model_tmp.embed_dim
         self.pos_embed = mae_model_tmp.pos_embed
-        # --------------------------------------------------------------------------
-        # MAE decoder specifics
-        # self.cell2dembedding_decoder = CellEmbeddings(config)
-
-        self.mask_token = mae_model_tmp.mask_token
-        self.non_mask_token = mae_model_tmp.non_mask_token
-        self.pad_token = mae_model_tmp.pad_token
-        self.special_vis_token = mae_model_tmp.special_vis_token
-        self.decoder_pos_embed = mae_model_tmp.decoder_pos_embed
-        self.decoder_embed_ctx = mae_model_tmp.decoder_embed_ctx
-        self.decoder_blocks = mae_model_tmp.decoder_blocks
-        self.decoder_norm = mae_model_tmp.decoder_norm
-        self.decoder_pred = mae_model_tmp.decoder_pred
-        self.norm_pix_loss = mae_model_tmp.norm_pix_loss
-
-        self.char_embedding = mae_model_tmp.char_embedding
-        self.char_cell2dembedding = mae_model_tmp.char_cell2dembedding
         
 
     @staticmethod
@@ -491,31 +478,6 @@ class UdopUnimodelForConditionalGeneration(T5ForConditionalGeneration):
             d_model = self.config.d_model
             module.relative_attention_bias.weight.data.normal_(mean=0.0, std=factor * ((d_model) ** -0.5))
 
-    def mae_decoder(self, non_mask_shape, ids_restore, context=None, char_inputs=None):
-        # embed tokens
-        x = self.non_mask_token.repeat(ids_restore.shape[0], non_mask_shape, 1)        
-        context_decoder = self.decoder_embed_ctx(context)
-        if char_inputs is not None:
-            context_char = self.char_embedding(char_inputs[0])
-            context_char = context_char + self.char_cell2dembedding(char_inputs[1])
-        context_decoder = torch.cat([context_decoder, context_char], 1)
-        # append mask tokens to sequence
-        mask_tokens = self.mask_token.repeat(x.shape[0], ids_restore.shape[1] - x.shape[1], 1)
-        x_ = torch.cat([x, mask_tokens], dim=1)  # no cls token
-        x = torch.gather(x_, dim=1, index=ids_restore.unsqueeze(-1).repeat(1, 1, x.shape[2]))  # unshuffle
-
-        # add pos embed
-        x = x + self.decoder_pos_embed[:, 1:]
-
-        # apply Transformer blocks
-        for blk in self.decoder_blocks:
-            x = blk(x, context=context_decoder)
-        x = self.decoder_norm(x)
-
-        # predictor projection
-        x = self.decoder_pred(x)
-
-        return x
 
     def patchify(self, imgs):
         """
@@ -621,47 +583,35 @@ class UdopUnimodelForConditionalGeneration(T5ForConditionalGeneration):
 
         if encoder_outputs is None:
             return None
-        
-        if ids_keep is not None:
-            
-            image_output = self.mae_decoder(inputs_patches.size(1), ids_restore, context=encoder_outputs.last_hidden_state, char_inputs=[char_ids, char_seg_data])
-            loss = self.mae_loss(image, image_output, image_mask_label)
-            return VisSeq2SeqLMOutput(
-                loss=loss,
-                image_output=image_output,
-                image_target=image,
-                image_mask_label=image_mask_label
-            )
 
-        else:
-            if masked_lm_labels is not None and labels is None:
-                labels = masked_lm_labels
-                
-            if decoder_input_ids is None and labels is not None:
-                decoder_input_ids = self._shift_right(labels)
+        if masked_lm_labels is not None and labels is None:
+            labels = masked_lm_labels
 
-            # ugly hack for model to work as an encoder
-            if decoder_input_ids is None and masked_lm_labels is None:
-                return encoder_outputs
-            
-            outputs = super().forward(
-                input_ids=input_ids,
-                attention_mask=encoder_outputs.attention_mask,
-                decoder_input_ids=decoder_input_ids,
-                decoder_attention_mask=decoder_attention_mask,
-                encoder_outputs=encoder_outputs,
-                past_key_values=past_key_values,
-                head_mask=head_mask,
-                inputs_embeds=inputs_embeds,
-                decoder_inputs_embeds=decoder_inputs_embeds,
-                labels=labels,
-                use_cache=use_cache,
-                output_attentions=output_attentions,
-                output_hidden_states=output_hidden_states,
-                return_dict=return_dict,
-            )
-            
-            return outputs  # type: ignore
+        if decoder_input_ids is None and labels is not None:
+            decoder_input_ids = self._shift_right(labels)
+
+        # ugly hack for model to work as an encoder
+        if decoder_input_ids is None and masked_lm_labels is None:
+            return encoder_outputs
+
+        outputs = super().forward(
+            input_ids=input_ids,
+            attention_mask=encoder_outputs.attention_mask,
+            decoder_input_ids=decoder_input_ids,
+            decoder_attention_mask=decoder_attention_mask,
+            encoder_outputs=encoder_outputs,
+            past_key_values=past_key_values,
+            head_mask=head_mask,
+            inputs_embeds=inputs_embeds,
+            decoder_inputs_embeds=decoder_inputs_embeds,
+            labels=labels,
+            use_cache=use_cache,
+            output_attentions=output_attentions,
+            output_hidden_states=output_hidden_states,
+            return_dict=return_dict,
+        )
+
+        return outputs  # type: ignore
     
     def get_encoder(self):
         return self
