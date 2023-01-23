@@ -1,4 +1,4 @@
-CUDA_VISIBLE_DEVICES=0 PYTHONPATH='.' python run_rvlcdip.py \
+CUDA_VISIBLE_DEVICES=0,1,2,3 PYTHONPATH='.' python run_rvlcdip.py \
 --data_dir "./rvl-cdip" \
 --max_seq_length 1024 \
 --image_size 224 \
