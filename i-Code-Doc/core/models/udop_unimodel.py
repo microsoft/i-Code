@@ -390,15 +390,13 @@ class T52dStack(T5PreTrainedModel):
             # We share the position biases between the layers - the first layer store them
             # layer_outputs = hidden-states, key-value-states (self-attention weights),
             # (self-attention position bias), (cross-attention weights), (cross-attention position bias)
-            #import pdb; pdb.set_trace()
+
             position_bias = layer_outputs[2]
             if self.is_decoder and encoder_hidden_states is not None:
                 encoder_decoder_position_bias = layer_outputs[4 if output_attentions else 3]
             # append next layer key value states
             if use_cache:
                 present_key_value_states = present_key_value_states + (present_key_value_state,)
-
-            #import pdb; pdb.set_trace()
 
             if output_attentions:
                 all_attentions = all_attentions + (layer_outputs[2],)  # We keep only self-attention weights for now
