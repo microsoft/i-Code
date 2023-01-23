@@ -76,7 +76,8 @@ def collate_vlembed(inputs_patches, inputs_embeds, seg_data, visual_segdata, vis
     if attention_mask is not None:
         attention_mask = torch.cat([attention_mask, visual_attention_mask], 1)
     return inputs_embeds, seg_data, attention_mask
-    
+
+
 @dataclass
 class BaseModelOutputWithVisionEmbeds(BaseModelOutput):
     """
