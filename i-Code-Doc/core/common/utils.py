@@ -1,6 +1,3 @@
-# Copyright (c) Microsoft Corporation.
-# Licensed under the MIT license.
-
 import os
 import re
 import logging
@@ -17,11 +14,6 @@ PREFIX_CHECKPOINT_DIR = 'checkpoint'
 _re_checkpoint = re.compile(r'^' + PREFIX_CHECKPOINT_DIR + r'\-(\d+)$')
     
     
-"""
-Text has boundings boxes. Since vision patches are also embedings, 
-we also create bounding boxes for them by their respective locations in the image.
-This will be useful for joint vision-text embedding in UDOP Unimodel.
-"""
 def get_visual_bbox(image_size=224):
     image_feature_pool_shape = [image_size//16, image_size//16]
     visual_bbox_x = (torch.arange(
@@ -122,16 +114,26 @@ def img_trans_torchvision(image, image_size=224):
     return image
 
 
+def img_trans_torchvision_int(image, image_size=384):
+    trans = T.Compose([
+            T.Resize([image_size,image_size]),
+            T.ToTensor(),
+            Normalize(
+            mean=[0.485, 0.456, 0.406],
+            std=[0.229, 0.224, 0.225])
+        ])
+
+    image = trans(image)  # copy to make it writeable
+    return image
+
 def load_image(image_path):
     image = Image.open(image_path).resize((224,224)).convert('RGB')
     h, w = image.size
     image = torch.tensor(np.array(image))
     return image, (w, h)
 
-
 def convert_img_to_numpy(img):
     return np.array(img)
-
 
 def normalize_bbox(bbox, size, scale=1000):
     return [

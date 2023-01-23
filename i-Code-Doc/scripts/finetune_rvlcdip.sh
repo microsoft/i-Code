@@ -1,8 +1,5 @@
-# Copyright (c) Microsoft Corporation.
-# Licensed under the MIT license.
-
 CUDA_VISIBLE_DEVICES=0,1,2,3 PYTHONPATH='.' python run_rvlcdip.py \
---data_dir "./dataset/rvl-cdip" \
+--data_dir "./rvl-cdip" \
 --max_seq_length 1024 \
 --image_size 224 \
 --max_seq_length_decoder 16 \
@@ -21,6 +18,3 @@ CUDA_VISIBLE_DEVICES=0,1,2,3 PYTHONPATH='.' python run_rvlcdip.py \
 --learning_rate 5e-5 \
 --warmup_ratio 0.001 \
 --weight_decay 0.001
-# --fp16 \
-# --half_precision_backend "auto" \
-# --fp16_opt_level "O2"
