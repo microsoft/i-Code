@@ -1,4 +1,4 @@
-PYTHONPATH="." CUDA_VISIBLE_DEVICES=0 python benchmarker/cli/l5/train.py \
+PYTHONPATH="." CUDA_VISIBLE_DEVICES=0,1,2,3 python benchmarker/cli/l5/train.py \
 --gpus 1 \
 --model_name_or_path "UdopUnimodel-Large-224" \
 --relative_bias_args '[{"type":"1d"},{"type":"horizontal"},{"type":"vertical"}]' \
