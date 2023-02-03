@@ -113,7 +113,7 @@ class T52dStack(T5PreTrainedModel):
         self.init_weights()
 
         if not self.is_decoder:
-            self.vision_encoder = mae_model(config.mae_version, os.path.join(config.data_dir, config.mae_checkpoint), config.image_size, config.vocab_size, config.max_2d_position_embeddings)
+            self.vision_encoder = mae_model(config.mae_version, config.mae_checkpoint, config.image_size, config.vocab_size, config.max_2d_position_embeddings)
         else:
             self.vision_fc = nn.Linear(config.d_model, config.d_model)
             self.vision_norm = T5LayerNorm(config.d_model, eps=config.layer_norm_epsilon)
