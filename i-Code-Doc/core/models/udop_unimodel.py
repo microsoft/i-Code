@@ -458,7 +458,7 @@ class UdopUnimodelForConditionalGeneration(T5ForConditionalGeneration):
         # --------------------------------------------------------------------------
         # MAE encoder specifics
 
-        mae_model_tmp = mae_model(config.mae_version, os.path.join(config.data_dir, config.mae_checkpoint), config.image_size, config.vocab_size, config.max_2d_position_embeddings)
+        mae_model_tmp = mae_model(config.mae_version, config.mae_checkpoint, config.image_size, config.vocab_size, config.max_2d_position_embeddings)
 
         self.patch_embed = mae_model_tmp.patch_embed
         self.embed_dim = mae_model_tmp.embed_dim
