@@ -463,6 +463,7 @@ class UdopUnimodelForConditionalGeneration(T5ForConditionalGeneration):
         self.patch_embed = mae_model_tmp.patch_embed
         self.embed_dim = mae_model_tmp.embed_dim
         self.pos_embed = mae_model_tmp.pos_embed
+        self.special_vis_token = mae_model_tmp.special_vis_token
         
 
     @staticmethod
