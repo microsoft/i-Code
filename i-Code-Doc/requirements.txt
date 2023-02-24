@@ -9,3 +9,4 @@ pandas
 jsonlines
 catalyst
 product_key_memory
+datasets
