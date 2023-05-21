@@ -33,7 +33,7 @@ We present Composable Diffusion (CoDi), a novel generative model capable of gene
   <img align="middle" width="800" src="assets/teaser.gif"/>
 </p>
 
-## Acknowledgement
+## Reference
 
 The code structure is based on [Versatile Diffusion](https://github.com/SHI-Labs/Versatile-Diffusion). The audio diffusion model is based on [AudioLDM](https://github.com/haoheliu/AudioLDM). The video diffusion model is partially based on [Make-A-Video](https://github.com/lucidrains/make-a-video-pytorch).
 
