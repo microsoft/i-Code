@@ -21,7 +21,7 @@ We present Composable Diffusion (CoDi), a novel generative model capable of gene
 
 ### Model Architecture
 <p align="center">
-  <img align="middle" width="800" src="assets/model_architecture.jpg"/>
+  <img align="middle" width="800" src="assets/main_architecture.jpg"/>
 </p>
 
 ## Contact
