@@ -1,4 +1,4 @@
-# i-Code: An Integrative and Composable Multimodal Learning Framework
+# i-Code: An Integrative and Composable Multimodal Learning Framework (AAAI 2023)
 **A multimodal foundation model for vision, language and speech understanding**
 
 ## Introduction
