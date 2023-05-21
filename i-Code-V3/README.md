@@ -5,7 +5,10 @@
 [Michael Zeng](https://www.microsoft.com/en-us/research/people/nzeng/),
 [Mohit Bansal](https://www.cs.unc.edu/~mbansal/)
 
-1 University of North Carolina at Chapel Hill 2 Microsoft Azure Cognitive Services Research
+1 University of North Carolina at Chapel Hill 
+
+2 Microsoft Azure Cognitive Services Research
+
 * Work done at Microsoft internship and UNC † Corresponding Authors
 
           
