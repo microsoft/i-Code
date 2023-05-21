@@ -1,0 +1,50 @@
+
+clip:
+  symbol: clip
+  args: {}
+
+clip_frozen:
+  super_cfg: clip
+  type: clip_frozen
+  args: {}
+
+clip_text_frozen:
+  super_cfg: clip
+  type: clip_text_frozen
+  args: {}
+
+clip_vision_frozen:
+  super_cfg: clip
+  type: clip_vision_frozen
+  args: {}
+
+############################
+# clip with focused encode #
+############################
+
+clip_frozen_encode_text:
+  super_cfg: clip
+  type: clip_frozen
+  args:
+    encode_type : encode_text
+
+clip_frozen_encode_vision:
+  super_cfg: clip
+  type: clip_frozen
+  args:
+    encode_type : encode_vision
+
+clip_frozen_encode_text_noproj:
+  super_cfg: clip
+  type: clip_frozen
+  args:
+    encode_type : encode_text_noproj
+
+#####################################
+# clip vision forzen justin version #
+#####################################
+
+clip_vision_frozen_justin:
+  super_cfg: clip
+  type: clip_vision_frozen_justin
+  args: {}

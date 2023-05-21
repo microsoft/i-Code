@@ -1,0 +1,62 @@
+# vd_base:
+#   symbol: vd
+#   find_unused_parameters: true
+
+############
+# vd basic #
+############
+
+vd_basic:
+  super_cfg: sd_t2i
+  type: vd_basic
+  symbol: vd
+  find_unused_parameters: true
+  args:
+    cond_stage_config: MODEL(clip_frozen_encode_vision)
+
+vd_basic_noema:
+  super_cfg: vd_basic
+  args:
+    use_ema: false
+
+###################
+# vd dual-context #
+###################
+
+vd_dc:
+  super_cfg: sd_t2i_fullclip
+  type: vd_dc
+  symbol: vd
+  find_unused_parameters: true
+  args:
+    unet_config: MODEL(openai_unet_dual_context)
+
+vd_dc_noema:
+  super_cfg: vd_dc
+  args:
+    use_ema: false
+
+######
+# vd #
+######
+
+vd:
+  type: vd
+  symbol: vd
+  find_unused_parameters: true
+  args:
+#     audioldm_cfg: MODEL(audioldm_autoencoder)
+    autokl_cfg: MODEL(sd_autoencoder)
+    optimus_cfg: MODEL(optimus_vae)
+    clip_cfg: MODEL(clip_frozen)
+    unet_config: MODEL(openai_unet_vd)
+    beta_linear_start: 0.00085
+    beta_linear_end: 0.012
+    timesteps: 1000
+    scale_factor: 0.18215
+    use_ema: true
+
+vd_noema:
+  super_cfg: vd
+  args:
+    use_ema: false
