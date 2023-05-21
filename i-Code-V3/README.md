@@ -1,17 +1,4 @@
-# [CoDi: Any-to-Any Generation via Composable Diffusion](https://github.com/zinengtang/i-Code/edit/main/i-Code-V3/README.md)
-[Zineng Tang*](https://zinengtang.github.io/),
-[Ziyi Yang](https://ziyi-yang.github.io/),
-[Chenguang Zhu](https://www.microsoft.com/en-us/research/people/chezhu/),
-[Michael Zeng](https://www.microsoft.com/en-us/research/people/nzeng/),
-[Mohit Bansal](https://www.cs.unc.edu/~mbansal/)
-
-1 University of North Carolina at Chapel Hill 
-
-2 Microsoft Azure Cognitive Services Research
-
-* Work done at Microsoft internship and UNC † Corresponding Authors
-
-<h1>CoDi: Any-to-Any Generation via Composable Diffusion</h1>
+<h1 align="center">CoDi: Any-to-Any Generation via Composable Diffusion</h1>
 <div align="center">
   <span class="author-block">
     <a href="https://zinengtang.github.io/">Zineng Tang</a><sup>1*</sup>,</span>
