@@ -20,6 +20,8 @@
   <span class="author-block"><sup>*</sup> Work done at Microsoft internship and UNC. <sup>†</sup>Corresponding Authors</span>
 </div>
           
+---
+
 Open Source Checklist:
 
 - [x] Release Code Structure
