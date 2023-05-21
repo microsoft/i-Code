@@ -1,5 +1,5 @@
 # [CoDi: Any-to-Any Generation via Composable Diffusion](https://github.com/zinengtang/i-Code/edit/main/i-Code-V3/README.md)
-[Zineng Tang](https://zinengtang.github.io/),
+[Zineng Tang*](https://zinengtang.github.io/),
 [Ziyi Yang](https://ziyi-yang.github.io/),
 [Chenguang Zhu](https://www.microsoft.com/en-us/research/people/chezhu/),
 [Michael Zeng](https://www.microsoft.com/en-us/research/people/nzeng/),
@@ -11,6 +11,27 @@
 
 * Work done at Microsoft internship and UNC † Corresponding Authors
 
+<h1>CoDi: Any-to-Any Generation via Composable Diffusion</h1>
+<div align="center">
+  <span class="author-block">
+    <a href="https://zinengtang.github.io/">Zineng Tang</a><sup>1*</sup>,</span>
+  <span class="author-block">
+    <a href="https://ziyi-yang.github.io/">Ziyi Yang</a><sup>2†</sup>,</span>
+  <span class="author-block">
+    <a href="https://www.microsoft.com/en-us/research/people/chezhu/">Chenguang Zhu</a><sup>2</sup>,
+  </span>
+  <span class="author-block">
+    <a href="https://www.microsoft.com/en-us/research/people/nzeng/">Michael Zeng</a><sup>2</sup>,
+  </span>
+  <span class="author-block">
+    <a href="https://www.cs.unc.edu/~mbansal/">Mohit Bansal</a><sup>1†</sup>
+  </span>
+</div>
+<div align="center">
+  <span class="author-block"><sup>1</sup>University of North Carolina at Chapel Hill,</span>
+  <span class="author-block"><sup>2</sup>Microsoft Azure Cognitive Services Research</span>
+  <span class="author-block"><sup>*</sup> Work done at Microsoft internship and UNC. <sup>†</sup>Corresponding Authors</span>
+</div>
           
 Open Source Checklist:
 
