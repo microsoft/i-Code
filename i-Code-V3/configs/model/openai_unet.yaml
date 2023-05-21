@@ -1,0 +1,85 @@
+openai_unet_sd:
+  type: openai_unet
+  args:
+    image_size: null # no use
+    in_channels: 4
+    out_channels: 4
+    model_channels: 320
+    attention_resolutions: [ 4, 2, 1 ]
+    num_res_blocks: [ 2, 2, 2, 2 ]
+    channel_mult: [ 1, 2, 4, 4 ]
+    # disable_self_attentions: [ False, False, False, False ]  # converts the self-attention to a cross-attention layer if true
+    num_heads: 8
+    use_spatial_transformer: True
+    transformer_depth: 1
+    context_dim: 768
+    use_checkpoint: True
+    legacy: False
+
+openai_unet_dual_context:
+  super_cfg: openai_unet_sd
+  type: openai_unet_dual_context
+
+########################
+# Code cleaned version #
+########################
+
+openai_unet_2d_audio:
+  type: openai_unet_2d
+  args:
+#     extra_film_condition_dim: 512
+#     extra_film_use_concat: False
+#     in_channels: 8
+#     out_channels: 8
+#     model_channels: 256
+#     attention_resolutions: [8, 4, 2]
+#     num_res_blocks: 2
+#     channel_mult: [1, 2, 3, 5]
+#     num_head_channels: 32
+#     use_spatial_transformer: True
+#     context_dim: 768
+    input_channels: 8
+    model_channels: 320
+    output_channels: 8
+    num_noattn_blocks: [ 2, 2, 2, 2 ]
+    channel_mult: [ 1, 2, 4, 4 ]
+    with_attn: [true, true, true, false]
+    num_heads: 8
+    context_dim: 768
+    use_checkpoint: False
+
+openai_unet_2d:
+  type: openai_unet_2d
+  args:
+    input_channels: 4
+    model_channels: 320
+    output_channels: 4
+    num_noattn_blocks: [ 2, 2, 2, 2 ]
+    channel_mult: [ 1, 2, 4, 4 ]
+    with_attn: [true, true, true, false]
+    num_heads: 8
+    context_dim: 768
+    use_checkpoint: True
+    use_video_architecture: True
+
+openai_unet_0dmd:
+  type: openai_unet_0dmd
+  args:
+    input_channels: 768
+    model_channels: 320
+    output_channels: 768
+    num_noattn_blocks: [ 2, 2, 2, 2 ]
+    channel_mult: [ 1, 2, 4, 4 ]
+    second_dim: [ 4, 4, 4, 4 ]
+    with_attn: [true, true, true, false]
+    num_heads: 8
+    context_dim: 768
+    use_checkpoint: True
+
+openai_unet_vd:
+  type: openai_unet_vd
+  args:
+    unet_image_cfg: MODEL(openai_unet_2d)
+    unet_text_cfg: MODEL(openai_unet_0dmd)
+    unet_audio_cfg: MODEL(openai_unet_2d_audio)
+  
