@@ -1,9 +1,9 @@
 # [CoDi: Any-to-Any Generation via Composable Diffusion](https://github.com/zinengtang/i-Code/edit/main/i-Code-V3/README.md)
-[Zineng Tang]("https://zinengtang.github.io/"),
-[Ziyi Yang]("https://ziyi-yang.github.io/"),
-[Chenguang Zhu]("https://www.microsoft.com/en-us/research/people/chezhu/"),
-[Michael Zeng]("https://www.microsoft.com/en-us/research/people/nzeng/"),
-[Mohit Bansal]("https://www.cs.unc.edu/~mbansal/")
+[Zineng Tang](https://zinengtang.github.io/),
+[Ziyi Yang](https://ziyi-yang.github.io/),
+[Chenguang Zhu](https://www.microsoft.com/en-us/research/people/chezhu/),
+[Michael Zeng](https://www.microsoft.com/en-us/research/people/nzeng/),
+[Mohit Bansal](https://www.cs.unc.edu/~mbansal/)
               
 
 Open Source Checklist:
