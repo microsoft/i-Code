@@ -1,4 +1,4 @@
-# [Unifying Vision, Text, and Layout for Universal Document Processing](https://arxiv.org/pdf/2212.02623)
+# [Unifying Vision, Text, and Layout for Universal Document Processing (CVPR 2023 Highlight)](https://arxiv.org/pdf/2212.02623)
 [Zineng Tang](https://zinengtang.github.io/),
 [Ziyi Yang](https://ziyi-yang.github.io/),
 [Guoxin Wang](https://www.guoxwang.com/),

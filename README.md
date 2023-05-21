@@ -2,10 +2,12 @@
 The ambition of the i-Code project is to build integrative and composable multimodal Artificial Intelligence. The "i" stands for integrative multimodal learning.
 
 ## Multimodal Foundation Models
-- [i-Code V1](https://github.com/microsoft/i-Code/tree/main/i-Code-V1): i-Code: An Integrative and Composable Multimodal Learning Framework 
+- [i-Code V1](https://github.com/microsoft/i-Code/tree/main/i-Code-V1): i-Code: An Integrative and Composable Multimodal Learning Framework (AAAI 2023)
+
+- [i-Code V1](https://github.com/microsoft/i-Code/tree/main/i-Code-V3): Any-to-Any Generation via Composable Diffusion
 
 ## Multimodal Document Intelligence
-- [i-Code Doc (UDOP)](https://github.com/microsoft/i-Code/tree/main/i-Code-Doc): Unifying Vision, Text, and Layout for Universal Document Processing
+- [i-Code Doc (UDOP)](https://github.com/microsoft/i-Code/tree/main/i-Code-Doc): Unifying Vision, Text, and Layout for Universal Document Processing (CVPR 2023 Highlight)
 
 ## Contributing
 
