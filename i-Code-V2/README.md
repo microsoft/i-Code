@@ -14,7 +14,7 @@ If you find our work useful, please consider citing:
       title={i-Code V2: An Autoregressive Generation Framework over Vision, Language, and Speech Data}, 
       author={Ziyi Yang, Mahmoud Khademi, Yichong Xu, Reid Pryzant, Yuwei Fang, Chenguang Zhu, Dongdong Chen, Yao Qian, Mei Gao, Yi-Ling Chen, Robert Gmyr, Naoyuki Kanda, Noel Codella, Bin Xiao, Yu Shi, Lu Yuan, Takuya Yoshioka, Michael Zeng, Xuedong Huang},
       year={2023},
-      eprint={	arXiv:2305.12311},
+      eprint={arXiv:2305.12311},
       archivePrefix={arXiv},
       primaryClass={cs.CL}
 ```
