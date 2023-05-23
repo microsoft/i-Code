@@ -21,6 +21,8 @@
 </div>
           
 ---
+Paper link:
+(https://arxiv.org/abs/2305.11846)[https://arxiv.org/abs/2305.11846]
 
 Open Source Checklist:
 
@@ -34,6 +36,19 @@ We present Composable Diffusion (CoDi), a novel generative model capable of gene
 <p align="center">
   <img align="middle" width="800" src="assets/teaser.gif"/>
 </p>
+
+## Citation
+
+If you find our work useful, please consider citing:
+```
+@article{codi,
+      title={Any-to-Any Generation via Composable Diffusion}, 
+      author={Zineng Tang, Ziyi Yang, Chenguang Zhu, Michael Zeng, Mohit Bansal},
+      year={2023},
+      eprint={2305.11846},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+```
 
 ## Reference
 
