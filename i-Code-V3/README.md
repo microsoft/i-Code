@@ -22,7 +22,7 @@
           
 ---
 Paper link:
-(https://arxiv.org/abs/2305.11846)[https://arxiv.org/abs/2305.11846]
+[https://arxiv.org/abs/2305.11846](https://arxiv.org/abs/2305.11846)
 
 Open Source Checklist:
 
