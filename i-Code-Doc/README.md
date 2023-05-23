@@ -15,7 +15,7 @@ Open Source Checklist:
 - [x] Release Model (Encoder + Text decoder)
 - [x] Release Most Scripts
 - [ ] Vision Decoder / Weights (Due to fake document generation ethical consideration, we plan to release this functionality as an Azure API)
-- [ ] Demos
+- [x] Demo
 
 ## Introduction 
 
@@ -68,10 +68,6 @@ Evaluation of the output generation can be evaluated by [Duebenchmark due_evalua
 
 ### Model Checkpoints
 The model checkpoints are hosted here [Huggingface Hub](https://huggingface.co/ZinengTang/Udop)
-
-- UdopUnimodel-Large-224 [Download](https://huggingface.co/ZinengTang/Udop/resolve/main/udop-unimodel-large-224.zip)
-
-- UdopDual-Large-224 [Download](https://huggingface.co/ZinengTang/Udop/resolve/main/udop-dual-large-224.zip)
 
 ## Citation
 ```
