@@ -8,7 +8,7 @@ The ambition of the i-Code project is to build integrative and composable multim
 
 - [i-Code V3 (CoDi)](https://github.com/microsoft/i-Code/tree/main/i-Code-V3): Any-to-Any Generation via Composable Diffusion, [paper link](https://arxiv.org/abs/2305.11846).
 
--[i-Code Studio)](https://github.com/microsoft/i-Code/tree/main/i-Code-Studio):  A Configurable and Composable Framework for Integrative AI, [paper link](https://arxiv.org/abs/2305.13738).
+- [i-Code Studio)](https://github.com/microsoft/i-Code/tree/main/i-Code-Studio):  A Configurable and Composable Framework for Integrative AI, [paper link](https://arxiv.org/abs/2305.13738).
 
 ## Multimodal Document Intelligence
 - [i-Code Doc (UDOP)](https://github.com/microsoft/i-Code/tree/main/i-Code-Doc): Unifying Vision, Text, and Layout for Universal Document Processing. CVPR 2023 Highlight, [paper link](https://arxiv.org/abs/2212.02623).
