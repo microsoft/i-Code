@@ -503,7 +503,7 @@ class SpatioTemporalAttention(nn.Module):
         *,
         dim_head = 64,
         heads = 8,
-        use_resnet = True,
+        use_resnet = False,
         use_frame_shift = True,
     ):
         super().__init__()

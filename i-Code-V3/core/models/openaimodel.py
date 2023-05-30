@@ -1086,10 +1086,6 @@ class UNetModelVD(nn.Module):
         self.unet_image = get_model()(unet_image_cfg)
         self.unet_text = get_model()(unet_text_cfg)
         self.unet_audio = get_model()(unet_audio_cfg)
-        self.time_embed = self.unet_image.time_embed
-        del self.unet_image.time_embed
-        del self.unet_text.time_embed
-        del self.unet_audio.time_embed
 
         self.model_channels = self.unet_image.model_channels
         
@@ -1108,8 +1104,11 @@ class UNetModelVD(nn.Module):
         x = [temp.cuda() for temp in x]
         timesteps = timesteps.cuda()
         context = context.cuda()
-        t_emb = timestep_embedding(timesteps, self.model_channels, repeat_only=False)
-        emb = self.time_embed(t_emb.to(x[0]))
+        t_emb = timestep_embedding(timesteps, self.model_channels, repeat_only=False).to(x[0])
+        
+        emb_image = self.unet_image.time_embed(t_emb)
+        emb_text = self.unet_text.time_embed(t_emb)
+        emb_audio = self.unet_audio.time_embed(t_emb)
 
         for i in range(len(xtype)):
             if xtype[i] == 'text':
@@ -1122,11 +1121,11 @@ class UNetModelVD(nn.Module):
             ):
             for i, xtype_i in enumerate(xtype):
                 if xtype_i == 'audio':
-                    h_con[i] = a_con_in(h_con[i], emb, context)        
+                    h_con[i] = a_con_in(h_con[i], emb_audio, context)        
                 elif xtype_i in ['video', 'image']:
-                    h_con[i] = i_con_in(h_con[i], emb, context)
+                    h_con[i] = i_con_in(h_con[i], emb_image, context)
                 elif xtype_i == 'text':
-                    h_con[i] = t_con_in(h_con[i], emb, context)   
+                    h_con[i] = t_con_in(h_con[i], emb_text, context)   
                 else:
                     raise
         for i in range(len(h_con)):
@@ -1149,11 +1148,11 @@ class UNetModelVD(nn.Module):
             h = [h_i for h_i in h]
             for i, xtype_i in enumerate(xtype):
                 if xtype_i == 'audio':
-                    h[i] = a_module(h[i], emb, context[i])
+                    h[i] = a_module(h[i], emb_audio, context[i])
                 elif xtype_i in ['video', 'image']:
-                    h[i] = i_module(h[i], emb, context[i])
+                    h[i] = i_module(h[i], emb_image, context[i])
                 elif xtype_i == 'text':
-                    h[i] = t_module(h[i], emb, context[i])   
+                    h[i] = t_module(h[i], emb_text, context[i])   
                 else:
                     raise
 
@@ -1173,11 +1172,11 @@ class UNetModelVD(nn.Module):
 
         for i, xtype_i in enumerate(xtype):
             if xtype_i == 'audio':
-                h[i] = self.unet_audio.middle_block(h[i], emb, context[i])
+                h[i] = self.unet_audio.middle_block(h[i], emb_audio, context[i])
             elif xtype_i in ['video', 'image']:
-                h[i] = self.unet_image.middle_block(h[i], emb, context[i])
+                h[i] = self.unet_image.middle_block(h[i], emb_image, context[i])
             elif xtype_i == 'text':
-                h[i] = self.unet_text.middle_block(h[i], emb, context[i])   
+                h[i] = self.unet_text.middle_block(h[i], emb_text, context[i])   
             else:
                 raise
 
@@ -1193,11 +1192,11 @@ class UNetModelVD(nn.Module):
             for i, xtype_i in enumerate(xtype):
                 h[i] = th.cat([h[i], temp[i]], dim=1)
                 if xtype_i == 'audio':
-                    h[i] = a_module(h[i], emb, context[i])
+                    h[i] = a_module(h[i], emb_audio, context[i])
                 elif xtype_i in ['video', 'image']:
-                    h[i] = i_module(h[i], emb, context[i])
+                    h[i] = i_module(h[i], emb_image, context[i])
                 elif xtype_i == 'text':
-                    h[i] = t_module(h[i], emb, context[i])   
+                    h[i] = t_module(h[i], emb_text, context[i])   
                 else:
                     raise
 

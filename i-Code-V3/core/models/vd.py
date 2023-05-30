@@ -21,7 +21,6 @@ from .distributions import normal_kl, DiagonalGaussianDistribution
 from .audio_autoencoder import AudioAutoencoderKL
 from .clap import CLAPAudioEmbeddingClassifierFreev2
 from .autoencoder import AutoencoderKL
-from .ema import LitEma
 
 from .sd import DDPM
     
@@ -33,7 +32,7 @@ class VD(DDPM):
                  optimus_cfg,
                  clip_cfg,
                  scale_factor=1.0,
-                 text_scale_factor=4.3108,
+                 text_scale_factor=1.0,
                  audio_scale_factor=0.9228,
                  scale_by_std=False,
                  *args, 
