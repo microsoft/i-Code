@@ -1,10 +1,4 @@
 import os
-import os.path as osp
-import PIL
-from PIL import Image
-from pathlib import Path
-import numpy as np
-import numpy.random as npr
 
 import torch
 import torch.nn as nn
@@ -12,44 +6,30 @@ import torch.nn.functional as F
 import torchvision.transforms as tvtrans
 from core.models import get_model
 from core.cfg_helper import model_cfg_bank
-from core.common.utils import color_adjust, auto_merge_imlist, regularize_image
+from core.common.utils import regularize_image
 from einops import rearrange
-
-from transformers.optimization import AdamW
 
 import pytorch_lightning as pl
 
-n_sample_image_default = 2
-n_sample_text_default = 4
-    
-class dummy_class():
-    pass
 
 class model_module(pl.LightningModule):
-    def __init__(self, args=None, pth="model_no_diffusion.pth", model_type='train', use_wandb=True, debug=False, net=None, diffusion_use_only=None, context_use_only=None):
+    def __init__(self, data_dir='pretrained', pth="model_no_diffusion.pth"):
         super().__init__()
         
-        data_dir = args.data_dir
-        cfgm_name = 'vd_noema'
         cfgm = model_cfg_bank()('vd_noema')
-        cfgm.args.unet_config.args.unet_image_cfg.args.use_video_architecture = args.use_video_architecture
+        cfgm.args.unet_config.args.unet_image_cfg.args.use_video_architecture = True
         cfgm.args.autokl_cfg.map_location = 'cpu'
         cfgm.args.optimus_cfg.map_location = 'cpu'
         cfgm.args.clip_cfg.args.data_dir = data_dir
         
-        if net is None:
-            net = get_model()(cfgm)
-#             net.load_state_dict(torch.load(os.path.join(data_dir, pth), map_location='cpu'), strict=False)
-#             print('Load pretrained weight from {}'.format(pth))
+        net = get_model()(cfgm)
+        net.load_state_dict(torch.load(os.path.join(data_dir, pth), map_location='cpu'), strict=False)
+        print('Load pretrained weight from {}'.format(pth))
 
-        self.model_name = cfgm_name
         self.net = net
-        self.args = args
-        self.fp16 = False
         
-        if not model_type == 'train':
-            from core.models.ddim_vd import DDIMSampler_VD
-            self.sampler = DDIMSampler_VD(net)
+        from core.models.ddim_vd import DDIMSampler_VD
+        self.sampler = DDIMSampler_VD(net)
 
     def decode(self, z, xtype):
         net = self.net
@@ -146,7 +126,10 @@ class model_module(pl.LightningModule):
             utx = None
             if scale != 1.0:
                 utx = net.clip_encode_text(n_samples * [""]).cuda()
-            if second_conditioning is None:
+            if first_conditioning is None:
+                first_conditioning = [utx, ctx]
+                first_ctype = 'prompt'    
+            elif second_conditioning is None:
                 second_conditioning = [utx, ctx]
                 second_ctype = 'prompt'
             else:
