@@ -26,11 +26,11 @@ Paper link:
 
 Open Source Checklist:
 
-* [x] Release Code Structure
-* [ ] Release Scripts and Checkpoints
-** [x] Release image+text+audio to image+text+audio
-** [ ] Release joint generation
-* [ ] Release Demo
+1 [x] Release Code Structure
+2 [ ] Release Scripts and Checkpoints
+   * [x] Release image+text+audio to image+text+audio
+   * [ ] Release joint generation
+3 [ ] Release Demo
 
 ## Introduction 
 
