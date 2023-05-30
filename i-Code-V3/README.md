@@ -29,7 +29,7 @@ Open Source Checklist:
 - [x] Release Code Structure
 - [x] Release Multi-Condition \& Single-Condition Scripts and Checkpoints
 - [ ] Release Joint-Generation Scripts and Checkpoints
-- [x] Release Scripts and Checkpoints
+- [ ] Release Web Demo
 
 ## Introduction 
 
