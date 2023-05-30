@@ -45,17 +45,19 @@ conda create -n CoDi python=3.8
 pip install -r requirements.txt
 ```
 
+## Inference
+See demo.ipynb
+
 ## Citation
 
 If you find our work useful, please consider citing:
 ```
-@article{codi,
-      title={Any-to-Any Generation via Composable Diffusion}, 
-      author={Zineng Tang, Ziyi Yang, Chenguang Zhu, Michael Zeng, Mohit Bansal},
-      year={2023},
-      eprint={2305.11846},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV}
+@article{tang2023any,
+  title={Any-to-Any Generation via Composable Diffusion},
+  author={Tang, Zineng and Yang, Ziyi and Zhu, Chenguang and Zeng, Michael and Bansal, Mohit},
+  journal={arXiv preprint arXiv:2305.11846},
+  year={2023}
+}
 ```
 
 ## Reference
