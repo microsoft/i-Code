@@ -27,7 +27,7 @@ Paper link:
 Open Source Checklist:
 
 - [x] Release Code Structure
-- [\(\circ\)] Release Scripts and Checkpoints
+- [ ] Release Scripts and Checkpoints
       - [x] Release image+text+audio to image+text+audio
       - [ ] Release joint generation
 - [ ] Release Demo
