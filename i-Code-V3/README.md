@@ -27,8 +27,9 @@ Paper link:
 Open Source Checklist:
 
 1. [x] Release Code Structure
-2. [ ] Release Scripts and Checkpoints
-3. [ ] Release Demo
+2. [x] Release Multi-Conditioning Scripts and Checkpoints
+3. [ ] Release Joint Generation Scripts and Checkpoints
+4. [ ] Release Demo
 
 ## Introduction 
 
