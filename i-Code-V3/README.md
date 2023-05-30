@@ -27,7 +27,9 @@ Paper link:
 Open Source Checklist:
 
 - [x] Release Code Structure
-- [ ] Release Scripts and Checkpoints
+- [x] Release Multi-Condition \& Single-Condition Scripts and Checkpoints
+- [ ] Release Joint-Generation Scripts and Checkpoints
+- [x] Release Scripts and Checkpoints
 
 ## Introduction 
 
@@ -36,6 +38,12 @@ We present Composable Diffusion (CoDi), a novel generative model capable of gene
 <p align="center">
   <img align="middle" width="800" src="assets/teaser.gif"/>
 </p>
+
+## Installation
+```
+conda create -n CoDi python=3.8
+pip install -r requirements.txt
+```
 
 ## Citation
 
