@@ -54,7 +54,6 @@ class FrozenCLIPTextEmbedder(AbstractEncoder):
         return self(text)
 
 from core.models.transformers_clip import CLIPProcessor, CLIPModel, CLIPTokenizer
-# from transformers import CLIPProcessor, CLIPModel
 
 @register('clip_frozen', version)
 class FrozenCLIP(AbstractEncoder):
