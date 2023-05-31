@@ -19,10 +19,8 @@
   <span class="author-block"><sup>2</sup>Microsoft Azure Cognitive Services Research</span>
   <span class="author-block"><sup>*</sup> Work done at Microsoft internship and UNC. <sup>†</sup>Corresponding Authors</span>
 </div>
-          
----
-Paper link:
-[https://arxiv.org/abs/2305.11846](https://arxiv.org/abs/2305.11846)
+
+[![arXiv](https://img.shields.io/badge/arXiv-2305.11846-brightgreen.svg?style=flat-square)](https://arxiv.org/abs/2305.11846)  [![githubio](https://img.shields.io/badge/GitHub.io-Project_Page-blue?logo=Github&style=flat-square)](https://codi-gen.github.io/)  [![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/ZinengTang/CoDi)
 
 ## Introduction 
 
