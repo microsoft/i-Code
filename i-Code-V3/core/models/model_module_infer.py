@@ -1,10 +1,4 @@
 import os
-import os.path as osp
-import PIL
-from PIL import Image
-from pathlib import Path
-import numpy as np
-import numpy.random as npr
 
 import torch
 import torch.nn as nn
@@ -12,44 +6,31 @@ import torch.nn.functional as F
 import torchvision.transforms as tvtrans
 from core.models import get_model
 from core.cfg_helper import model_cfg_bank
-from core.common.utils import color_adjust, auto_merge_imlist, regularize_image
+from core.common.utils import regularize_image
 from einops import rearrange
-
-from transformers.optimization import AdamW
 
 import pytorch_lightning as pl
 
-n_sample_image_default = 2
-n_sample_text_default = 4
-    
-class dummy_class():
-    pass
 
 class model_module(pl.LightningModule):
-    def __init__(self, args=None, pth="model_no_diffusion.pth", model_type='train', use_wandb=True, debug=False, net=None, diffusion_use_only=None, context_use_only=None):
+    def __init__(self, data_dir='pretrained', pth=["CoDi_encoders.pth"]):
         super().__init__()
         
-        data_dir = args.data_dir
-        cfgm_name = 'vd_noema'
         cfgm = model_cfg_bank()('vd_noema')
-        cfgm.args.unet_config.args.unet_image_cfg.args.use_video_architecture = args.use_video_architecture
+        cfgm.args.unet_config.args.unet_image_cfg.args.use_video_architecture = True
         cfgm.args.autokl_cfg.map_location = 'cpu'
         cfgm.args.optimus_cfg.map_location = 'cpu'
         cfgm.args.clip_cfg.args.data_dir = data_dir
         
-        if net is None:
-            net = get_model()(cfgm)
-#             net.load_state_dict(torch.load(os.path.join(data_dir, pth), map_location='cpu'), strict=False)
-#             print('Load pretrained weight from {}'.format(pth))
+        net = get_model()(cfgm)
+        for path in pth:
+            net.load_state_dict(torch.load(os.path.join(data_dir, path), map_location='cpu'), strict=False)
+        print('Load pretrained weight from {}'.format(pth))
 
-        self.model_name = cfgm_name
         self.net = net
-        self.args = args
-        self.fp16 = False
         
-        if not model_type == 'train':
-            from core.models.ddim_vd import DDIMSampler_VD
-            self.sampler = DDIMSampler_VD(net)
+        from core.models.ddim_vd import DDIMSampler_VD
+        self.sampler = DDIMSampler_VD(net)
 
     def decode(self, z, xtype):
         net = self.net
@@ -104,55 +85,42 @@ class model_module(pl.LightningModule):
         return waveform
     
     
-    def inference(self, xtype, cim=None, ctx=None, cad=None, n_samples=1, mixing=0.3, mixing_c2=0.3, color_adj=None, image_size=256, ddim_steps=50, scale=7.5):
+    def inference(self, xtype=[], condition=[], condition_types=[], n_samples=1, mix_weight={'audio': 1, 'text': 1, 'image': 1}, image_size=256, ddim_steps=50, scale=7.5, num_frames=8):
         net = self.net
         sampler = self.sampler
         ddim_eta = 0.0
 
-        first_conditioning = None
-        second_conditioning = None
-        third_conditioning = None
-        first_ctype = None
-        second_ctype = None
-        third_ctype = None
-        if cim is not None:
-            ctemp0 = regularize_image(cim).cuda()
-            ctemp1 = ctemp0*2 - 1
-            ctemp1 = ctemp1[None].repeat(n_samples, 1, 1, 1)
-            cim = net.clip_encode_vision(ctemp1).cuda()
-            uim = None
-            if scale != 1.0:
-                dummy = torch.zeros_like(ctemp1).cuda()
-                uim = net.clip_encode_vision(dummy).cuda()
-            first_conditioning = [uim, cim]
-            first_ctype = 'vision'
-            
-        if cad is not None:
-            ctemp = cad[None].repeat(n_samples, 1, 1)
-            cad = net.clap_encode_audio(ctemp)
-            uad = None
-            if scale != 1.0:
-                dummy = torch.zeros_like(ctemp)
-                uad = net.clap_encode_audio(dummy)  
-            if first_conditioning is None:
-                first_conditioning = [uad, cad]
-                first_ctype = 'audio'
-            else:
-                second_conditioning = [uad, cad]
-                second_ctype = 'audio'
-                
-        if ctx is not None:        
-            ctx = net.clip_encode_text(n_samples * [ctx]).cuda()
-            utx = None
-            if scale != 1.0:
-                utx = net.clip_encode_text(n_samples * [""]).cuda()
-            if second_conditioning is None:
-                second_conditioning = [utx, ctx]
-                second_ctype = 'prompt'
-            else:
-                third_conditioning = [utx, ctx]
-                third_ctype = 'prompt'
+        conditioning = []
+        assert len(set(condition_types)) == len(condition_types), "we don't support condition with same modalities yet."
+        assert len(condition) == len(condition_types)
         
+        for i, condition_type in enumerate(condition_types):
+            if condition_type == 'image':
+                ctemp0 = regularize_image(condition[i]).cuda()
+                ctemp1 = ctemp0*2 - 1
+                ctemp1 = ctemp1[None].repeat(n_samples, 1, 1, 1)
+                cim = net.clip_encode_vision(ctemp1).cuda()
+                uim = None
+                if scale != 1.0:
+                    dummy = torch.zeros_like(ctemp1).cuda()
+                    uim = net.clip_encode_vision(dummy).cuda()
+                conditioning.append(torch.cat([uim, cim]))
+            
+            elif condition_type == 'audio':
+                ctemp = condition[i][None].repeat(n_samples, 1, 1)
+                cad = net.clap_encode_audio(ctemp)
+                uad = None
+                if scale != 1.0:
+                    dummy = torch.zeros_like(ctemp)
+                    uad = net.clap_encode_audio(dummy)  
+                conditioning.append(torch.cat([uad, cad]))
+                
+            elif condition_type == 'text':
+                ctx = net.clip_encode_text(n_samples * [condition[i]]).cuda()
+                utx = None
+                if scale != 1.0:
+                    utx = net.clip_encode_text(n_samples * [""]).cuda()
+                conditioning.append(torch.cat([utx, ctx]))
         
         shapes = []
         for xtype_i in xtype:
@@ -176,18 +144,13 @@ class model_module(pl.LightningModule):
         z, _ = sampler.sample(
             steps=ddim_steps,
             shape=shapes,
-            first_conditioning=first_conditioning,
-            second_conditioning=second_conditioning,
-            third_conditioning=third_conditioning,
+            condition=conditioning,
             unconditional_guidance_scale=scale,
             xtype=xtype, 
-            first_ctype=first_ctype,
-            second_ctype=second_ctype,
-            third_ctype=third_ctype,
+            condition_types=condition_types,
             eta=ddim_eta,
             verbose=False,
-            mixed_ratio=mixing, 
-            mixed_ratio_c2=mixing_c2)
+            mix_weight=mix_weight)
 
         out_all = []
         for i, xtype_i in enumerate(xtype):

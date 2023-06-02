@@ -1,3 +1,7 @@
+"""
+https://github.com/lucidrains/make-a-video-pytorch
+"""
+
 import math
 import functools
 from operator import mul
@@ -503,7 +507,7 @@ class SpatioTemporalAttention(nn.Module):
         *,
         dim_head = 64,
         heads = 8,
-        use_resnet = True,
+        use_resnet = False,
         use_frame_shift = True,
     ):
         super().__init__()
