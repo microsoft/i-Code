@@ -24,7 +24,7 @@ class model_module(pl.LightningModule):
         
         net = get_model()(cfgm)
         for path in pth:
-            net.load_state_dict(torch.load(os.path.join(data_dir, pth), map_location='cpu'), strict=False)
+            net.load_state_dict(torch.load(os.path.join(data_dir, path), map_location='cpu'), strict=False)
         print('Load pretrained weight from {}'.format(pth))
 
         self.net = net
