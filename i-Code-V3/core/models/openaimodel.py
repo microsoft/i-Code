@@ -511,10 +511,6 @@ class QKVAttention(nn.Module):
         return count_flops_attn(model, _x, y)
 
 
-###########
-# VD Unet #
-###########
-
 from functools import partial
 
 @register('openai_unet_2d', version)
@@ -767,7 +763,8 @@ class UNetModel2D(nn.Module):
             h = th.cat([h, hs.pop()], dim=1)
             h = module(h, emb, context)
         return self.out(h)
-
+    
+    
 class FCBlock(TimestepBlock):
     def __init__(
         self,
@@ -848,6 +845,7 @@ class Linear_MultiDim(nn.Linear):
         y = y.view(*shape[0:-n], *self.out_features_multidim)
         return y
 
+    
 class FCBlock_MultiDim(FCBlock):
     def __init__(
             self,
@@ -887,6 +885,7 @@ class FCBlock_MultiDim(FCBlock):
         y = y.view(*shape[0:-n], *self.out_channels_multidim)
         return y
 
+    
 @register('openai_unet_0dmd', version)
 class UNetModel0D_MultiDim(nn.Module):
     def __init__(self,
@@ -1089,15 +1088,14 @@ class UNetModelVD(nn.Module):
 
         self.model_channels = self.unet_image.model_channels
         
-    def forward(self, x, timesteps, c0, c1, c2, xtype, mixed_ratio=None, mixed_ratio_c2=None):
+    def forward(self, x, timesteps, condition, xtype, condition_types, mix_weight):
         
-        # Conditioning
-        if c2 is not None and c1 is not None:
-            context = c0*(1-mixed_ratio-mixed_ratio_c2) + c1*mixed_ratio + c2*mixed_ratio_c2
-        elif c1 is not None:  
-            context = c0*mixed_ratio + c1*(1-mixed_ratio)
-        else:
-            context = c0
+        # Prepare conditioning
+        weights = np.array(list(map(mix_weight.get, condition_types)))
+        norm_weights = weights / weights.sum()
+        context = 0.0
+        for i in range(len(condition)):
+            context += condition[i] * weights[i]
 
         # Prepare inputs
         hs = []
@@ -1115,27 +1113,28 @@ class UNetModelVD(nn.Module):
                 x[i] = x[i][:, :, None, None]
 
         # Environment encoders
-        h_con = [temp for temp in x]        
-        for i_con_in, t_con_in, a_con_in in zip(
-            self.unet_image.connecters_out, self.unet_text.connecters_out, self.unet_audio.connecters_out,
-            ):
-            for i, xtype_i in enumerate(xtype):
-                if xtype_i == 'audio':
-                    h_con[i] = a_con_in(h_con[i], emb_audio, context)        
-                elif xtype_i in ['video', 'image']:
-                    h_con[i] = i_con_in(h_con[i], emb_image, context)
-                elif xtype_i == 'text':
-                    h_con[i] = t_con_in(h_con[i], emb_text, context)   
+        if len(xtype) > 1: # this means two outputs present and thus joint decoding
+            h_con = [temp for temp in x]        
+            for i_con_in, t_con_in, a_con_in in zip(
+                self.unet_image.connecters_out, self.unet_text.connecters_out, self.unet_audio.connecters_out,
+                ):
+                for i, xtype_i in enumerate(xtype):
+                    if xtype_i == 'audio':
+                        h_con[i] = a_con_in(h_con[i], emb_audio, context)        
+                    elif xtype_i in ['video', 'image']:
+                        h_con[i] = i_con_in(h_con[i], emb_image, context)
+                    elif xtype_i == 'text':
+                        h_con[i] = t_con_in(h_con[i], emb_text, context)   
+                    else:
+                        raise
+            for i in range(len(h_con)):
+                if h_con[i].ndim == 5:
+                    h_con[i] = h_con[i].mean(2).mean(2).mean(2).unsqueeze(1)
                 else:
-                    raise
-        for i in range(len(h_con)):
-            if h_con[i].ndim == 5:
-                h_con[i] = h_con[i].mean(2).mean(2).mean(2).unsqueeze(1)
-            else:
-                h_con[i] = h_con[i].mean(2).mean(2).unsqueeze(1)
-            h_con[i] = h_con[i] / th.norm(h_con[i], dim=-1, keepdim=True)
-
-        context = [context, context]
+                    h_con[i] = h_con[i].mean(2).mean(2).unsqueeze(1)
+                h_con[i] = h_con[i] / th.norm(h_con[i], dim=-1, keepdim=True)
+        else:
+            h_con = None
         
         # Joint / single generation
         h = x
@@ -1148,15 +1147,15 @@ class UNetModelVD(nn.Module):
             h = [h_i for h_i in h]
             for i, xtype_i in enumerate(xtype):
                 if xtype_i == 'audio':
-                    h[i] = a_module(h[i], emb_audio, context[i])
+                    h[i] = a_module(h[i], emb_audio, context)
                 elif xtype_i in ['video', 'image']:
-                    h[i] = i_module(h[i], emb_image, context[i])
+                    h[i] = i_module(h[i], emb_image, context)
                 elif xtype_i == 'text':
-                    h[i] = t_module(h[i], emb_text, context[i])   
+                    h[i] = t_module(h[i], emb_text, context)   
                 else:
                     raise
 
-            if i_con_in is not None:
+            if i_con_in is not None and h_con is not None:
                 for i, xtype_i in enumerate(xtype):
                     if xtype_i == 'audio':
                         h[i] = a_con_in(h[i], context=h_con[i])
@@ -1172,11 +1171,11 @@ class UNetModelVD(nn.Module):
 
         for i, xtype_i in enumerate(xtype):
             if xtype_i == 'audio':
-                h[i] = self.unet_audio.middle_block(h[i], emb_audio, context[i])
+                h[i] = self.unet_audio.middle_block(h[i], emb_audio, context)
             elif xtype_i in ['video', 'image']:
-                h[i] = self.unet_image.middle_block(h[i], emb_image, context[i])
+                h[i] = self.unet_image.middle_block(h[i], emb_image, context)
             elif xtype_i == 'text':
-                h[i] = self.unet_text.middle_block(h[i], emb_text, context[i])   
+                h[i] = self.unet_text.middle_block(h[i], emb_text, context)   
             else:
                 raise
 
@@ -1192,15 +1191,15 @@ class UNetModelVD(nn.Module):
             for i, xtype_i in enumerate(xtype):
                 h[i] = th.cat([h[i], temp[i]], dim=1)
                 if xtype_i == 'audio':
-                    h[i] = a_module(h[i], emb_audio, context[i])
+                    h[i] = a_module(h[i], emb_audio, context)
                 elif xtype_i in ['video', 'image']:
-                    h[i] = i_module(h[i], emb_image, context[i])
+                    h[i] = i_module(h[i], emb_image, context)
                 elif xtype_i == 'text':
-                    h[i] = t_module(h[i], emb_text, context[i])   
+                    h[i] = t_module(h[i], emb_text, context)   
                 else:
                     raise
 
-            if i_con_in is not None:
+            if i_con_in is not None and h_con is not None:
                 for i, xtype_i in enumerate(xtype):
                     if xtype_i == 'audio':
                         h[i] = a_con_in(h[i], context=h_con[i])
