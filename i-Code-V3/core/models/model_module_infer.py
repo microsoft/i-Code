@@ -96,8 +96,7 @@ class model_module(pl.LightningModule):
         
         for i, condition_type in enumerate(condition_types):
             if condition_type == 'image':
-                ctemp0 = regularize_image(condition[i]).cuda()
-                ctemp1 = ctemp0*2 - 1
+                ctemp1 = regularize_image(condition[i]).cuda()
                 ctemp1 = ctemp1[None].repeat(n_samples, 1, 1, 1)
                 cim = net.clip_encode_vision(ctemp1).cuda()
                 uim = None
