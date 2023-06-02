@@ -38,6 +38,7 @@ pip install -r requirements.txt
 
 ## Inference
 Download checkpoints from [Hugginface Model](https://huggingface.co/ZinengTang/CoDi)
+More coming soon
 
 Run demo.ipynb
 
