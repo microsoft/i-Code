@@ -1,3 +1,7 @@
+"""
+https://github.com/lucidrains/make-a-video-pytorch
+"""
+
 import math
 import functools
 from operator import mul

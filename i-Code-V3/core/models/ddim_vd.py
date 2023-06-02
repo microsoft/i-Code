@@ -1,3 +1,8 @@
+"""
+https://github.com/SHI-Labs/Versatile-Diffusion
+"""
+
+
 import torch
 import numpy as np
 from tqdm import tqdm
@@ -13,18 +18,13 @@ class DDIMSampler_VD(DDIMSampler):
                steps,
                shape,
                xt=None,
-               first_conditioning=None,
-               second_conditioning=None,
-               third_conditioning=None,
+               condition=None,
                unconditional_guidance_scale=1.,
                xtype='image',
-               first_ctype='prompt',
-               second_ctype='prompt',
-               third_ctype='prompt',
+               condition_types=['text'],
                eta=0.,
                temperature=1.,
-               mixed_ratio=0.3,
-               mixed_ratio_c2=0.3,
+               mix_weight=None,
                noise_dropout=0.,
                verbose=True,
                log_every_t=100,):
@@ -34,44 +34,34 @@ class DDIMSampler_VD(DDIMSampler):
         samples, intermediates = self.ddim_sampling(
             shape,
             xt=xt,
-            first_conditioning=first_conditioning,
-            second_conditioning=second_conditioning,
-            third_conditioning=third_conditioning,
+            condition=condition,
             unconditional_guidance_scale=unconditional_guidance_scale,
             xtype=xtype,
-            first_ctype=first_ctype,
-            second_ctype=second_ctype,
-            third_ctype=third_ctype,
+            condition_types=condition_types,
             ddim_use_original_steps=False,
             noise_dropout=noise_dropout,
             temperature=temperature,
             log_every_t=log_every_t,
-            mixed_ratio=mixed_ratio, 
-            mixed_ratio_c2=mixed_ratio_c2,)
+            mix_weight=mix_weight,)
         return samples, intermediates
 
     @torch.no_grad()
     def ddim_sampling(self, 
                       shape,
                       xt=None,
-                      first_conditioning=None,
-                      second_conditioning=None,
-                      third_conditioning=None,
+                      condition=None,
                       unconditional_guidance_scale=1., 
-                      xtype='image',
-                      first_ctype='prompt',
-                      second_ctype='prompt',
-                      third_ctype='prompt',
+                      xtype=['image'],
+                      condition_types=['text'],
                       ddim_use_original_steps=False,
                       timesteps=None, 
                       noise_dropout=0., 
                       temperature=1.,
-                      mixed_ratio=0.3,
-                      mixed_ratio_c2=0.3,
+                      mix_weight=None,
                       log_every_t=100,):
 
         device = self.model.device
-        dtype = first_conditioning[0].dtype
+        dtype = condition[0][0].dtype
         
         if isinstance(shape[0], list):
             bs = shape[0][0]
@@ -102,20 +92,15 @@ class DDIMSampler_VD(DDIMSampler):
 
             outs = self.p_sample_ddim(
                 pred_xt, 
-                first_conditioning, 
-                second_conditioning,
-                third_conditioning,
+                condition, 
                 ts, index, 
                 unconditional_guidance_scale=unconditional_guidance_scale,
                 xtype=xtype,
-                first_ctype=first_ctype,
-                second_ctype=second_ctype,
-                third_ctype=third_ctype,
+                condition_types=condition_types,
                 use_original_steps=ddim_use_original_steps,
                 noise_dropout=noise_dropout,
                 temperature=temperature,
-                mixed_ratio=mixed_ratio,
-                mixed_ratio_c2=mixed_ratio_c2)
+                mix_weight=mix_weight,)
             pred_xt, pred_x0 = outs
 
             if index % log_every_t == 0 or index == total_steps - 1:
@@ -126,21 +111,16 @@ class DDIMSampler_VD(DDIMSampler):
 
     @torch.no_grad()
     def p_sample_ddim(self, x, 
-                      first_conditioning,
-                      second_conditioning,
-                      third_conditioning,
+                      condition,
                       t, index, 
                       unconditional_guidance_scale=1., 
-                      xtype='image',
-                      first_ctype='prompt',
-                      second_ctype='prompt',
-                      third_ctype='prompt',
+                      xtype=['image'],
+                      condition_types=['text'],
                       repeat_noise=False, 
                       use_original_steps=False, 
                       noise_dropout=0.,
                       temperature=1.,
-                      mixed_ratio=0.5,
-                      mixed_ratio_c2=0.3):
+                      mix_weight=None,):
 
         b, *_, device = *x[0].shape, x[0].device
 
@@ -148,17 +128,9 @@ class DDIMSampler_VD(DDIMSampler):
         for x_i in x:
             x_in.append(torch.cat([x_i] * 2))
         t_in = torch.cat([t] * 2)
-        first_c = torch.cat(first_conditioning)
-        second_c = None
-        if second_conditioning is not None:
-            second_c = torch.cat(second_conditioning)
-        third_c = None
-        if third_conditioning is not None:
-            third_c = torch.cat(third_conditioning)
-
         
         out = self.model.model.diffusion_model(
-            x_in, t_in, first_c, second_c, third_c, xtype=xtype, mixed_ratio=mixed_ratio, mixed_ratio_c2=mixed_ratio_c2)
+            x_in, t_in, condition, xtype=xtype, condition_types=condition_types, mix_weight=mix_weight)
         e_t = []
         for out_i in out:
             e_t_uncond_i, e_t_i = out_i.chunk(2)

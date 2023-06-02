@@ -1,3 +1,7 @@
+"""
+https://github.com/SHI-Labs/Versatile-Diffusion
+"""
+
 from typing import Dict, List
 import os
 
@@ -32,7 +36,7 @@ class VD(DDPM):
                  optimus_cfg,
                  clip_cfg,
                  scale_factor=1.0,
-                 text_scale_factor=1.0,
+                 text_scale_factor=4.3108,
                  audio_scale_factor=0.9228,
                  scale_by_std=False,
                  *args, 
