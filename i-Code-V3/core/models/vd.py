@@ -1,3 +1,7 @@
+"""
+https://github.com/SHI-Labs/Versatile-Diffusion
+"""
+
 from typing import Dict, List
 import os
 
@@ -21,7 +25,6 @@ from .distributions import normal_kl, DiagonalGaussianDistribution
 from .audio_autoencoder import AudioAutoencoderKL
 from .clap import CLAPAudioEmbeddingClassifierFreev2
 from .autoencoder import AutoencoderKL
-from .ema import LitEma
 
 from .sd import DDPM
     

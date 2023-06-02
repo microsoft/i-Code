@@ -54,7 +54,6 @@ class FrozenCLIPTextEmbedder(AbstractEncoder):
         return self(text)
 
 from core.models.transformers_clip import CLIPProcessor, CLIPModel, CLIPTokenizer
-# from transformers import CLIPProcessor, CLIPModel
 
 @register('clip_frozen', version)
 class FrozenCLIP(AbstractEncoder):
@@ -67,8 +66,8 @@ class FrozenCLIP(AbstractEncoder):
         super().__init__()
         self.tokenizer = CLIPTokenizer.from_pretrained(version)
         self.processor = CLIPProcessor.from_pretrained(version)
-        self.model = CLIPModel.from_pretrained(version)
-        self.max_length = max_length  # TODO: typical value?
+        self.model = CLIPModel.from_pretrained(version, add_temporal_attention=False)
+        self.max_length = max_length
         self.encode_type = encode_type
         self.fp16 = fp16
 #         self.freeze()

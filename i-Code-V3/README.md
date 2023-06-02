@@ -19,15 +19,8 @@
   <span class="author-block"><sup>2</sup>Microsoft Azure Cognitive Services Research</span>
   <span class="author-block"><sup>*</sup> Work done at Microsoft internship and UNC. <sup>†</sup>Corresponding Authors</span>
 </div>
-          
----
-Paper link:
-[https://arxiv.org/abs/2305.11846](https://arxiv.org/abs/2305.11846)
 
-Open Source Checklist:
-
-- [x] Release Code Structure
-- [ ] Release Scripts and Checkpoints
+[![arXiv](https://img.shields.io/badge/arXiv-2305.11846-brightgreen.svg?style=flat-square)](https://arxiv.org/abs/2305.11846)  [![githubio](https://img.shields.io/badge/GitHub.io-Project_Page-blue?logo=Github&style=flat-square)](https://codi-gen.github.io/)  [![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/ZinengTang/CoDi)
 
 ## Introduction 
 
@@ -37,17 +30,28 @@ We present Composable Diffusion (CoDi), a novel generative model capable of gene
   <img align="middle" width="800" src="assets/teaser.gif"/>
 </p>
 
+## Installation
+```
+conda create -n CoDi python=3.8
+pip install -r requirements.txt
+```
+
+## Inference
+Download checkpoints from [Hugginface Model](https://huggingface.co/ZinengTang/CoDi)
+More coming soon
+
+Run demo.ipynb
+
 ## Citation
 
 If you find our work useful, please consider citing:
 ```
-@article{codi,
-      title={Any-to-Any Generation via Composable Diffusion}, 
-      author={Zineng Tang, Ziyi Yang, Chenguang Zhu, Michael Zeng, Mohit Bansal},
-      year={2023},
-      eprint={2305.11846},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV}
+@article{tang2023any,
+  title={Any-to-Any Generation via Composable Diffusion},
+  author={Tang, Zineng and Yang, Ziyi and Zhu, Chenguang and Zeng, Michael and Bansal, Mohit},
+  journal={arXiv preprint arXiv:2305.11846},
+  year={2023}
+}
 ```
 
 ## Reference

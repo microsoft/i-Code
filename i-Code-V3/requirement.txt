@@ -22,7 +22,6 @@ timm==0.4.5
 datasets==2.9.0
 cleantext==1.1.4
 decord==0.6.0
-wandb
 ftfy==6.1.1
 torchlibrosa==0.0.9
 deepspeed==0.8.0
