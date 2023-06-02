@@ -13,7 +13,7 @@ import pytorch_lightning as pl
 
 
 class model_module(pl.LightningModule):
-    def __init__(self, data_dir='pretrained', pth="model_no_diffusion.pth"):
+    def __init__(self, data_dir='pretrained', pth=["CoDi_encoders.pth"]):
         super().__init__()
         
         cfgm = model_cfg_bank()('vd_noema')
@@ -23,7 +23,8 @@ class model_module(pl.LightningModule):
         cfgm.args.clip_cfg.args.data_dir = data_dir
         
         net = get_model()(cfgm)
-        net.load_state_dict(torch.load(os.path.join(data_dir, pth), map_location='cpu'), strict=False)
+        for path in pth:
+            net.load_state_dict(torch.load(os.path.join(data_dir, pth), map_location='cpu'), strict=False)
         print('Load pretrained weight from {}'.format(pth))
 
         self.net = net
