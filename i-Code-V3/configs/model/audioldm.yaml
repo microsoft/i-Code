@@ -20,4 +20,3 @@ audioldm_autoencoder:
       dropout: 0.0
     lossconfig:
       target: torch.nn.Identity
-#   pth: pretrained/kl-f8.pth
