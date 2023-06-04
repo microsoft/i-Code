@@ -35,7 +35,7 @@ We present Composable Diffusion (CoDi), a novel generative model capable of gene
 conda create -n CoDi python=3.8 # prepare an environment
 
 pip install torch==1.12.1+cu116 torchaudio==0.12.1+cu116 torchvision==0.13.1+cu116 \
--f https://download.pytorch.org/whl/torch_stable.html # change cuda version higher version is doable
+-f https://download.pytorch.org/whl/torch_stable.html # change cuda version higher pytorch version is doable
 
 pip install -r requirements.txt
 ```
