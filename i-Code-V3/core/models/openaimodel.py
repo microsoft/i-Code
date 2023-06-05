@@ -1086,7 +1086,9 @@ class UNetModelVD(nn.Module):
         self.unet_text = get_model()(unet_text_cfg)
         self.unet_audio = get_model()(unet_audio_cfg)
 
-        self.model_channels = self.unet_image.model_channels
+        self.image_model_channels = self.unet_image.model_channels
+        self.text_model_channels = self.unet_text.model_channels
+        self.audio_model_channels = self.unet_audio.model_channels
         
     def forward(self, x, timesteps, condition, xtype, condition_types, mix_weight):
         
@@ -1102,11 +1104,15 @@ class UNetModelVD(nn.Module):
         x = [temp.cuda() for temp in x]
         timesteps = timesteps.cuda()
         context = context.cuda()
-        t_emb = timestep_embedding(timesteps, self.model_channels, repeat_only=False).to(x[0])
-        
-        emb_image = self.unet_image.time_embed(t_emb)
-        emb_text = self.unet_text.time_embed(t_emb)
-        emb_audio = self.unet_audio.time_embed(t_emb)
+        if 'image' in xtype or 'video' in xtype:
+            t_emb_image = timestep_embedding(timesteps, self.image_model_channels, repeat_only=False).to(x[0])
+            emb_image = self.unet_image.time_embed(t_emb_image)
+        if 'text' in xtype:
+            t_emb_text = timestep_embedding(timesteps, self.text_model_channels, repeat_only=False).to(x[0])
+            emb_text = self.unet_text.time_embed(t_emb_text)
+        if 'audio' in xtype:    
+            t_emb_audio = timestep_embedding(timesteps, self.audio_model_channels, repeat_only=False).to(x[0])
+            emb_audio = self.unet_audio.time_embed(t_emb_audio)
 
         for i in range(len(xtype)):
             if xtype[i] == 'text':
