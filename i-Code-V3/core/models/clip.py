@@ -53,7 +53,7 @@ class FrozenCLIPTextEmbedder(AbstractEncoder):
     def encode(self, text):
         return self(text)
 
-from transformers import CLIPProcessor, CLIPModel, CLIPTokenizer
+from transformers_clip import CLIPProcessor, CLIPModel
 
 @register('clip_frozen', version)
 class FrozenCLIP(AbstractEncoder):
