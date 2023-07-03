@@ -70,6 +70,10 @@ If you find our work useful, please consider citing:
 
 The code structure is based on [Versatile Diffusion](https://github.com/SHI-Labs/Versatile-Diffusion). The audio diffusion model is based on [AudioLDM](https://github.com/haoheliu/AudioLDM). The video diffusion model is partially based on [Make-A-Video](https://github.com/lucidrains/make-a-video-pytorch).
 
+## Usage and License Notices:
+
+CoDi released in this repository is free to use for most circumstances under MIT license.
+
 ## Contact
 
 Zineng Tang (zn.tang.terran@gmail.com)
