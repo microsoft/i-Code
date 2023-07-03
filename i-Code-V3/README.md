@@ -46,7 +46,7 @@ Download checkpoints from [Hugginface Model](https://huggingface.co/ZinengTang/C
 |**Model Parts**|**Huggingface Weights Address**|
 |:-------------:|:-------------:|
 |CoDi Encoders and VAEs|[CoDi_encoders.pth](https://huggingface.co/ZinengTang/CoDi/resolve/main/CoDi_encoders.pth)|
-|CoDi Text Diffuser|[CoDi_text_diffuser.pth](CoDi_text_diffuser.pth)|
+|CoDi Text Diffuser|[CoDi_text_diffuser.pth](https://huggingface.co/ZinengTang/CoDi/resolve/main/CoDi_text_diffuser.pth)|
 |CoDi Audio Diffuser|[CoDi_audio_diffuser_m.pth](https://huggingface.co/ZinengTang/CoDi/resolve/main/CoDi_audio_diffuser_m.pth)|
 |CoDi Vision Diffuser|[CoDi_video_diffuser_8frames.pth](https://huggingface.co/ZinengTang/CoDi/resolve/main/CoDi_video_diffuser_8frames.pth)|
 
