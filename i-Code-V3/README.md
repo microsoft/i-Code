@@ -42,6 +42,14 @@ pip install -r requirement.txt
 
 ## Inference
 Download checkpoints from [Hugginface Model](https://huggingface.co/ZinengTang/CoDi)
+
+|**Model Parts**|**Huggingface Weights Address**|
+|:-------------:|:-------------:|
+|CoDi Encoders and VAEs|[CoDi_encoders.pth](https://huggingface.co/ZinengTang/CoDi/resolve/main/CoDi_encoders.pth)|
+|CoDi Text Diffuser|[CoDi_text_diffuser.pth](https://huggingface.co/ZinengTang/CoDi/resolve/main/CoDi_text_diffuser.pth)|
+|CoDi Audio Diffuser|[CoDi_audio_diffuser_m.pth](https://huggingface.co/ZinengTang/CoDi/resolve/main/CoDi_audio_diffuser_m.pth)|
+|CoDi Vision Diffuser|[CoDi_video_diffuser_8frames.pth](https://huggingface.co/ZinengTang/CoDi/resolve/main/CoDi_video_diffuser_8frames.pth)|
+
 More coming soon
 
 Run demo.ipynb
@@ -61,6 +69,10 @@ If you find our work useful, please consider citing:
 ## Reference
 
 The code structure is based on [Versatile Diffusion](https://github.com/SHI-Labs/Versatile-Diffusion). The audio diffusion model is based on [AudioLDM](https://github.com/haoheliu/AudioLDM). The video diffusion model is partially based on [Make-A-Video](https://github.com/lucidrains/make-a-video-pytorch).
+
+## Usage and License Notices:
+
+CoDi released in this repository is free to use for most circumstances under MIT license.
 
 ## Contact
 
