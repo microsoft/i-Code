@@ -69,6 +69,13 @@ Evaluation of the output generation can be evaluated by [Duebenchmark due_evalua
 ### Model Checkpoints
 The model checkpoints are hosted here [Huggingface Hub](https://huggingface.co/ZinengTang/Udop)
 
+|**Models**|**Huggingface Weights Address**|
+|:-------------:|:-------------:|
+|Unimodel 512|[udop-unimodel-large-512.zip](https://huggingface.co/ZinengTang/Udop/resolve/main/udop-unimodel-large-512.zip)|
+|Dual 224|[udop-dual-large-224.zip](https://huggingface.co/ZinengTang/Udop/resolve/main/udop-dual-large-224.zip)|
+|Unimodel 224|[udop-unimodel-large-224.zip](https://huggingface.co/ZinengTang/Udop/resolve/main/udop-unimodel-large-224.zip)|
+
+
 ## Citation
 ```
 @article{tang2022unifying,
