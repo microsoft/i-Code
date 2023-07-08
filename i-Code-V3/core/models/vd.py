@@ -78,7 +78,7 @@ class VD(DDPM):
             self.text_scale_factor = text_scale_factor
             self.audio_scale_factor = audio_scale_factor
         else:
-            self.register_buffer("text_scale_factor", torch.tensor(scale_factor))
+            self.register_buffer("text_scale_factor", torch.tensor(text_scale_factor))
             self.register_buffer("audio_scale_factor", torch.tensor(audio_scale_factor))
             self.register_buffer('image_scale_factor', torch.tensor(scale_factor))
 
