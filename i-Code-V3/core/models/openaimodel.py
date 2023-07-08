@@ -1097,7 +1097,7 @@ class UNetModelVD(nn.Module):
         norm_weights = weights / weights.sum()
         context = 0.0
         for i in range(len(condition)):
-            context += condition[i] * weights[i]
+            context += condition[i] * norm_weights[i]
 
         # Prepare inputs
         hs = []
