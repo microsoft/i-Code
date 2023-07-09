@@ -6,7 +6,10 @@ import torchaudio
 from transformers import RobertaTokenizer
 import torch.nn.functional as F
 
+from core.models.common.get_model import register
 
+
+@register('clap_audio')
 class CLAPAudioEmbeddingClassifierFreev2(nn.Module):
     def __init__(
         self,
