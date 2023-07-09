@@ -13,6 +13,9 @@ from . import get_model
 from ..cfg_helper import model_cfg_bank
 from ..common.utils import regularize_image
 
+import warnings
+warnings.filterwarnings("ignore")
+
 
 class model_module(pl.LightningModule):
     def __init__(self, data_dir='pretrained', pth=["CoDi_encoders.pth"]):
