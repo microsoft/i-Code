@@ -146,28 +146,7 @@ class model_cfg_bank(object):
         return copy.deepcopy(cfg)
 
     def get_yaml_path(self, name):
-        if name.find('ldm')==0:
-            return osp.join(
-                self.cfg_dir, 'ldm.yaml')
-        elif name.find('comodgan')==0:
-            return osp.join(
-                self.cfg_dir, 'comodgan.yaml')
-        elif name.find('stylegan')==0:
-            return osp.join(
-                self.cfg_dir, 'stylegan.yaml')
-        elif name.find('absgan')==0:
-            return osp.join(
-                self.cfg_dir, 'absgan.yaml')
-        elif name.find('ashgan')==0:
-            return osp.join(
-                self.cfg_dir, 'ashgan.yaml')
-        elif name.find('sr3')==0:
-            return osp.join(
-                self.cfg_dir, 'sr3.yaml')
-        elif name.find('specdiffsr')==0:
-            return osp.join(
-                self.cfg_dir, 'specdiffsr.yaml')
-        elif name.find('openai_unet')==0:
+        if name.find('openai_unet')==0:
             return osp.join(
                 self.cfg_dir, 'openai_unet.yaml')
         elif name.find('audioldm')==0:
@@ -179,9 +158,12 @@ class model_cfg_bank(object):
         elif name.find('sd')==0:
             return osp.join(
                 self.cfg_dir, 'sd.yaml')
-        elif name.find('vd')==0:
+        elif name.find('codi')==0:
             return osp.join(
-                self.cfg_dir, 'vd.yaml')
+                self.cfg_dir, 'codi.yaml')
+        elif name.find('clap')==0:
+            return osp.join(
+                self.cfg_dir, 'clap.yaml')
         elif name.find('optimus')==0:
             return osp.join(
                 self.cfg_dir, 'optimus.yaml')
