@@ -4,12 +4,17 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import torchvision.transforms as tvtrans
-from core.models import get_model
-from core.cfg_helper import model_cfg_bank
-from core.common.utils import regularize_image
+
 from einops import rearrange
 
 import pytorch_lightning as pl
+
+from . import get_model
+from ..cfg_helper import model_cfg_bank
+from ..common.utils import regularize_image
+
+import warnings
+warnings.filterwarnings("ignore")
 
 
 class model_module(pl.LightningModule):
@@ -24,7 +29,7 @@ class model_module(pl.LightningModule):
 
         self.net = net
         
-        from core.models.ddim_vd import DDIMSampler_VD
+        from core.models.ddim.ddim_vd import DDIMSampler_VD
         self.sampler = DDIMSampler_VD(net)
 
     def decode(self, z, xtype):
@@ -67,19 +72,9 @@ class model_module(pl.LightningModule):
         
         elif xtype == 'audio':
             x = net.audioldm_decode(z)
-            x = self.mel_spectrogram_to_waveform(x)
+            x = net.mel_spectrogram_to_waveform(x)
             return x
 
-    def mel_spectrogram_to_waveform(self, mel):
-        # Mel: [bs, 1, t-steps, fbins]
-        if len(mel.size()) == 4:
-            mel = mel.squeeze(1)
-        mel = mel.permute(0, 2, 1)
-        waveform = self.net.audioldm.vocoder(mel)
-        waveform = waveform.cpu().detach().numpy()
-        return waveform
-    
-    
     def inference(self, xtype=[], condition=[], condition_types=[], n_samples=1, mix_weight={'audio': 1, 'text': 1, 'image': 1}, image_size=256, ddim_steps=50, scale=7.5, num_frames=8):
         net = self.net
         sampler = self.sampler

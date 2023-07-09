@@ -38,7 +38,7 @@ optimus_bert_tokenizer:
   args:
     do_lower_case: false 
     max_len: 512
-    vocab_file: core/models/optimus_models/vocab/bert-base-cased-vocab.txt
+    vocab_file: core/models/latent_diffusion/vae/optimus_modules/vocab/bert-base-cased-vocab.txt
 
 optimus_gpt2_decoder:
   super_cfg: optimus
@@ -86,8 +86,8 @@ optimus_gpt2_tokenizer:
   args:
     do_lower_case: false 
     max_len: 1024
-    vocab_file: core/models/optimus_models/vocab/gpt2-vocab.json
-    merges_file: core/models/optimus_models/vocab/gpt2-merges.txt
+    vocab_file: core/models/latent_diffusion/vae/optimus_modules/vocab/gpt2-vocab.json
+    merges_file: core/models/latent_diffusion/vae/optimus_modules/vocab/gpt2-merges.txt
 
 optimus_vae:
   super_cfg: optimus
