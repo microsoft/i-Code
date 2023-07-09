@@ -1074,8 +1074,8 @@ class UNetModel0D_MultiDim(nn.Module):
         return self.out(h)
 
     
-@register('openai_unet_vd', version)
-class UNetModelVD(nn.Module):
+@register('openai_unet_codi', version)
+class UNetModelCoDi(nn.Module):
     def __init__(self,
                  unet_image_cfg,  
                  unet_text_cfg, 
