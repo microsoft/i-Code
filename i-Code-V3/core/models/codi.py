@@ -24,7 +24,7 @@ from .autoencoder import AutoencoderKL
 
 from .sd import DDPM
     
-    
+
 @register('codi', version)
 class CoDi(DDPM):
     def __init__(self,
