@@ -1,4 +1,0 @@
-{
-    "vocab_file": "https://s3.amazonaws.com/models.huggingface.co/bert/gpt2-vocab.json",
-    "merges_file": "https://s3.amazonaws.com/models.huggingface.co/bert/gpt2-merges.txt",
-}
