@@ -70,3 +70,4 @@ openai_unet_codi:
     unet_image_cfg: MODEL(openai_unet_2d)
     unet_text_cfg: MODEL(openai_unet_0dmd)
     unet_audio_cfg: MODEL(openai_unet_2d_audio)
+    model_type: ['video', 'image', 'text', 'audio']
