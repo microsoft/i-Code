@@ -7,38 +7,15 @@ from core.models.audioldm.hifigan.utilities import get_vocoder, vocoder_infer
         
 from core.models.audioldm.audio.tools import wav_to_fbank
 from core.models.audioldm.audio.stft import TacotronSTFT
-def ddconfig():
-    return {
-#     "first_stage_config": {
-#         "base_learning_rate": 4.5e-05,
-#         "target": "audioldm.variational_autoencoder.autoencoder.AutoencoderKL",
-#         "params": {
-#             "monitor": "val/rec_loss",
-#             "image_key": "fbank",
-#             "subband": 1,
-#             "embed_dim": 8,
-#             "time_shuffle": 1,
-#             "ddconfig": {
-                "double_z": True,
-                "z_channels": 8,
-                "resolution": 256,
-                "downsample_time": False,
-                "in_channels": 1,
-                "out_ch": 1,
-                "ch": 128,
-                "ch_mult": [1, 2, 4],
-                "num_res_blocks": 2,
-                "attn_resolutions": [],
-                "dropout": 0.0,
-#             },
-#         },
-#     },
-}
-   
+
+from core.models.common.get_model import register
+
+
+@register('audioldm_autoencoder')
 class AudioAutoencoderKL(nn.Module):
     def __init__(
         self,
-        ddconfig=ddconfig(),
+        ddconfig,
         lossconfig=None,
         image_key="fbank",
         embed_dim=8,

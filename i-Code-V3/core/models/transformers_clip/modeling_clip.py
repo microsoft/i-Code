@@ -868,7 +868,7 @@ class CLIPVisionModel(CLIPPreTrainedModel):
 class CLIPModel(CLIPPreTrainedModel):
     config_class = CLIPConfig
 
-    def __init__(self, config: CLIPConfig, add_temporal_attention: bool = True):
+    def __init__(self, config: CLIPConfig, add_temporal_attention: bool = False):
         super().__init__(config)
 
         if not isinstance(config.text_config, CLIPTextConfig):
