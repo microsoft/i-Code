@@ -48,21 +48,24 @@ class get_model(object):
 
         # the register is in each file
         if t.find('audioldm')==0:
-            from .. import audio_autoencoder
+            from ..latent_diffusion.vae import audioldm
         elif t.find('autoencoderkl')==0:
-            from .. import autoencoder
+            from ..latent_diffusion.vae import autokl
+        elif t.find('optimus')==0:
+            from ..latent_diffusion.vae import optimus
+            
         elif t.find('clip')==0:
-            from .. import clip
+            from ..encoders import clip
         elif t.find('clap')==0:
-            from .. import clap   
+            from ..encoders import clap   
+            
         elif t.find('sd')==0:
             from .. import sd
         elif t.find('codi')==0:
             from .. import codi
         elif t.find('openai_unet')==0:
-            from .. import openaimodel
-        elif t.find('optimus')==0:
-            from .. import optimus
+            from ..latent_diffusion import diffusion_unet
+        
         args = preprocess_model_args(cfg.args)
         net = self.model[t](**args)
 

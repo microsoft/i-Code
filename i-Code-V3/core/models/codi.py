@@ -9,22 +9,14 @@ import numpy.random as npr
 import copy
 from functools import partial
 from contextlib import contextmanager
-from core.models.common.get_model import get_model, register
+
+from .common.get_model import get_model, register
+from .sd import DDPM
 
 version = '0'
 symbol = 'codi'
-
-from .diffusion_utils import \
-    count_params, extract_into_tensor, make_beta_schedule
-from .distributions import normal_kl, DiagonalGaussianDistribution
-
-from .audio_autoencoder import AudioAutoencoderKL
-from .clap import CLAPAudioEmbeddingClassifierFreev2
-from .autoencoder import AutoencoderKL
-
-from .sd import DDPM
     
-
+    
 @register('codi', version)
 class CoDi(DDPM):
     def __init__(self,
@@ -42,29 +34,14 @@ class CoDi(DDPM):
         super().__init__(*args, **kwargs)
         
         self.audioldm = get_model()(audioldm_cfg)
-        self.audioldm.eval()
-        for param in self.audioldm.parameters():
-            param.requires_grad = False
         
         self.autokl = get_model()(autokl_cfg)
-        self.autokl.eval()
-        for param in self.autokl.parameters():
-            param.requires_grad = False
             
         self.optimus = get_model()(optimus_cfg)
-        self.optimus.eval()
-        for param in self.optimus.parameters():
-            param.requires_grad = False
             
         self.clip = get_model()(clip_cfg)
-        self.clip.eval()
-        for param in self.clip.parameters():
-            param.requires_grad = False
             
         self.clap = get_model()(clap_cfg)
-        self.clap.eval()
-        for param in self.clap.parameters():
-            param.requires_grad = False
         
         if not scale_by_std:
             self.vision_scale_factor = vision_scale_factor
@@ -75,6 +52,13 @@ class CoDi(DDPM):
             self.register_buffer("audio_scale_factor", torch.tensor(audio_scale_factor))
             self.register_buffer('vision_scale_factor', torch.tensor(vision_scale_factor))
 
+        self.freeze()
+        
+    def freeze(self):
+        self.eval()
+        for param in self.parameters():
+            param.requires_grad = False
+            
     @property
     def device(self):
         return next(self.parameters()).device
@@ -89,26 +73,6 @@ class CoDi(DDPM):
     def autokl_decode(self, z):
         z = 1. / self.vision_scale_factor * z
         return self.autokl.decode(z)
-
-    def mask_tokens(inputs, tokenizer, args):
-        labels = inputs.clone()
-        # We sample a few tokens in each sequence for masked-LM training (with probability args.mlm_probability defaults to 0.15 in Bert/RoBERTa)
-        
-        masked_indices = torch.bernoulli(torch.full(labels.shape, args.mlm_probability)).to(torch.uint8)
-        labels[masked_indices==1] = -1  # We only compute loss on masked tokens
-
-        # 80% of the time, we replace masked input tokens with tokenizer.mask_token ([MASK])
-        indices_replaced = torch.bernoulli(torch.full(labels.shape, 0.8)).to(torch.uint8) & masked_indices
-        inputs[indices_replaced] = tokenizer.convert_tokens_to_ids(tokenizer.mask_token)
-
-        # 10% of the time, we replace masked input tokens with random word
-        indices_random = torch.bernoulli(torch.full(labels.shape, 0.5)).to(torch.uint8) & masked_indices & ~indices_replaced
-        indices_random = indices_random
-        random_words = torch.randint(len(tokenizer), labels.shape, dtype=torch.long)
-        inputs[indices_random] = random_words[indices_random]
-
-        # The rest of the time (10% of the time) we keep the masked input tokens unchanged
-        return inputs, labels
 
     @torch.no_grad()
     def optimus_encode(self, text):
@@ -129,26 +93,8 @@ class CoDi(DDPM):
 
     @torch.no_grad()
     def optimus_decode(self, z, temperature=1.0):
-        bos_token = self.optimus.tokenizer_decoder.encode('<BOS>')
-        eos_token = self.optimus.tokenizer_decoder.encode('<EOS>')
-        context_tokens = torch.LongTensor(bos_token).to(z.device)
-
-        from .optimus import sample_single_sequence_conditional
-        sentenses = []
-        for zi in z:
-            scaled_zi = 1.0 / self.text_scale_factor * zi
-            out = sample_single_sequence_conditional(
-                model=self.optimus.decoder,
-                context=context_tokens,
-                past=scaled_zi, temperature=temperature, 
-                top_k=0, top_p=1.0,
-                max_length=30,
-                eos_token = eos_token[0],)
-            text = self.optimus.tokenizer_decoder.decode(out.tolist(), clean_up_tokenization_spaces=True)
-            text = text.split()[1:-1]
-            text = ' '.join(text)
-            sentenses.append(text)
-        return sentenses
+        z = 1.0 / self.text_scale_factor * z
+        return self.optimus.decode(z, temperature)
     
     @torch.no_grad()
     def audioldm_encode(self, audio, time=2.0):
@@ -164,6 +110,16 @@ class CoDi(DDPM):
         return self.audioldm.decode(z)
     
     @torch.no_grad()
+    def mel_spectrogram_to_waveform(self, mel):
+        # Mel: [bs, 1, t-steps, fbins]
+        if len(mel.size()) == 4:
+            mel = mel.squeeze(1)
+        mel = mel.permute(0, 2, 1)
+        waveform = self.audioldm.vocoder(mel)
+        waveform = waveform.cpu().detach().numpy()
+        return waveform
+    
+    @torch.no_grad()
     def clip_encode_text(self, text, encode_type='encode_text'):
         swap_type = self.clip.encode_type
         self.clip.encode_type = encode_type
@@ -175,16 +131,7 @@ class CoDi(DDPM):
     def clip_encode_vision(self, vision, encode_type='encode_vision'):
         swap_type = self.clip.encode_type
         self.clip.encode_type = encode_type
-        if isinstance(vision, torch.Tensor):
-            if vision.ndim == 5:
-                num_frames = vision.shape[2]
-                vision = rearrange(vision, 'b c f h w -> (b f) c h w')
-            else:
-                num_frames = 1
-            vision = ((vision+1)/2).to('cpu').numpy()
-            vision = np.transpose(vision, (0, 2, 3, 1))
-            vision = [vi for vi in vision]
-        embedding = self.clip.encode(vision, num_frames=num_frames)
+        embedding = self.clip.encode(vision)
         self.clip.encode_type = swap_type
         return embedding
     

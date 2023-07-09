@@ -1,40 +1,22 @@
-import os
-import re
-import logging
-
 import numpy as np
 import torch
+from collections import OrderedDict
 
 from PIL import Image
 import torchvision.transforms as T
-from torchvision.transforms import functional as F
-
-import torch
-import torch.distributed as dist
+from torchvision.transforms import Compose, Resize, CenterCrop, ToTensor
 from torchvision import transforms as tvtrans
-import os
-import os.path as osp
-import time
-import timeit
-import copy
-import json
 
-import pickle
-import PIL.Image
-import numpy as np
-from datetime import datetime
-from easydict import EasyDict as edict
-from collections import OrderedDict
-from torchvision.transforms import Compose, Resize, CenterCrop, ToTensor, Normalize
-logger = logging.getLogger(__name__)
-PREFIX_CHECKPOINT_DIR = 'checkpoint'
 
+#################
+# vision helper #
+#################
 
 def regularize_image(x, image_size=512):
     BICUBIC = T.InterpolationMode.BICUBIC
     if isinstance(x, str):
         x = Image.open(x)
-    elif isinstance(x, PIL.Image.Image):
+    elif isinstance(x, Image.Image):
         x = x.convert('RGB')
     elif isinstance(x, np.ndarray):
         x = Image.fromarray(x).convert('RGB')
