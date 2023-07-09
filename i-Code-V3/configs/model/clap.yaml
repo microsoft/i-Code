@@ -1,0 +1,10 @@
+######################
+# clap audio encoder #
+######################
+
+
+clap_audio:
+  type: clap_audio
+  args: 
+    amodel: "HTSAT-large"
+    joint_embed_shape: 768
