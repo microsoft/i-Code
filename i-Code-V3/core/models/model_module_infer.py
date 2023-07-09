@@ -16,12 +16,7 @@ class model_module(pl.LightningModule):
     def __init__(self, data_dir='pretrained', pth=["CoDi_encoders.pth"]):
         super().__init__()
         
-        cfgm = model_cfg_bank()('vd_noema')
-        cfgm.args.unet_config.args.unet_image_cfg.args.use_video_architecture = True
-        cfgm.args.autokl_cfg.map_location = 'cpu'
-        cfgm.args.optimus_cfg.map_location = 'cpu'
-        cfgm.args.clip_cfg.args.data_dir = data_dir
-        
+        cfgm = model_cfg_bank()('codi')
         net = get_model()(cfgm)
         for path in pth:
             net.load_state_dict(torch.load(os.path.join(data_dir, path), map_location='cpu'), strict=False)
