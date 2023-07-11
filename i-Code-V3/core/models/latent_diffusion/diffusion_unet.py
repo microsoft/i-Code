@@ -1195,6 +1195,9 @@ class UNetModelCoDi(nn.Module):
             if xtype[i] == 'text':
                 x[i] = x[i][:, :, None, None]
 
+        if not x_0[0]:
+            x_0 = [None] * len(x)
+
         # Environment encoders
         if len(xtype) > 1: # this means two outputs present and thus joint decoding
             h_con = [temp for temp in x]        
