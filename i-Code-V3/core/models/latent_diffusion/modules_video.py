@@ -59,8 +59,9 @@ class ChanLayerNorm(nn.Module):
         eps = 1e-5 if x.dtype == torch.float32 else 1e-3
         var = torch.var(x, dim = 1, unbiased = False, keepdim = True)
         mean = torch.mean(x, dim = 1, keepdim = True)
-        return (x - mean) * var.clamp(min = eps).rsqrt() * self.g
-
+        x = (x - mean) * var.clamp(min = eps).rsqrt()
+        dtype = self.g.dtype
+        return x.to(dtype) * self.g
 
 def shift_token(t):
     t, t_shift = t.chunk(2, dim = 1)
@@ -84,6 +85,7 @@ class LayerNorm(nn.Module):
 
 class GEGLU(nn.Module):
     def forward(self, x):
+        x = x.float()
         x, gate = x.chunk(2, dim = 1)
         return x * F.gelu(gate)
 
