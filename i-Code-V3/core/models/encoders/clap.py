@@ -30,8 +30,6 @@ class CLAPAudioEmbeddingClassifierFreev2(nn.Module):
         super().__init__()
 
         self.key = key
-        self.device = "cpu"
-        self.precision = "fp32"
         self.amodel = amodel  # or 'PANN-14'
         self.tmodel = "roberta"  # the best text encoder in our training
         self.enable_fusion = False  # False if you do not want to use the fusion model
@@ -49,13 +47,21 @@ class CLAPAudioEmbeddingClassifierFreev2(nn.Module):
             self.amodel,
             self.tmodel,
             self.pretrained,
-            precision=self.precision,
-            device=self.device,
+            precision="fp32",
+            device="cpu",
             enable_fusion=self.enable_fusion,
             fusion_type=self.fusion_type,
             joint_embed_shape=self.joint_embed_shape,
         )
 
+    @property
+    def dtype(self):
+        return next(self.model.parameters()).dtype
+    
+    @property
+    def device(self):
+        return next(self.model.parameters()).device
+    
     def get_unconditional_condition(self, batchsize):
         self.unconditional_token = self.model.get_text_embedding(
             self.tokenizer(["", ""])
@@ -121,10 +127,10 @@ class CLAPAudioEmbeddingClassifierFreev2(nn.Module):
                     data_truncating="fusion",
                     data_filling="repeatpad",
                     audio_cfg=self.model_cfg["audio_cfg"],
+                    dtype=self.dtype,
                 )
                 audio_dict_list.append(audio_dict)
             # [bs, 768]
-
             embed = self.model.get_audio_embedding(audio_dict_list)
 
         embed = embed.unsqueeze(1)

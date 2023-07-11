@@ -25,6 +25,7 @@ def disabled_train(self, mode=True):
     does not change anymore."""
     return self
 
+
 @register('clip_text_frozen', version)
 class FrozenCLIPTextEmbedder(AbstractEncoder):
     """Uses the CLIP transformer encoder for text (from huggingface)"""
@@ -67,7 +68,7 @@ class FrozenCLIP(AbstractEncoder):
         self.tokenizer = CLIPTokenizer.from_pretrained(version)
         self.processor = CLIPProcessor.from_pretrained(version)
         config = CLIPConfig.from_pretrained(version)
-        self.model = CLIPModel(config)
+        self.model = CLIPModel(config, add_temporal_attention=True)
         self.max_length = max_length
         self.encode_type = encode_type
         self.fp16 = fp16
@@ -108,6 +109,8 @@ class FrozenCLIP(AbstractEncoder):
         batch_encoding = self.tokenizer(text, truncation=True, max_length=self.max_length, return_length=True,
                                         return_overflowing_tokens=False, padding="max_length", return_tensors="pt")
         tokens = batch_encoding["input_ids"].to(self.get_device())
+        if self.dtype == torch.half:
+            tokens = tokens.short()
         outputs = self.model.text_model(input_ids=tokens)
         return outputs.last_hidden_state
         
