@@ -54,13 +54,8 @@ class CLAPAudioEmbeddingClassifierFreev2(nn.Module):
             joint_embed_shape=self.joint_embed_shape,
         )
 
-    @property
-    def dtype(self):
+    def get_dtype(self):
         return next(self.model.parameters()).dtype
-    
-    @property
-    def device(self):
-        return next(self.model.parameters()).device
     
     def get_unconditional_condition(self, batchsize):
         self.unconditional_token = self.model.get_text_embedding(
@@ -127,7 +122,7 @@ class CLAPAudioEmbeddingClassifierFreev2(nn.Module):
                     data_truncating="fusion",
                     data_filling="repeatpad",
                     audio_cfg=self.model_cfg["audio_cfg"],
-                    dtype=self.dtype,
+                    dtype=self.get_dtype(),
                 )
                 audio_dict_list.append(audio_dict)
             # [bs, 768]
