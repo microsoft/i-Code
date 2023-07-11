@@ -58,7 +58,9 @@ class ChanLayerNorm(nn.Module):
         eps = 1e-5 if x.dtype == torch.float32 else 1e-3
         var = torch.var(x, dim = 1, unbiased = False, keepdim = True)
         mean = torch.mean(x, dim = 1, keepdim = True)
-        return (x - mean) * var.clamp(min = eps).rsqrt() * self.g
+        x = (x - mean) * var.clamp(min = eps).rsqrt()
+        dtype = self.g.dtype
+        return x.to(dtype) * self.g
 
     
 class LayerNorm(nn.Module):
@@ -74,12 +76,13 @@ class LayerNorm(nn.Module):
 
 
 # feedforward
-
 class GEGLU(nn.Module):
     def forward(self, x):
+        x = x.float()
         x, gate = x.chunk(2, dim = 1)
-        return x * F.gelu(gate)
-
+        x = x * F.gelu(gate)
+        return x
+    
 class FeedForward(nn.Module):
     def __init__(self, dim, mult = 4):
         super().__init__()
@@ -97,9 +100,11 @@ class FeedForward(nn.Module):
         
         nn.init.zeros_(self.proj_out[1].weight)
 
-    def forward(self, x, enable_time=True):
+    def forward(self, x):
+        dtype = x.dtype
         x = self.proj_in(x)
-        return self.proj_out(x)
+        x = self.proj_out(x)
+        return x
 
 
 # feedforwa
@@ -217,7 +222,7 @@ class Attention(nn.Module):
         out = einsum('b h i j, b h j d -> b h i d', attn, v)
 
         out = rearrange(out, 'b h n d -> b n (h d)')
-        return self.to_out(out)
+        return torch.nan_to_num(self.to_out(out))
     
     
 class SpatioTemporalAttention(nn.Module):

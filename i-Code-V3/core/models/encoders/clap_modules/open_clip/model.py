@@ -457,7 +457,6 @@ class CLAP(nn.Module):
             raise NotImplementedError
 
         # audio branch
-        # audio branch parameters
         if audio_cfg.model_type == "PANN":
             self.audio_branch = create_pann_model(audio_cfg, enable_fusion, fusion_type, embed_shape, depth)
         elif audio_cfg.model_type == "HTSAT":
@@ -477,8 +476,6 @@ class CLAP(nn.Module):
             ],
             dropout=0.1,
         )
-
-        # below here is text branch parameters
 
         # ============================================================================================================
         self.audio_projection = nn.Sequential(
