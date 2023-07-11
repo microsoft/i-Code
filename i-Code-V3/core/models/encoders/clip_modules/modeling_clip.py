@@ -76,17 +76,17 @@ def clip_loss(similarity: torch.Tensor) -> torch.Tensor:
 class CLIPOutput(ModelOutput):
     """
     Args:
-        loss (`torch.FloatTensor` of shape `(1,)`, *optional*, returned when `return_loss` is `True`):
+        loss (`torch.Tensor` of shape `(1,)`, *optional*, returned when `return_loss` is `True`):
             Contrastive loss for image-text similarity.
-        logits_per_image:(`torch.FloatTensor` of shape `(image_batch_size, text_batch_size)`):
+        logits_per_image:(`torch.Tensor` of shape `(image_batch_size, text_batch_size)`):
             The scaled dot product scores between `image_embeds` and `text_embeds`. This represents the image-text
             similarity scores.
-        logits_per_text:(`torch.FloatTensor` of shape `(text_batch_size, image_batch_size)`):
+        logits_per_text:(`torch.Tensor` of shape `(text_batch_size, image_batch_size)`):
             The scaled dot product scores between `text_embeds` and `image_embeds`. This represents the text-image
             similarity scores.
-        text_embeds(`torch.FloatTensor` of shape `(batch_size, output_dim`):
+        text_embeds(`torch.Tensor` of shape `(batch_size, output_dim`):
             The text embeddings obtained by applying the projection layer to the pooled output of [`CLIPTextModel`].
-        image_embeds(`torch.FloatTensor` of shape `(batch_size, output_dim`):
+        image_embeds(`torch.Tensor` of shape `(batch_size, output_dim`):
             The image embeddings obtained by applying the projection layer to the pooled output of [`CLIPVisionModel`].
         text_model_output(`BaseModelOutputWithPooling`):
             The output of the [`CLIPTextModel`].
@@ -94,11 +94,11 @@ class CLIPOutput(ModelOutput):
             The output of the [`CLIPVisionModel`].
     """
 
-    loss: Optional[torch.FloatTensor] = None
-    logits_per_image: torch.FloatTensor = None
-    logits_per_text: torch.FloatTensor = None
-    text_embeds: torch.FloatTensor = None
-    image_embeds: torch.FloatTensor = None
+    loss: Optional[torch.Tensor] = None
+    logits_per_image: torch.Tensor = None
+    logits_per_text: torch.Tensor = None
+    text_embeds: torch.Tensor = None
+    image_embeds: torch.Tensor = None
     text_model_output: BaseModelOutputWithPooling = None
     vision_model_output: BaseModelOutputWithPooling = None
 
@@ -128,7 +128,7 @@ class CLIPVisionEmbeddings(nn.Module):
         self.position_embedding = nn.Embedding(self.num_positions, self.embed_dim)
         self.register_buffer("position_ids", torch.arange(self.num_positions).expand((1, -1)))
 
-    def forward(self, pixel_values: torch.FloatTensor) -> torch.Tensor:
+    def forward(self, pixel_values: torch.Tensor) -> torch.Tensor:
         batch_size = pixel_values.shape[0]
         patch_embeds = self.patch_embedding(pixel_values)  # shape = [*, width, grid, grid]
         patch_embeds = patch_embeds.flatten(2).transpose(1, 2)
@@ -154,10 +154,9 @@ class CLIPTextEmbeddings(nn.Module):
         self,
         input_ids: Optional[torch.LongTensor] = None,
         position_ids: Optional[torch.LongTensor] = None,
-        inputs_embeds: Optional[torch.FloatTensor] = None,
+        inputs_embeds: Optional[torch.Tensor] = None,
     ) -> torch.Tensor:
         seq_length = input_ids.shape[-1] if input_ids is not None else inputs_embeds.shape[-2]
-
         if position_ids is None:
             position_ids = self.position_ids[:, :seq_length]
 
@@ -310,11 +309,11 @@ class CLIPEncoderLayer(nn.Module):
         attention_mask: torch.Tensor,
         causal_attention_mask: torch.Tensor,
         output_attentions: Optional[bool] = False,
-    ) -> Tuple[torch.FloatTensor]:
+    ) -> Tuple[torch.Tensor]:
         """
         Args:
-            hidden_states (`torch.FloatTensor`): input to the layer of shape `(batch, seq_len, embed_dim)`
-            attention_mask (`torch.FloatTensor`): attention mask of size
+            hidden_states (`torch.Tensor`): input to the layer of shape `(batch, seq_len, embed_dim)`
+            attention_mask (`torch.Tensor`): attention mask of size
                 `(batch, 1, tgt_len, src_len)` where padding elements are indicated by very large negative values.
                 `(config.encoder_attention_heads,)`.
             output_attentions (`bool`, *optional*):
@@ -457,7 +456,7 @@ CLIP_TEXT_INPUTS_DOCSTRING = r"""
 
 CLIP_VISION_INPUTS_DOCSTRING = r"""
     Args:
-        pixel_values (`torch.FloatTensor` of shape `(batch_size, num_channels, height, width)`):
+        pixel_values (`torch.Tensor` of shape `(batch_size, num_channels, height, width)`):
             Pixel values. Padding will be ignored by default should you provide it. Pixel values can be obtained using
             [`CLIPFeatureExtractor`]. See [`CLIPFeatureExtractor.__call__`] for details.
         output_attentions (`bool`, *optional*):
@@ -492,7 +491,7 @@ CLIP_INPUTS_DOCSTRING = r"""
             config.max_position_embeddings - 1]`.
 
             [What are position IDs?](../glossary#position-ids)
-        pixel_values (`torch.FloatTensor` of shape `(batch_size, num_channels, height, width)`):
+        pixel_values (`torch.Tensor` of shape `(batch_size, num_channels, height, width)`):
             Pixel values. Padding will be ignored by default should you provide it. Pixel values can be obtained using
             [`CLIPFeatureExtractor`]. See [`CLIPFeatureExtractor.__call__`] for details.
         return_loss (`bool`, *optional*):
@@ -534,7 +533,7 @@ class CLIPEncoder(nn.Module):
     ) -> Union[Tuple, BaseModelOutput]:
         r"""
         Args:
-            inputs_embeds (`torch.FloatTensor` of shape `(batch_size, sequence_length, hidden_size)`):
+            inputs_embeds (`torch.Tensor` of shape `(batch_size, sequence_length, hidden_size)`):
                 Optionally, instead of passing `input_ids` you can choose to directly pass an embedded representation.
                 This is useful if you want more control over how to convert `input_ids` indices into associated vectors
                 than the model's internal embedding lookup matrix.
@@ -653,6 +652,7 @@ class CLIPTextTransformer(nn.Module):
         # CLIP's text model uses causal mask, prepare it here.
         # https://github.com/openai/CLIP/blob/cfcffb90e69f37bf2ff1e988237a0fbe41f33c04/clip/model.py#L324
         causal_attention_mask = self._build_causal_attention_mask(bsz, seq_len).to(hidden_states.device)
+        causal_attention_mask = causal_attention_mask.to(hidden_states.dtype)
         # expand attention_mask
         if attention_mask is not None:
             # [bsz, seq_len] -> [bsz, 1, tgt_seq_len, src_seq_len]
@@ -762,7 +762,7 @@ class CLIPVisionTransformer(nn.Module):
     @replace_return_docstrings(output_type=BaseModelOutputWithPooling, config_class=CLIPVisionConfig)
     def forward(
         self,
-        pixel_values: Optional[torch.FloatTensor] = None,
+        pixel_values: Optional[torch.Tensor] = None,
         output_attentions: Optional[bool] = None,
         output_hidden_states: Optional[bool] = None,
         return_dict: Optional[bool] = None,
@@ -829,7 +829,7 @@ class CLIPVisionModel(CLIPPreTrainedModel):
     @replace_return_docstrings(output_type=BaseModelOutputWithPooling, config_class=CLIPVisionConfig)
     def forward(
         self,
-        pixel_values: Optional[torch.FloatTensor] = None,
+        pixel_values: Optional[torch.Tensor] = None,
         output_attentions: Optional[bool] = None,
         output_hidden_states: Optional[bool] = None,
         return_dict: Optional[bool] = None,
@@ -909,10 +909,10 @@ class CLIPModel(CLIPPreTrainedModel):
         output_attentions: Optional[bool] = None,
         output_hidden_states: Optional[bool] = None,
         return_dict: Optional[bool] = None,
-    ) -> torch.FloatTensor:
+    ) -> torch.Tensor:
         r"""
         Returns:
-            text_features (`torch.FloatTensor` of shape `(batch_size, output_dim`): The text embeddings obtained by
+            text_features (`torch.Tensor` of shape `(batch_size, output_dim`): The text embeddings obtained by
             applying the projection layer to the pooled output of [`CLIPTextModel`].
 
         Examples:
@@ -950,14 +950,14 @@ class CLIPModel(CLIPPreTrainedModel):
     @add_start_docstrings_to_model_forward(CLIP_VISION_INPUTS_DOCSTRING)
     def get_image_features(
         self,
-        pixel_values: Optional[torch.FloatTensor] = None,
+        pixel_values: Optional[torch.Tensor] = None,
         output_attentions: Optional[bool] = None,
         output_hidden_states: Optional[bool] = None,
         return_dict: Optional[bool] = None,
-    ) -> torch.FloatTensor:
+    ) -> torch.Tensor:
         r"""
         Returns:
-            image_features (`torch.FloatTensor` of shape `(batch_size, output_dim`): The image embeddings obtained by
+            image_features (`torch.Tensor` of shape `(batch_size, output_dim`): The image embeddings obtained by
             applying the projection layer to the pooled output of [`CLIPVisionModel`].
 
         Examples:
@@ -1001,7 +1001,7 @@ class CLIPModel(CLIPPreTrainedModel):
     def forward(
         self,
         input_ids: Optional[torch.LongTensor] = None,
-        pixel_values: Optional[torch.FloatTensor] = None,
+        pixel_values: Optional[torch.Tensor] = None,
         attention_mask: Optional[torch.Tensor] = None,
         position_ids: Optional[torch.LongTensor] = None,
         return_loss: Optional[bool] = None,

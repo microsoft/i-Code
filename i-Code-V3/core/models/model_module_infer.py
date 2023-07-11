@@ -11,7 +11,7 @@ import pytorch_lightning as pl
 
 from . import get_model
 from ..cfg_helper import model_cfg_bank
-from ..common.utils import regularize_image
+from ..common.utils import regularize_image, regularize_video, remove_duplicate_word
 
 import warnings
 warnings.filterwarnings("ignore")
@@ -66,7 +66,7 @@ class model_module(pl.LightningModule):
                         if idxi!=0 and wi==xi_split[idxi-1]:
                             continue
                         xinew.append(wi)
-                    xnew.append(' '.join(xinew))
+                    xnew.append(remove_duplicate_word(' '.join(xinew)))
                 x = xnew
             return x
         
@@ -75,7 +75,7 @@ class model_module(pl.LightningModule):
             x = net.mel_spectrogram_to_waveform(x)
             return x
 
-    def inference(self, xtype=[], condition=[], condition_types=[], n_samples=1, mix_weight={'audio': 1, 'text': 1, 'image': 1}, image_size=256, ddim_steps=50, scale=7.5, num_frames=8):
+    def inference(self, xtype=[], condition=[], condition_types=[], n_samples=1, mix_weight={'video': 1, 'audio': 1, 'text': 1, 'image': 1}, image_size=256, ddim_steps=50, scale=7.5, num_frames=8):
         net = self.net
         sampler = self.sampler
         ddim_eta = 0.0
@@ -94,7 +94,17 @@ class model_module(pl.LightningModule):
                     dummy = torch.zeros_like(ctemp1).cuda()
                     uim = net.clip_encode_vision(dummy).cuda()
                 conditioning.append(torch.cat([uim, cim]))
-            
+                
+            elif condition_type == 'video':
+                ctemp1 = regularize_video(condition[i]).cuda()
+                ctemp1 = ctemp1[None].repeat(n_samples, 1, 1, 1, 1)
+                cim = net.clip_encode_vision(ctemp1).cuda()
+                uim = None
+                if scale != 1.0:
+                    dummy = torch.zeros_like(ctemp1).cuda()
+                    uim = net.clip_encode_vision(dummy).cuda()
+                conditioning.append(torch.cat([uim, cim]))
+                
             elif condition_type == 'audio':
                 ctemp = condition[i][None].repeat(n_samples, 1, 1)
                 cad = net.clap_encode_audio(ctemp)

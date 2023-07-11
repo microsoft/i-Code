@@ -1,12 +1,92 @@
-import numpy as np
+import random
 import torch
 from collections import OrderedDict
 
+import numpy as np
 from PIL import Image
 import torchvision.transforms as T
 from torchvision.transforms import Compose, Resize, CenterCrop, ToTensor
 from torchvision import transforms as tvtrans
 
+from decord import VideoReader, cpu, gpu
+
+###############
+# text helper #
+###############
+
+def remove_duplicate_word(tx):
+    def combine_words(input, length):
+        combined_inputs = []
+        if len(splitted_input)>1:
+            for i in range(len(input)-1):
+                combined_inputs.append(input[i]+" "+last_word_of(splitted_input[i+1],length)) #add the last word of the right-neighbour (overlapping) sequence (before it has expanded), which is the next word in the original sentence
+        return combined_inputs, length+1
+
+    def remove_duplicates(input, length):
+        bool_broke=False #this means we didn't find any duplicates here
+        for i in range(len(input) - length):
+            if input[i]==input[i + length]: #found a duplicate piece of sentence!
+                for j in range(0, length): #remove the overlapping sequences in reverse order
+                    del input[i + length - j]
+                bool_broke = True
+                break #break the for loop as the loop length does not matches the length of splitted_input anymore as we removed elements
+        if bool_broke:
+            return remove_duplicates(input, length) #if we found a duplicate, look for another duplicate of the same length
+        return input
+
+    def last_word_of(input, length):
+        splitted = input.split(" ")
+        if len(splitted)==0:
+            return input
+        else:
+            return splitted[length-1]
+
+    def split_and_puncsplit(text):
+        tx = text.split(" ")
+        txnew = []
+        for txi in tx:
+            txqueue=[]
+            while True:
+                if txi[0] in '([{':
+                    txqueue.extend([txi[:1], '<puncnext>'])
+                    txi = txi[1:]
+                    if len(txi) == 0:
+                        break
+                else:
+                    break
+            txnew += txqueue
+            txstack=[]
+            if len(txi) == 0:
+                continue
+            while True:
+                if txi[-1] in '?!.,:;}])':
+                    txstack = ['<puncnext>', txi[-1:]] + txstack
+                    txi = txi[:-1]
+                    if len(txi) == 0:
+                        break
+                else:
+                    break
+            if len(txi) != 0:
+                txnew += [txi]
+            txnew += txstack
+        return txnew
+
+    if tx == '':
+        return tx
+
+    splitted_input = split_and_puncsplit(tx)
+    word_length = 1
+    intermediate_output = False
+    while len(splitted_input)>1:
+        splitted_input = remove_duplicates(splitted_input, word_length)
+        if len(splitted_input)>1:
+            splitted_input, word_length = combine_words(splitted_input, word_length)
+        if intermediate_output:
+            print(splitted_input)
+            print(word_length)
+    output = splitted_input[0]
+    output = output.replace(' <puncnext> ', '')
+    return output
 
 #################
 # vision helper #
@@ -69,7 +149,6 @@ def _transform(n_px):
     return Compose([
         Resize([n_px, n_px], interpolation=T.InterpolationMode.BICUBIC),])
     
-
 def regularize_video(video, image_size=256):
     min_shape = min(video.shape[1:3])
     video = center_crop(video, min_shape, min_shape)
@@ -77,6 +156,37 @@ def regularize_video(video, image_size=256):
     video = _transform(image_size)(video)       
     video = video/255.0 * 2.0 - 1.0
     return video.permute(1, 0, 2, 3)
+
+def time_to_indices(video_reader, time):
+    times = video_reader.get_frame_timestamp(range(len(video_reader))).mean(-1)
+    indices = np.searchsorted(times, time)
+    # Use `np.bitwise_or` so it works both with scalars and numpy arrays.
+    return np.where(np.bitwise_or(indices == 0, times[indices] - time <= time - times[indices - 1]), indices,
+                    indices - 1)
+
+def load_video(video_path, sample_duration=8.0, num_frames=8):
+    sample_duration = 4.0
+    num_frames = 4
+
+    vr = VideoReader(video_path, ctx=cpu(0))
+    framerate = vr.get_avg_fps()
+    video_frame_len = len(vr)
+    video_len = video_frame_len/framerate
+    sample_duration = min(sample_duration, video_len)
+
+    if video_len > sample_duration:
+        s = random.random() * (video_len - sample_duration)
+        t = s + sample_duration
+        start, end = time_to_indices(vr, [s, t])
+        end = min(video_frame_len-1, end)
+        start = min(start, end-1)
+        downsamlp_indices = np.linspace(start, end, num_frames, endpoint=True).astype(np.int).tolist()
+    else:            
+        downsamlp_indices = np.linspace(0, video_frame_len-1, num_frames, endpoint=True).astype(np.int).tolist()
+
+    video = vr.get_batch(downsamlp_indices).asnumpy()
+    return video
+
 
 ###############
 # some helper #
