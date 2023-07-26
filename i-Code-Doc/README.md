@@ -72,6 +72,7 @@ The model checkpoints are hosted here [Huggingface Hub](https://huggingface.co/Z
 |**Models**|**Huggingface Weights Address**|
 |:-------------:|:-------------:|
 |Unimodel 512|[udop-unimodel-large-512.zip](https://huggingface.co/ZinengTang/Udop/resolve/main/udop-unimodel-large-512.zip)|
+|Unimodel 512 (new, trained on more steps)|[udop-unimodel-large-512-300k-steps.zip](https://huggingface.co/ZinengTang/Udop/resolve/main/udop-unimodel-large-512-300k-steps.zip)|
 |Dual 224|[udop-dual-large-224.zip](https://huggingface.co/ZinengTang/Udop/resolve/main/udop-dual-large-224.zip)|
 |Unimodel 224|[udop-unimodel-large-224.zip](https://huggingface.co/ZinengTang/Udop/resolve/main/udop-unimodel-large-224.zip)|
 
