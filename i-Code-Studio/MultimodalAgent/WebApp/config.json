@@ -1,0 +1,6 @@
+config = {
+    "email": "mkhademi@student.ubc.ca",
+    "password": "AMamamam3173"#,
+    #"session_token": "<SESSION_TOKEN>", # Deprecated. Use only if you encounter captcha with email/password
+    #"proxy": "<HTTP/HTTPS_PROXY>"
+}

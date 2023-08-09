@@ -1,0 +1,6 @@
+{
+    "transcribe": {"key": "529abd1e27bd41d89dcc353e8a61dfae", "region": "westus"},
+    "translate": {"key": "529abd1e27bd41d89dcc353e8a61dfae"},
+    "synthesis": {"key": "529abd1e27bd41d89dcc353e8a61dfae", "region": "westus"},
+    "ocr": {"key": "529abd1e27bd41d89dcc353e8a61dfae", "endpoint":"https://icode-studio.cognitiveservices.azure.com"}
+}
