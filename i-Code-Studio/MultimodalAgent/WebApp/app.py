@@ -31,7 +31,7 @@ app = Flask(__name__)
 socketio = SocketIO(app)
 CORS(app)
 
-openai.api_key = "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"
+openai.api_key = ""
 # Set up the model (more models, visit https://beta.openai.com/playground)
 model_engine = "text-davinci-003"
 
