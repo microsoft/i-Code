@@ -1,6 +1,6 @@
 python-dotenv==0.10.3
 flask-cors==3.0.9
 flask-socketio==4.3.2
-Werkzeug==2.0.1
+Werkzeug==2.2.3
 opencv-python==4.6.0.66
 azure-cognitiveservices-vision-computervision
