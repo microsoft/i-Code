@@ -8,7 +8,7 @@ from datetime import datetime
 from tqdm import tqdm
 
 #openai.api_key = os.getenv("OPENAI_API_KEY")
-openai.api_key = "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"
+openai.api_key = ""
 
 
 class GPT3Generator():
