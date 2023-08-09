@@ -32,6 +32,10 @@ openai_unet_2d_audio:
     num_noattn_blocks: [ 2, 2, 2, 2 ]
     channel_mult: [ 1, 2, 4, 4 ]
     with_attn: [true, true, true, false]
+    channel_mult_connector: [1, 2, 4]
+    num_noattn_blocks_connector: [1, 1, 1]
+    with_connector: [True, True, True, False]
+    connector_output_channel: 1280
     num_heads: 8
     context_dim: 768
     use_checkpoint: False
@@ -45,6 +49,10 @@ openai_unet_2d:
     num_noattn_blocks: [ 2, 2, 2, 2 ]
     channel_mult: [ 1, 2, 4, 4 ]
     with_attn: [true, true, true, false]
+    channel_mult_connector: [1, 2, 4]
+    num_noattn_blocks_connector: [1, 1, 1]
+    with_connector: [True, True, True, False]
+    connector_output_channel: 1280
     num_heads: 8
     context_dim: 768
     use_checkpoint: True
@@ -60,6 +68,10 @@ openai_unet_0dmd:
     channel_mult: [ 1, 2, 4, 4 ]
     second_dim: [ 4, 4, 4, 4 ]
     with_attn: [true, true, true, false]
+    num_noattn_blocks_connector: [1, 1, 1]
+    second_dim_connector: [4, 4, 4]
+    with_connector: [True, True, True, False]
+    connector_output_channel: 1280
     num_heads: 8
     context_dim: 768
     use_checkpoint: True
