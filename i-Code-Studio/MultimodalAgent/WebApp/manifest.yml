@@ -1,0 +1,25 @@
+---
+declared-services:
+  wvb-watson-assistant:
+    label: conversation
+    plan: free
+  wvb-text-to-speech:
+    label: text_to_speech
+    plan: lite
+  wvb-speech-to-text:
+    label: speech_to_text
+    plan: lite
+
+applications:
+- path: .
+  memory: 128M
+  instances: 1
+  name: watson-voice-bot
+  disk_quota: 512M
+  buildpacks:
+    - python_buildpack
+  random-route: false
+  services:
+  - wvb-watson-assistant
+  - wvb-text-to-speech
+  - wvb-speech-to-text

@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Airtel WVA POC Bot">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <title>Cortana v3</title>
+
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <!-- <link rel="icon" sizes="192x192" href="images/android-desktop.png"> -->
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Airtel WVA Bot">
+  <link rel="apple-touch-icon-precomposed" href="static/images/ios-desktop.png">
+
+  <!-- Tile icon for Win8 (144x144 + tile color) -->
+  <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+  <meta name="msapplication-TileColor" content="#3372DF">
+
+  <link rel="shortcut icon" href="./static/img/cortana.png">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.red-orange.min.css" />
+  <link rel="stylesheet" href="./static/stylesheets/index.css" />
+</head>
+
+<body class="mdl-demo mdl-color--white-1000 mdl-color-text--black mdl-base">
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary">
+      <div class="mdl-layout__header-row" id="message-card-header">
+        <img id="bot_icon" src="./static/img/cortana.png" height="30"><span id="bot_heading"></span>
+        <img id="menu_bar" src="./static/img/menu.png" height="30">
+      </div>
+    </header>
+    <main class="mdl-layout__content mdl-color--white" >
+      <div id="messages-card-container" class="mdl-cell mdl-cell--12-col mdl-grid">
+          <!-- Messages container -->
+        <div id="messages-card" class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-cell--6-col-tablet mdl-cell--6-col-desktop">
+          <div class="mdl-card__supporting-text mdl-color-text--grey-600">
+
+            <!-- <div id="messages">
+            </div>
+          -->
+          
+            <div class="mdl-grid">
+              <div id="p2" class="mdl-cell mdl-cell--12-col mdl-cell-8-col-tablet mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
+            </div>
+
+              <div  id="belowtext">
+                <ul id="recordingslist" ></ul>
+              <form id="message-form" action="#">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label parent" style="pointer-events:none">
+                  <input class="textfield__input" type="text" id="q" autocomplete="off" > 
+                  <img id="stt2" style="float:right;margin-top:-52px;pointer-events:all" src="./static/img/mic.gif" alt="disconnected" height="40" />
+                </div>
+              </form>
+              </div>
+
+          </div>
+          <div class="video_stream">
+            <!-- <h3 class="mt-5">Live Streaming</h3> -->
+            <img src="video_feed" width="100%">      
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+  <p><audio id="audio" controls></audio></p>
+  <div class="container">
+    <!-- <div class="row">
+        <div class="col-lg-8  offset-lg-2">
+            <h3 class="mt-5">Live Streaming</h3>
+            <img src="video_feed" width="100%">
+        </div>
+    </div> -->
+</div>
+
+<!-- Speech SDK reference sdk. -->
+<script src="https://aka.ms/csspeech/jsbrowserpackageraw"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+<script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
+<script type="text/javascript" src="./static/scripts/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="./static/scripts/script.js"></script>
+<script type="text/javascript" src="./static/scripts/recorder.js"></script>
+<script type="text/javascript" src="./static/scripts/recordWorker.js"></script>
+</body>
+
+</html>

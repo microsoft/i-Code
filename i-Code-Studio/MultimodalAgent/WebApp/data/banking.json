@@ -1,0 +1,4936 @@
+{
+    "name": "watson-banking-chatbot",
+    "created": "2017-06-12T18:08:50.365Z",
+    "intents": [
+        {
+            "intent": "FundTransfer",
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "examples": [
+                {
+                    "text": "fund transfer",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "I want to transfer funds",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "P2P fund transfer",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "want to transfer money",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                }
+            ],
+            "description": null
+        },
+        {
+            "intent": "define",
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "examples": [
+                {
+                    "text": "define",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "explain",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "tell me about",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "what is a",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "what is meant by",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "what is merchant site",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                }
+            ],
+            "description": null
+        },
+        {
+            "intent": "comparison",
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "examples": [
+                {
+                    "text": "compare the products",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "how are they different",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "how are they similar",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "how is it better than",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "how it is different from",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "in comparison to the other",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "what are the differentiating factor",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                }
+            ],
+            "description": null
+        },
+        {
+            "intent": "Viewtransactions",
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "examples": [
+                {
+                    "text": "can i have a look at my transactions",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "list down by recent transactions",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "provide me an account statement",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "show my transactions",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "view my transactions",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "what are the activities on my account",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "what were my dining expenses",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "what were my expenses",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "what were my transactions",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                }
+            ],
+            "description": null
+        },
+        {
+            "intent": "Excited",
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "examples": [
+                {
+                    "text": "awesome",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "great",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "that is great",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "thats great",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "thats nice",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "wow",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                }
+            ],
+            "description": null
+        },
+        {
+            "intent": "register",
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "examples": [
+                {
+                    "text": "can you help me with the process to register",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "how can i apply",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "how can i register myself",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "how to open an account",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "how to register",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "i want to apply",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "i want to register",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "i want to sign up",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "looking to open an account",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "start a relationship",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "what is the registration process",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                }
+            ],
+            "description": null
+        },
+        {
+            "intent": "accountbalance",
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "examples": [
+                {
+                    "text": "account bal",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "account balance",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "balance in my account",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "credit card balance",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "list down my accounts",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "show all the accounts",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "want to check my acct bal",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "what is my account balance",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "whats the balance on my account",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                }
+            ],
+            "description": null
+        },
+        {
+            "intent": "feedback",
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "examples": [
+                {
+                    "text": "leave a comment",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "post comments",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "post feedback",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "provide a feedback",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "provide feedback",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "provide rating",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                }
+            ],
+            "description": null
+        },
+        {
+            "intent": "Greetings",
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "examples": [
+                {
+                    "text": "Hello",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "Hi",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "Hi how are you",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "how are you",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "Howdy",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                }
+            ],
+            "description": null
+        },
+        {
+            "intent": "Failed",
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "examples": [
+                {
+                    "text": "crashed",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "debited twice",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "did not go through",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "error on page",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "expired",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "failed",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "How do I return the product?",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "is not available",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "i want to return the product",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "My payment did not go through. What do I do?",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "not applied",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "not displayed",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "not loading",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "not received",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "not working",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "out of stock",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "session timed out",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "site is down",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "The product description is different from the display",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "unavailable",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                }
+            ],
+            "description": null
+        },
+        {
+            "intent": "Access",
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "examples": [
+                {
+                    "text": "how can i check",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "how do i check",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "how to select",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "how to use",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "i could not find",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "i need access to",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "not able to access",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "not able to check",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "not able to select",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                }
+            ],
+            "description": null
+        },
+        {
+            "intent": "Forgotpassword",
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "examples": [
+                {
+                    "text": "can you help with password reset",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "how can i reset my password",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "i dont remember my password",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "I forgot my password",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "i need to reset password",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                }
+            ],
+            "description": null
+        },
+        {
+            "intent": "LostCard",
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "examples": [
+                {
+                    "text": "card is lost",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "could you block my card",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "freeze my card",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "loss of my card",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "lost my card",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "my card is stolen",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "need to block my card",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                }
+            ],
+            "description": null
+        },
+        {
+            "intent": "payment",
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "examples": [
+                {
+                    "text": "make a payment",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "make bill payment",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "pay my bills",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "pay my monthly bill",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "pay now",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "pay prepaid bill",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "pay the bill on this",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "pay the last statement balance on",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "recharge my mobile",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                }
+            ],
+            "description": null
+        },
+        {
+            "intent": "nonsense",
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "examples": [
+                {
+                    "text": "ajshajhds",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "are you a fool",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "are you mad",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "buffalo",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "ccc",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "come here",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "hahahah",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "hahahaha",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "hashahah",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "is the sky blue",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "it is bad",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "savings",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "sdjhsjd",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "this is red",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                }
+            ],
+            "description": null
+        },
+        {
+            "intent": "Ok",
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "examples": [
+                {
+                    "text": "allright",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "all right",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "bye",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "cancel",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "cool",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "fine",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "no",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "nope",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "nothing",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "not required",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "ok",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "okay",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "okie",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "thanks",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "thanks a lot",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "thanks for your support",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "Thank you",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "that is fine",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "that was all",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "thx",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "tx",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                }
+            ],
+            "description": null
+        },
+        {
+            "intent": "branchInfo",
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "examples": [
+                {
+                    "text": "are there branches outside India",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "branch details in India",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "could you give me the branch address at Andheri",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "Do we have a branch in new york?",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "help me with branches in andheri",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "is there a branch in cochin",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "i want to visit the nearest branch",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "where are the branches in mumbai",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "which are the branches in US?",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                }
+            ],
+            "description": null
+        },
+        {
+            "intent": "MoreInfo",
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "examples": [
+                {
+                    "text": "could you give more details",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "could you tell me more",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "Could you tell me more about it",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "more details",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "more info",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "more information",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "tell me about it",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                }
+            ],
+            "description": null
+        },
+        {
+            "intent": "representative",
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "examples": [
+                {
+                    "text": "can i speak to someone",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "i need help",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "representative",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "speak to a representative",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "speak to someone",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                }
+            ],
+            "description": null
+        },
+        {
+            "intent": "rnrTerms",
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "examples": [
+                {
+                    "text": "Can FATCA status be updated later?",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "Can I avail 2 Pre-approved Loans",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "Can I enter a mobile number other than the one used for downloading the app.",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "Can I get credit of loan amount in Account other than mentioned on the  screen",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "Can I select my EMI amount?",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "If I Pay some Lumpsum amout ,will my EMI reduce?",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "I have not received any letter asking my confirmation",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "Is the Interest rate  fixed or floating?",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "My mobile camera not working . What to do?",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "What happens if there is a spelling mistake in my name printed on Adhaar card?",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "What if I want loan for higher amount and longer duration?",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "Which Branch do I have to go for signing the documents?",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "Why I am not able to select loan amount below 25000?",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "Why I am not able to select loan tenure below 6 month?",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                }
+            ],
+            "description": null
+        },
+        {
+            "intent": "Addbeneficiary",
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "examples": [
+                {
+                    "text": "add a beneficiary",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "add an account for transferring money",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                }
+            ],
+            "description": null
+        },
+        {
+            "intent": "recommend",
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "examples": [
+                {
+                    "text": "can you recommend",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "looking for a loan",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "looking to purchase",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "suggest me some gifts",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "want to buy",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                },
+                {
+                    "text": "what are the recommendations for",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z"
+                }
+            ],
+            "description": null
+        }
+    ],
+    "updated": "2017-06-12T18:08:50.365Z",
+    "entities": [
+        {
+            "entity": "acknowledgement",
+            "values": [
+                {
+                    "value": "yes",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z",
+                    "metadata": null,
+                    "synonyms": [
+                        "alright",
+                        "sure",
+                        "yeah",
+                        "yep",
+                        "yes",
+                        "yup"
+                    ]
+                },
+                {
+                    "value": "no",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z",
+                    "metadata": null,
+                    "synonyms": [
+                        "cancel",
+                        "ignore",
+                        "ignore that",
+                        "nada",
+                        "neah",
+                        "never mind",
+                        "no",
+                        "nope"
+                    ]
+                }
+            ],
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "description": null
+        },
+        {
+            "entity": "spending_category",
+            "values": [
+                {
+                    "value": "utility",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z",
+                    "metadata": null,
+                    "synonyms": [
+                        "utilities",
+                        "utility"
+                    ]
+                },
+                {
+                    "value": "travel",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z",
+                    "metadata": null,
+                    "synonyms": [
+                        "travel"
+                    ]
+                },
+                {
+                    "value": "investment",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z",
+                    "metadata": null,
+                    "synonyms": [
+                        "investment",
+                        "investments"
+                    ]
+                },
+                {
+                    "value": "grocery",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z",
+                    "metadata": null,
+                    "synonyms": [
+                        "groceries",
+                        "grocery"
+                    ]
+                },
+                {
+                    "value": "fuel",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z",
+                    "metadata": null,
+                    "synonyms": [
+                        "fuel"
+                    ]
+                },
+                {
+                    "value": "education",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z",
+                    "metadata": null,
+                    "synonyms": [
+                        "college",
+                        "education",
+                        "school"
+                    ]
+                },
+                {
+                    "value": "dining",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z",
+                    "metadata": null,
+                    "synonyms": [
+                        "dining",
+                        "dinner",
+                        "food"
+                    ]
+                }
+            ],
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "description": null
+        },
+        {
+            "entity": "option",
+            "values": [
+                {
+                    "value": "payment",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z",
+                    "metadata": null,
+                    "synonyms": [
+                        "payment methods",
+                        "payment option"
+                    ]
+                },
+                {
+                    "value": "gift",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z",
+                    "metadata": null,
+                    "synonyms": [
+                        "gift",
+                        "gifts"
+                    ]
+                },
+                {
+                    "value": "financing",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z",
+                    "metadata": null,
+                    "synonyms": [
+                        "financing option"
+                    ]
+                },
+                {
+                    "value": "EMI",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z",
+                    "metadata": null,
+                    "synonyms": [
+                        "EMI",
+                        "monthly installment"
+                    ]
+                }
+            ],
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "description": null
+        },
+        {
+            "entity": "quantity",
+            "values": [
+                {
+                    "value": "moretwo",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z",
+                    "metadata": null,
+                    "synonyms": [
+                        "2 or more",
+                        "greater than 2",
+                        "greater than two",
+                        "more than 2",
+                        "more than two",
+                        "two or more"
+                    ]
+                }
+            ],
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "description": null
+        },
+        {
+            "entity": "account_type",
+            "values": [
+                {
+                    "value": "wishlist",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z",
+                    "metadata": null,
+                    "synonyms": [
+                        "wishlist",
+                        "wish list"
+                    ]
+                },
+                {
+                    "value": "savings",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z",
+                    "metadata": null,
+                    "synonyms": [
+                        "sav",
+                        "saving",
+                        "savings"
+                    ]
+                },
+                {
+                    "value": "preloan",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z",
+                    "metadata": null,
+                    "synonyms": [
+                        "pre approved loan",
+                        "pre-approved loan",
+                        "preapproved loan"
+                    ]
+                },
+                {
+                    "value": "persloan",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z",
+                    "metadata": null,
+                    "synonyms": [
+                        "personal loan"
+                    ]
+                },
+                {
+                    "value": "OMP",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z",
+                    "metadata": null,
+                    "synonyms": [
+                        "market place",
+                        "OMP",
+                        "online market place",
+                        "platform",
+                        "portal",
+                        "website"
+                    ]
+                },
+                {
+                    "value": "merchant",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z",
+                    "metadata": null,
+                    "synonyms": [
+                        "merchant",
+                        "merchants"
+                    ]
+                },
+                {
+                    "value": "investment",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z",
+                    "metadata": null,
+                    "synonyms": [
+                        "demat",
+                        "investment",
+                        "mutual fund",
+                        "mutual funds"
+                    ]
+                },
+                {
+                    "value": "homeloan",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z",
+                    "metadata": null,
+                    "synonyms": [
+                        "home financing",
+                        "home loan",
+                        "home loans",
+                        "housing loan"
+                    ]
+                },
+                {
+                    "value": "FD",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z",
+                    "metadata": null,
+                    "synonyms": [
+                        "FD",
+                        "fixed",
+                        "fixed deposit"
+                    ]
+                },
+                {
+                    "value": "current",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z",
+                    "metadata": null,
+                    "synonyms": [
+                        "curr",
+                        "current"
+                    ]
+                },
+                {
+                    "value": "CC",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z",
+                    "metadata": null,
+                    "synonyms": [
+                        "credit",
+                        "credit card"
+                    ]
+                },
+                {
+                    "value": "carloan",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z",
+                    "metadata": null,
+                    "synonyms": [
+                        "auto loan",
+                        "car loan"
+                    ]
+                },
+                {
+                    "value": "beneficiary",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z",
+                    "metadata": null,
+                    "synonyms": [
+                        "beneficiary",
+                        "linked"
+                    ]
+                },
+                {
+                    "value": "autodebit",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z",
+                    "metadata": null,
+                    "synonyms": [
+                        "auto debit",
+                        "autopay",
+                        "auto pay"
+                    ]
+                }
+            ],
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "description": null
+        },
+        {
+            "entity": "features",
+            "values": [
+                {
+                    "value": "service",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z",
+                    "metadata": null,
+                    "synonyms": [
+                        "features",
+                        "services"
+                    ]
+                },
+                {
+                    "value": "search",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z",
+                    "metadata": null,
+                    "synonyms": [
+                        "search"
+                    ]
+                },
+                {
+                    "value": "product",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z",
+                    "metadata": null,
+                    "synonyms": [
+                        "product",
+                        "products"
+                    ]
+                },
+                {
+                    "value": "offer",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z",
+                    "metadata": null,
+                    "synonyms": [
+                        "deals",
+                        "offer",
+                        "offers"
+                    ]
+                },
+                {
+                    "value": "filter",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z",
+                    "metadata": null,
+                    "synonyms": [
+                        "filter"
+                    ]
+                },
+                {
+                    "value": "discount",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z",
+                    "metadata": null,
+                    "synonyms": [
+                        "discount",
+                        "discounts"
+                    ]
+                },
+                {
+                    "value": "coupon",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z",
+                    "metadata": null,
+                    "synonyms": [
+                        "coupon",
+                        "coupons"
+                    ]
+                }
+            ],
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "description": null
+        },
+        {
+            "entity": "profession",
+            "values": [
+                {
+                    "value": "Working",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z",
+                    "metadata": null,
+                    "synonyms": [
+                        "job",
+                        "service",
+                        "working",
+                        "working professional"
+                    ]
+                },
+                {
+                    "value": "Business",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z",
+                    "metadata": null,
+                    "synonyms": [
+                        "business",
+                        "business person",
+                        "own business"
+                    ]
+                }
+            ],
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "description": null
+        },
+        {
+            "entity": "number",
+            "values": [
+                {
+                    "value": "5",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z",
+                    "metadata": null,
+                    "synonyms": [
+                        "5",
+                        "five"
+                    ]
+                }
+            ],
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "description": null
+        },
+        {
+            "entity": "name",
+            "values": [
+                {
+                    "value": "Ramesh",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z",
+                    "metadata": null,
+                    "synonyms": [
+                        "ramesh"
+                    ]
+                },
+                {
+                    "value": "Rajesh",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z",
+                    "metadata": null,
+                    "synonyms": []
+                }
+            ],
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "description": null
+        },
+        {
+            "entity": "merchant",
+            "values": [
+                {
+                    "value": "mobile",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z",
+                    "metadata": null,
+                    "synonyms": [
+                        "mobile",
+                        "phone"
+                    ]
+                },
+                {
+                    "value": "electricity",
+                    "created": "2017-06-12T18:08:50.365Z",
+                    "updated": "2017-06-12T18:08:50.365Z",
+                    "metadata": null,
+                    "synonyms": [
+                        "electric",
+                        "electricity"
+                    ]
+                }
+            ],
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "description": null
+        }
+    ],
+    "language": "en",
+    "metadata": {
+        "runtime_version": "2016-09-20"
+    },
+    "description": "A cognitive banking chatbot",
+    "dialog_nodes": [
+        {
+            "go_to": null,
+            "title": null,
+            "output": {},
+            "parent": null,
+            "context": {
+                "action": {
+                    "lookup": "rnr",
+                    "append_response": true
+                }
+            },
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "#rnrTerms",
+            "description": null,
+            "dialog_node": "node_1_1488883006547",
+            "previous_sibling": "node_2_1474539409488"
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {},
+            "parent": "node_10_1488860595968",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "@account_type:homeloan",
+            "description": null,
+            "dialog_node": "home loan",
+            "previous_sibling": "node_1_1477407152137"
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {},
+            "parent": "node_17_1486271988644",
+            "context": {
+                "action": {
+                    "lookup": "rnr",
+                    "append_response": true
+                }
+            },
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "true",
+            "description": null,
+            "dialog_node": "node_12_1486282881154",
+            "previous_sibling": "node_1_1475665943188"
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {},
+            "parent": "node_8_1488858811196",
+            "context": {
+                "action": {
+                    "lookup": "rnr",
+                    "append_response": true
+                }
+            },
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "true",
+            "description": null,
+            "dialog_node": "node_4_1486270723000",
+            "previous_sibling": "node_2_1486275845700"
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": "Alright, what is the loan amount you are looking for?"
+            },
+            "parent": "home loan",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "@acknowledgement:yes || $res=='YES'",
+            "description": null,
+            "dialog_node": "node_6_1477061588435",
+            "previous_sibling": "node_4_1488383770630"
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": "Alright, which of the following would you like to enroll?\n1. Mobile/Telephone \n2. Electricity \n3. Insurance Premium \n4. Credit Card \n5. Gas (Mahanagar Gas Ltd)"
+            },
+            "parent": "node_1_1475665943188",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "@acknowledgement:yes || $res=='YES'",
+            "description": null,
+            "dialog_node": "node_4_1477061147991",
+            "previous_sibling": null
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": "Alright, which payment would you like to make?  <br>1. Credit card <br>2. Mobile bill  <br>3. Electricity bill"
+            },
+            "parent": "node_2_1470163854173",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "true",
+            "description": null,
+            "dialog_node": "node_9_1488862187158",
+            "previous_sibling": "node_33_1488721904983"
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": "Auto Debit is a feature through which you can pay your bills automatically. Would you like to enroll for Auto Debit? <br> <input type=\"submit\"  class=\"btn-primary\" onclick=\"accounType('YES')\" value=\"Yes\" />   <input type=\"submit\"  class=\"btn-primary\"  onclick=\"accounType('NO')\"   value=\"No\" />"
+            },
+            "parent": "node_17_1486271988644",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "@account_type:autodebit",
+            "description": null,
+            "dialog_node": "node_1_1475665943188",
+            "previous_sibling": "node_23_1486272574689"
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": "Great, we offer car loans at interest rates varying from 10 to 11% as per various plans.  Would you like to know more? <br> <input type=\"submit\"  class=\"btn-primary\" onclick=\"accounType('YES')\" value=\"Yes, Interested\" />   <input type=\"submit\"  class=\"btn-primary\"  onclick=\"accounType('NO')\"   value=\"Later\" />"
+            },
+            "parent": "node_10_1488860595968",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "@account_type:carloan",
+            "description": null,
+            "dialog_node": "node_1_1477407152137",
+            "previous_sibling": "node_1_1484397808360"
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": "Great! You can find more information and apply online. <a href=\"http://ibm.com/\" target=_blank>here</a>"
+            },
+            "parent": "node_2_1477407239045",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "@acknowledgement:yes || $res=='More details'",
+            "description": null,
+            "dialog_node": "node_3_1477407516470",
+            "previous_sibling": null
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": "Hello, how can I help you?"
+            },
+            "parent": null,
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "#Greetings",
+            "description": null,
+            "dialog_node": "node_2_1474539409488",
+            "previous_sibling": "node_2_1491888443713"
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": "Here is a list of your accounts."
+            },
+            "parent": "node_4_1488814113326",
+            "context": {
+                "action": {
+                    "lookup": "balance",
+                    "account_type": "all",
+                    "append_response": true
+                }
+            },
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "true",
+            "description": null,
+            "dialog_node": "node_13_1470165424141",
+            "previous_sibling": "node_4_1470936987501"
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": "I do not recognise this as an account. Please select one of the provided options."
+            },
+            "parent": "node_9_1488862187158",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "true",
+            "description": null,
+            "dialog_node": "node_2_1472263451798",
+            "previous_sibling": "node_13_1488862323684"
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": "Okay, a one-time passcode has been sent to your mobile phone. Please enter the code."
+            },
+            "parent": "node_4_1470163952252",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "@acknowledgement:yes || $res=='YES'",
+            "description": null,
+            "dialog_node": "node_1_1470264172965",
+            "previous_sibling": null
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": "Okay, cancelled."
+            },
+            "parent": "node_4_1470163952252",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "@acknowledgement:no || $res=='NO'",
+            "description": null,
+            "dialog_node": "node_19_1470168688145",
+            "previous_sibling": "node_1_1470264172965"
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": "Ok, let me find a better option for you. I have noticed you already have an Fixed deposit account, so why not apply for a loan against FD? <br> <input type=\"submit\"  class=\"btn-primary\" onclick=\"accounType('More details')\" value=\"More details\" />   <input type=\"submit\"  class=\"btn-primary\"  onclick=\"accounType('Not interested')\"   value=\"Not interested\" />"
+            },
+            "parent": "node_1_1477407152137",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "$res=='NO' || @acknowledgement:no",
+            "description": null,
+            "dialog_node": "node_1_1477467944657",
+            "previous_sibling": null
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": "Ok, thank you."
+            },
+            "parent": "home loan",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "@acknowledgement:no",
+            "description": null,
+            "dialog_node": "node_7_1477061727761",
+            "previous_sibling": "node_6_1477061588435"
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": "Ok, thank you. What else can I help you with?"
+            },
+            "parent": "node_1_1475665943188",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "@acknowledgement:no || $res=='NO'",
+            "description": null,
+            "dialog_node": "node_5_1477061442047",
+            "previous_sibling": "node_4_1477061147991"
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": "Please enter your consumer number."
+            },
+            "parent": "node_4_1477061147991",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "5",
+            "description": null,
+            "dialog_node": "node_1_1477301312385",
+            "previous_sibling": null
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": "Please enter your monthly billing date."
+            },
+            "parent": "node_1_1477301312385",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "123456 || 654321",
+            "description": null,
+            "dialog_node": "Consumer Number",
+            "previous_sibling": null
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": "Please select your account.<br> <input type=\"submit\"  class=\"btn-primary\" onclick=\"accounType('Savings')\" value=\"Savings xxxxxx2134\" />   <input type=\"submit\"  class=\"btn-primary\"  onclick=\"accounType('Credit')\"   value=\"Credit xxxxxx4356\" />"
+            },
+            "parent": "Consumer Number",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "15 || 1 || 5",
+            "description": null,
+            "dialog_node": "node_1_1488522246431",
+            "previous_sibling": null
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": "Sure, let me get you to someone who can help."
+            },
+            "parent": null,
+            "context": {
+                "action": {
+                    "directToLiveAgent": true
+                }
+            },
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "#representative",
+            "description": null,
+            "dialog_node": "node_3_1471993307369",
+            "previous_sibling": "node_8_1470165051121"
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": "Thanks for your interest. Based on your account history, you are eligible for home loan of Rs 10 lakhs to Rs 40 lakhs for a tenure of 5 to 20 years. You can complete your application instantly via Aadhaar based eKYC and eSign process. Do you want to proceed? <br> <input type=\"submit\"  class=\"btn-primary\" onclick=\"showModal()\" value=\"Yes\" />   <input type=\"submit\"  class=\"btn-primary\"  onclick=\"accounType('NO')\"   value=\"No\" />"
+            },
+            "parent": "node_6_1477061588435",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "3000000",
+            "description": null,
+            "dialog_node": "node_1_1479300011534",
+            "previous_sibling": null
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": "Thanks, your payment has been successfully submitted.<br>Anything else I can help you with?"
+            },
+            "parent": "node_1_1470264172965",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "input_text=='1234'",
+            "description": null,
+            "dialog_node": "OTP message",
+            "previous_sibling": null
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": "Thank you for banking with us. We have received your request for registration for MGL Ltd. This will be activated in netbanking after 12 hours and then sent to the biller for verification. You will receive our electronic bill from billing cycle after we receive biller confirmation."
+            },
+            "parent": "node_1_1488522246431",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "$res=='Savings' || $res=='Credit' || @account_type:savings || @account_type:(credit card)",
+            "description": null,
+            "dialog_node": "node_2_1477309376535",
+            "previous_sibling": null
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": "The one-time passcode entered is incorrect. Please try again."
+            },
+            "parent": "node_1_1470264172965",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "true",
+            "description": null,
+            "dialog_node": "node_2_1477060382099",
+            "previous_sibling": "OTP message"
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": "You can avail of a loan against FD at 8.15% which is much lower than a normal car loan at 9.6%. Would you like to proceed with this? <br> <input type=\"submit\"  class=\"btn-primary\" onclick=\"accounType('YES')\" value=\"Yes\" />   <input type=\"submit\"  class=\"btn-primary\"  onclick=\"accounType('NO')\"   value=\"No\" />"
+            },
+            "parent": "node_1_1477467944657",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "#MoreInfo || $res=='YES' && @acknowledgement:yes || #Ok",
+            "description": null,
+            "dialog_node": "node_2_1477407239045",
+            "previous_sibling": null
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": "Your balance for <? $accounts.get(0).type ?>  account    <?$accounts.get(0).number ?> is <? $accounts.get(0).balance ?>"
+            },
+            "parent": "node_4_1470936987501",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "$accounts && $accounts.get(0) && $accounts.get(0).type != 'CC' && @account_type != 'CC'",
+            "description": null,
+            "dialog_node": "node_1_1471096462470",
+            "previous_sibling": "node_8_1471019524106"
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": "Your balance on <? $accounts.get(0).type ?> account <? $accounts.get(0).number ?> is <? $accounts.get(0).balance ?>. <br/> Available credit: <? $accounts.get(0).available_credit ?> <br/> Last statement balance: <? $accounts.get(0).last_statement_balance ?> <br/>Payment due date: <? $accounts.get(0).payment_due_date ?>"
+            },
+            "parent": "node_4_1470936987501",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "$accounts && $accounts.get(0) && $accounts.get(0).type == 'CC' && @account_type:CC",
+            "description": null,
+            "dialog_node": "node_8_1471019524106",
+            "previous_sibling": null
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        ""
+                    ]
+                }
+            },
+            "parent": "node_2_1491888443713",
+            "context": {
+                "action": {
+                    "lookup": "branch",
+                    "Location": "<?$Location?>",
+                    "append_response": true
+                }
+            },
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "$Location",
+            "description": null,
+            "dialog_node": "node_3_1491888457649",
+            "previous_sibling": null
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "Alright, should I make a payment of statement balance <? $accounts.get(0).last_statement_balance ?> to your <? $accounts.get(0).type ?> account <? $accounts.get(0).number ?>.<br> <input type=\"submit\"  class=\"btn-primary\" onclick=\"accounType('YES')\" value=\"Yes\" />   <input type=\"submit\"  class=\"btn-primary\"  onclick=\"accounType('NO')\"   value=\"No\" />"
+                    ]
+                }
+            },
+            "parent": "node_9_1471039584461",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "$accounts && $accounts.get(0).type == 'CC' && $accounts.get(0).payment_due_date != ''",
+            "description": null,
+            "dialog_node": "node_4_1470163952252",
+            "previous_sibling": null
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "Here are your recent @spending_category transactions. "
+                    ]
+                }
+            },
+            "parent": "node_6_1488814238117",
+            "context": {
+                "action": {
+                    "lookup": "transactions",
+                    "category": "@spending_category",
+                    "append_total": true,
+                    "append_response": true
+                }
+            },
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "@spending_category",
+            "description": null,
+            "dialog_node": "node_2_1471282666366",
+            "previous_sibling": null
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "Here are your transactions. "
+                    ]
+                }
+            },
+            "parent": "node_2_1488797075160",
+            "context": {
+                "action": {
+                    "enddt": "<? input_text  ?>",
+                    "lookup": "transactions",
+                    "category": "all",
+                    "append_total": false,
+                    "append_response": true
+                }
+            },
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "1",
+            "description": null,
+            "dialog_node": "node_3_1488798657579",
+            "previous_sibling": null
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "Hi! Welcome to Open Finance Bank. How can I help you today?"
+                    ]
+                }
+            },
+            "parent": "node_8_1470165051121",
+            "context": {
+                "default_counter": 0
+            },
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "true",
+            "description": null,
+            "dialog_node": "node_3_1486276631413",
+            "previous_sibling": "node_1_1488552156109"
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "Oh, I am so sorry. Let me get you to someone who can help. You will receive a call shortly from the support team. Have a nice day."
+                    ]
+                }
+            },
+            "parent": null,
+            "context": {
+                "action": {
+                    "directToLiveAgent": true
+                }
+            },
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "$tone_anger_score && $person.tone_anger_threshold && $tone_anger_score > $person.tone_anger_threshold",
+            "description": null,
+            "dialog_node": "node_2_1488553222639",
+            "previous_sibling": "node_3_1471993307369"
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "OK, it was nice interacting with you."
+                    ]
+                }
+            },
+            "parent": "node_4_1488686173932",
+            "context": {
+                "default_counter": 0
+            },
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "$default_counter>1",
+            "description": null,
+            "dialog_node": "node_3_1484321114873",
+            "previous_sibling": null
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "Please enter the end date. "
+                    ]
+                }
+            },
+            "parent": "node_1_1488796982033",
+            "context": {
+                "action": {
+                    "startdt": "<? input_text  ?>"
+                }
+            },
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "1",
+            "description": null,
+            "dialog_node": "node_2_1488797075160",
+            "previous_sibling": null
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "You are welcome! What else can I help you with?"
+                    ]
+                }
+            },
+            "parent": "node_4_1488686173932",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "true",
+            "description": null,
+            "dialog_node": "node_2_1484321068740",
+            "previous_sibling": "node_3_1484321114873"
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "alright, any more queries?"
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": "node_1_1488522246431",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "@acknowledgement:no",
+            "description": null,
+            "dialog_node": "node_10_1484423047425",
+            "previous_sibling": "node_2_1477309376535"
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "Alright, any other queries?"
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": "node_1_1477467944657",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "@acknowledgement:no || $res=='NO'",
+            "description": null,
+            "dialog_node": "node_15_1484424245633",
+            "previous_sibling": "node_2_1477407239045"
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "Alright, any other queries?"
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": "node_2_1477407239045",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "@acknowledgement:no || $res=='Not interested'",
+            "description": null,
+            "dialog_node": "node_13_1484423469313",
+            "previous_sibling": "node_3_1477407516470"
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "Alright, any other queries?"
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": "node_7_1484422796024",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "@acknowledgement:no",
+            "description": null,
+            "dialog_node": "node_11_1484423113359",
+            "previous_sibling": "node_8_1484422827753"
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "Alright, anything else I can help you with?"
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": "node_16_1488862443960",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "@acknowledgement:no",
+            "description": null,
+            "dialog_node": "node_15_1488862411266",
+            "previous_sibling": "node_11_1488689243684"
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "Alright, anything else I can help you with?"
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": "node_2_1472263451798",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "@acknowledgement:no",
+            "description": null,
+            "dialog_node": "node_11_1488862283858",
+            "previous_sibling": "node_47_1488725563664"
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "Alright, anything else I can help you with?"
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": "node_7_1488687293538",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "@acknowledgement:no",
+            "description": null,
+            "dialog_node": "node_18_1488862776558",
+            "previous_sibling": "node_9_1488687653575"
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "Alright, anything else I can help you with?"
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": "node_9_1488862187158",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "@acknowledgement:no",
+            "description": null,
+            "dialog_node": "node_13_1488862323684",
+            "previous_sibling": "node_3_1488553866032"
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "Alright, anything else I can help you with?"
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": "node_5_1488686661668",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "@acknowledgement:no",
+            "description": null,
+            "dialog_node": "node_19_1488862819401",
+            "previous_sibling": "node_7_1488687293538"
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "Alright, I have sent a one-time passcode to you. Please enter the code."
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": "node_7_1488687293538",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "input_text <='20000'",
+            "description": null,
+            "dialog_node": "node_9_1488687653575",
+            "previous_sibling": "node_1_1492426752086"
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "Alright, please enter the customer account number."
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": "node_2_1470163854173",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "@merchant:electricity",
+            "description": null,
+            "dialog_node": "node_21_1488701944999",
+            "previous_sibling": "node_9_1471039584461"
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "Alright, we would require your PAN card number for any transaction higher than 20000. Please enter your PAN number."
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": "node_7_1488687293538",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "input_text > '20000'",
+            "description": null,
+            "dialog_node": "node_1_1492426752086",
+            "previous_sibling": null
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "Alright, what else can I help you with?"
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": "node_1_1479300011534",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "@acknowledgement:no || $res=='NO'",
+            "description": null,
+            "dialog_node": "node_5_1484302563379",
+            "previous_sibling": "node_2_1479300155087"
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "Alright, what else can I help you with?"
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": "node_2_1492588643560",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "@acknowledgement:no",
+            "description": null,
+            "dialog_node": "node_6_1492588699519",
+            "previous_sibling": "node_4_1492588676901"
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "A one-time passcode has been sent to your mobile. Please enter the code."
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": "node_34_1488722058908",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "1000",
+            "description": null,
+            "dialog_node": "node_35_1488722085081",
+            "previous_sibling": null
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "Click here to check eligibility"
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": "node_8_1488858811196",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "@account_type:preloan",
+            "description": null,
+            "dialog_node": "node_26_1486269385463",
+            "previous_sibling": "node_24_1486267465775"
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "Do you want to sign up for Savings account / Credit card / Fixed Deposits?"
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": "node_11_1488861036277",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "true",
+            "description": null,
+            "dialog_node": "node_2_1488861508413",
+            "previous_sibling": "node_1_1488861487981"
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "For app related feedback/comments/ratings you can do it on Google Play/Apple iStore. (Product related feedback will come in detail in later phase)."
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": null,
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "#feedback",
+            "description": null,
+            "dialog_node": "node_2_1486270517039",
+            "previous_sibling": "node_2_1470163854173"
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "Here are some gifts based on our recommendation. <br>  <div class=\"block\"><div class=\"product\" ><a href=\"https://www.flipkart.com\" target=\"_blank\"><div class=\"image\"><div class=\"p1\"> </div></div><h4 class=\"title text-left\">Titan Watch</h4><div class=\"\"> <span >9000</span></div></a></div><div class=\"product\" ><a href=\"https://www.flipkart.com\" target=\"_blank\"><div class=\"image\"><div class=\"p1\"></div></div><h4 class=\"title text-left\">Samsung Mobile</h4><div class=\"\"> <span >12000</span></div></a></div></div> <br> You can find more offers at  <a href=\"https://www.flipkart.com\" target=\"_blank\">here</a>"
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": "node_10_1488860595968",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "@option:gift || $res=='Suggest Gifts'",
+            "description": null,
+            "dialog_node": "node_1_1484397808360",
+            "previous_sibling": null
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "Here are your recent 5 transactions."
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": "node_6_1488814238117",
+            "context": {
+                "action": {
+                    "lookup": "5transactions",
+                    "category": "all",
+                    "append_total": false,
+                    "append_response": true
+                }
+            },
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "@number:5",
+            "description": null,
+            "dialog_node": "5 transactions",
+            "previous_sibling": "node_2_1471282666366"
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "Hi, I'm Watson. Welcome to Open Financial Bank. You have some notifications. Want to have a look? <br> <input type=\"submit\"  class=\"btn-primary\" onclick=\"accounType('YES')\" value=\"Yes\" />   <input type=\"submit\"  class=\"btn-primary\"  onclick=\"accounType('NO')\"   value=\"No\" />"
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": "node_8_1470165051121",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "$person",
+            "description": null,
+            "dialog_node": "node_1_1488552156109",
+            "previous_sibling": null
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "I can help you with home loan/car loan or some gifts from the online market place."
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": "node_10_1488860595968",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "true",
+            "description": null,
+            "dialog_node": "node_8_1488862118721",
+            "previous_sibling": "home loan"
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "I can help you with that. Please enter your account number."
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": null,
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "#Forgotpassword",
+            "description": null,
+            "dialog_node": "node_29_1488702854322",
+            "previous_sibling": "node_4_1488686173932"
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "I understand you want to compare something, say products, offers or services?"
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": "node_1_1488370289351",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "true",
+            "description": null,
+            "dialog_node": "node_13_1486283226711",
+            "previous_sibling": "node_14_1486271085842"
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "Oh, sorry to hear that. Following are the options to block your card. Log on to ibm.com and instantly block your card by clicking on ‘Block Lost/Stolen Card’ or SMS BLOCK XXXX to 5676791 from your registered mobile no. (XXXX = Last 4 digits of your IBM Card) or call 1800 180 1290."
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": null,
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "#LostCard",
+            "description": null,
+            "dialog_node": "node_3_1484301409368",
+            "previous_sibling": "node_29_1488702854322"
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "OK, how may I assist you today?"
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": "node_1_1488552156109",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "@acknowledgement:no || $res=='NO'",
+            "description": null,
+            "dialog_node": "node_19_1484426035648",
+            "previous_sibling": "node_16_1484424880569"
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "OK, thanks, how can I help you?"
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": "node_2_1488861508413",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "@acknowledgement:no",
+            "description": null,
+            "dialog_node": "node_7_1488861714076",
+            "previous_sibling": "node_5_1488861632665"
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "·Online Shopping, Offers, Preapproved Loans, Book now, Reward Redemption, Wallet, Gifting, B2B financing, etc.  You can shop for a whole world of products from various categories."
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": "node_17_1486271988644",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "@features:product || @features:service || @features:offer",
+            "description": null,
+            "dialog_node": "node_23_1486272574689",
+            "previous_sibling": null
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "Payment options like Credit cards, Debit Cards, Internet banking etc. will be available on the merchants’ payment page"
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": "node_8_1488858811196",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "@option:payment",
+            "description": null,
+            "dialog_node": "node_2_1486275845700",
+            "previous_sibling": "node_25_1486267658814"
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "Please click <a href=\"https://ibm.com\" target=\"_blank\">here</a> to apply for a Credit Card"
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": "node_11_1488861036277",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "@account_type:CC",
+            "description": null,
+            "dialog_node": "node_13_1488861278433",
+            "previous_sibling": "node_12_1488861096661"
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "Please click <a href=\"https://ibm.com\" target=\"_blank\">here</a> to open a Fixed Deposit"
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": "node_11_1488861036277",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "@account_type:FD",
+            "description": null,
+            "dialog_node": "node_1_1488861487981",
+            "previous_sibling": "node_13_1488861278433"
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "Please click <a href=\"http://www.ideacellular.com/\" target=\"_blank\">here</a> for the account opening process"
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": "node_11_1488861036277",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "@account_type:savings",
+            "description": null,
+            "dialog_node": "node_12_1488861096661",
+            "previous_sibling": "node_2_1492588643560"
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "Please click on the \"Yes\" button above."
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": "node_1_1479300011534",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "@acknowledgement:yes || $res=='YES'",
+            "description": null,
+            "dialog_node": "node_2_1479300155087",
+            "previous_sibling": null
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "Please click \"Yes\" button above."
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": "node_2_1492588643560",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "@acknowledgement:yes",
+            "description": null,
+            "dialog_node": "node_4_1492588676901",
+            "previous_sibling": null
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "Please confirm with a yes or no confirmation."
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": "home loan",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "true",
+            "description": null,
+            "dialog_node": "node_4_1484321533426",
+            "previous_sibling": "node_7_1477061727761"
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "Please contact merchant Customer Care for refund/delivery/order status"
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": "node_8_1488858811196",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "@features:status",
+            "description": null,
+            "dialog_node": "node_25_1486267658814",
+            "previous_sibling": "node_26_1486269385463"
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "Please contact the Merchant Customer Care for queries related to payment and product."
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": "node_5_1486279608967",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "@features:product || @option:payment || @account_type:merchant",
+            "description": null,
+            "dialog_node": "node_10_1486280199008",
+            "previous_sibling": "node_7_1486279676925"
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "Please enter a valid PAN number."
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": "node_1_1492426752086",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "true",
+            "description": null,
+            "dialog_node": "node_11_1492429161945",
+            "previous_sibling": "node_3_1492427252795"
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "Please enter the amount."
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": "node_21_1488701944999",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "input_text='1001'",
+            "description": null,
+            "dialog_node": "node_22_1488702094291",
+            "previous_sibling": null
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "Please enter the amount that you wish to transfer."
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": "node_5_1488686661668",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "@name:Rajesh || @name:Ramesh",
+            "description": null,
+            "dialog_node": "node_7_1488687293538",
+            "previous_sibling": null
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "Please enter the recharge amount."
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": "node_33_1488721904983",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "1",
+            "description": null,
+            "dialog_node": "node_34_1488722058908",
+            "previous_sibling": null
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "Your credit card payment is pending.<br> <input type=\"submit\"  class=\"btn-primary\" onclick=\"accounType('pay credit card')\" value=\"Pay Now\" />  <br> <br>Tomorrow is your wife's birthday.<input type=\"submit\"  class=\"btn-primary\" onclick=\"accounType('Suggest Gift')\" value=\"Suggest Gifts\" />"
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": "node_1_1488552156109",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "@acknowledgement:yes || $res=='YES'",
+            "description": null,
+            "dialog_node": "node_16_1484424880569",
+            "previous_sibling": null
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "Please refer to merchant portal to track transaction history, failed transactions, refund etc."
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": "node_5_1486279608967",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "@activity:transaction",
+            "description": null,
+            "dialog_node": "node_11_1486280291130",
+            "previous_sibling": "node_10_1486280199008"
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "Please refer to Merchant website for exchange offers. To avail offer, please select Go to offer, Browse / search offer / select offer and check offer details."
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": "node_8_1488858811196",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "@features:offer",
+            "description": null,
+            "dialog_node": "node_24_1486267465775",
+            "previous_sibling": null
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "Please select either Savings or Credit Card.<br> <input type=\"submit\"  class=\"btn-primary\" onclick=\"accounType('Savings')\" value=\"Savings xxxxxx2134\" />   <input type=\"submit\"  class=\"btn-primary\"  onclick=\"accounType('Credit')\"   value=\"Credit xxxxxx4356\" />"
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": "node_1_1488522246431",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "true",
+            "description": null,
+            "dialog_node": "node_7_1484422796024",
+            "previous_sibling": "node_10_1484423047425"
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "Please select the service provider 1. Idea 2. Vodafone 3. Airtel 4. Reliance"
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": "node_2_1470163854173",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "@merchant:mobile",
+            "description": null,
+            "dialog_node": "node_33_1488721904983",
+            "previous_sibling": "node_21_1488701944999"
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "Please select Yes or No <br> <input type=\"submit\"  class=\"btn-primary\" onclick=\"accounType('YES')\" value=\"Yes\" />   <input type=\"submit\"  class=\"btn-primary\"  onclick=\"accounType('NO')\"   value=\"No\" />"
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": "node_1_1475665943188",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "true",
+            "description": null,
+            "dialog_node": "node_3_1484421385505",
+            "previous_sibling": "node_5_1477061442047"
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "Please try adding your product again to the wishlist. If the issue persists, please mail your queries to …….@ibm.co.in"
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": "node_5_1486279608967",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "@features:product && @account_type:wishlist",
+            "description": null,
+            "dialog_node": "node_6_1486279642422",
+            "previous_sibling": null
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "Sorry but I do not recognise this as valid beneficiary name. Please try again."
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": "node_5_1488686661668",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "true",
+            "description": null,
+            "dialog_node": "node_16_1488862443960",
+            "previous_sibling": "node_19_1488862819401"
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "Sorry, I cannot understand that. Please rephrase the question."
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": null,
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "anything_else || #nonsense",
+            "description": null,
+            "dialog_node": "node_1_1484307980085",
+            "previous_sibling": "node_1_1488883006547"
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "Sorry the one-time passcode entered was incorrect. We have sent a new one. Please enter the new code."
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": "node_37_1488722201463",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "true",
+            "description": null,
+            "dialog_node": "node_39_1488722251857",
+            "previous_sibling": "node_38_1488722226209"
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "Sorry the one-time passcode entered is incorrect. We have sent a new one. Please enter the new code."
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": "node_25_1488702201751",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "true",
+            "description": null,
+            "dialog_node": "node_27_1488702354021",
+            "previous_sibling": "node_26_1488702330203"
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "Sorry, the one-time passcode entered is not correct. Please try again."
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": "node_3_1492427252795",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "anything_else",
+            "description": null,
+            "dialog_node": "node_4_1492427282742",
+            "previous_sibling": "node_10_1488688903577"
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "Sorry the one-time passcode is not correct. Please try again."
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": "node_23_1488702139008",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "true",
+            "description": null,
+            "dialog_node": "node_25_1488702201751",
+            "previous_sibling": "node_24_1488702185350"
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "Sorry, the one-time passcode is not correct. We have sent a new one to your mobile. Please enter the new code."
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": "node_2_1477060382099",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "true",
+            "description": null,
+            "dialog_node": "node_31_1488713108247",
+            "previous_sibling": "node_30_1488713081771"
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "Sorry, the one-time passcode is not correct. We have sent a new one. Please enter the new code."
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": "node_4_1492427282742",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "true",
+            "description": null,
+            "dialog_node": "node_40_1488722397804",
+            "previous_sibling": "node_16_1488689741008"
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "Sure, I can help you transfer money. Here are your linked accounts. <br> Ramesh xxxxxx1234 <br> Rajesh xxxxxx4321 <br> Please enter the beneficiary account name to which you want to transfer."
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": null,
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "#FundTransfer",
+            "description": null,
+            "dialog_node": "node_5_1488686661668",
+            "previous_sibling": "node_2_1488553222639"
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "Sure, let me know in which city are you looking for a branch."
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": "node_2_1491888443713",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "true",
+            "description": null,
+            "dialog_node": "node_1_1491911284038",
+            "previous_sibling": "node_3_1491888457649"
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "Sure, we will fetch transactions between a date range. Please enter a start date in the format e.g. 15 aug 2016."
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": "node_6_1488814238117",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "true",
+            "description": null,
+            "dialog_node": "node_1_1488796982033",
+            "previous_sibling": "5 transactions"
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "Tap on Add to Compare on the Product Listing Page to compare products."
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": "node_1_1488370289351",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "@features:product",
+            "description": null,
+            "dialog_node": "node_7_1486270839698",
+            "previous_sibling": "node_9_1486270876979"
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "Thanks, an email has been sent to your registered email Id for password reset. The link will be active for 30 min. Please reset your password."
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": "node_29_1488702854322",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "12345",
+            "description": null,
+            "dialog_node": "node_2_1484300719457",
+            "previous_sibling": null
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "Thanks, a one-time passcode has been generated and sent to your number. Please enter the code."
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": "node_22_1488702094291",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "1000",
+            "description": null,
+            "dialog_node": "node_23_1488702139008",
+            "previous_sibling": null
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "Thanks for your interest in online investments. To start investing in mutual funds and equity, you need to first link your PAN card with your account. <br><br> Please submit a signed copy of your PAN card to your nearest branch. You can also do it instantly with Aadhar eSign process. Do you want to proceed? <br> <input type=\"submit\"  class=\"btn-primary\" onclick=\"window.open('http://digio-demo.mybluemix.net/esign.html')\" value=\"Yes\" />   <input type=\"submit\"  class=\"btn-primary\"  onclick=\"accounType('NO')\"   value=\"No\" />"
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": "node_11_1488861036277",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "@account_type:investment",
+            "description": null,
+            "dialog_node": "node_2_1492588643560",
+            "previous_sibling": null
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "Thanks, the amount has been transferred. It will reflect in your account in the next hour. Anything else I can help you with?"
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": "node_3_1492427252795",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "input.text=='1234'",
+            "description": null,
+            "dialog_node": "node_10_1488688903577",
+            "previous_sibling": null
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "Thanks, the amount has been transferred. It will reflect in your account in the next hour. Anything else I can help you with?"
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": "node_40_1488722397804",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "input_text=='4321'",
+            "description": null,
+            "dialog_node": "node_42_1488722400612",
+            "previous_sibling": null
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "Thanks, the payment has been submitted successfully and recharge amount has been credited to your account."
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": "node_35_1488722085081",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "input_text=='1234'",
+            "description": null,
+            "dialog_node": "node_36_1488722135841",
+            "previous_sibling": null
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "Thanks, we have sent a one-time passcode to you. Please enter the code."
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": "node_1_1492426752086",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "input_text=='1111111111'",
+            "description": null,
+            "dialog_node": "node_3_1492427252795",
+            "previous_sibling": null
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "The one-time passcode entered was incorrect. Please try again."
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": "node_35_1488722085081",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "true",
+            "description": null,
+            "dialog_node": "node_37_1488722201463",
+            "previous_sibling": "node_36_1488722135841"
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "We regret the inconvenience. Please try again."
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": "node_5_1486279608967",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "@features:discount",
+            "description": null,
+            "dialog_node": "node_7_1486279676925",
+            "previous_sibling": "node_6_1486279642422"
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "We regret the inconvenience. Please try again. Please call the merchant Customer care for any queries regarding the product or payment confirmation"
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": "node_5_1486279608967",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "true",
+            "description": null,
+            "dialog_node": "node_9_1486279917132",
+            "previous_sibling": "node_11_1486280291130"
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "Yes, exclusive deals and customized offers are available for you, in addition to the pre-existing offers available from Open Finance such as those on Open Finance credit cards / debit cards."
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": "node_1_1488370289351",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "@features:offer && @account_type:CC",
+            "description": null,
+            "dialog_node": "node_12_1486271000314",
+            "previous_sibling": "node_7_1486270839698"
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "Yes, the offer is over and above those offered by the Merchants."
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": "node_1_1488370289351",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "@features:offer && @account_type:merchant",
+            "description": null,
+            "dialog_node": "node_14_1486271085842",
+            "previous_sibling": "node_12_1486271000314"
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "You can find more information and apply for a car loan at <a href=\"http://ibm.com/\" target=\"_blank\"> Car loans</a>"
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": "node_1_1477407152137",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "$res=='YES' || @acknowledgement:yes",
+            "description": null,
+            "dialog_node": "node_14_1484423919858",
+            "previous_sibling": "node_1_1477467944657"
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "You cannot compare more than two products in app. Please remove one of the products you have added for comparison and add a new product."
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": "node_1_1488370289351",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "@features:product && @quantity:moretwo",
+            "description": null,
+            "dialog_node": "node_9_1486270876979",
+            "previous_sibling": null
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "Your payment has been successfully submitted."
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": "node_31_1488713108247",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "input_text=='4321'",
+            "description": null,
+            "dialog_node": "node_32_1488713164168",
+            "previous_sibling": null
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "Your payment has been successfully submitted. A receipt will be sent to your email id."
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": "node_23_1488702139008",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "input_text=='1234'",
+            "description": null,
+            "dialog_node": "node_24_1488702185350",
+            "previous_sibling": null
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "Your payment has been successfully submitted. A receipt will be sent to your email id."
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": "node_27_1488702354021",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "input_text=='4321'",
+            "description": null,
+            "dialog_node": "node_28_1488702638721",
+            "previous_sibling": null
+        },
+        {
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "Your payment has been successfully submitted. A receipt will be sent to your email id."
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": "node_39_1488722251857",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "input_text=='4321'",
+            "description": null,
+            "dialog_node": "node_43_1488722604380",
+            "previous_sibling": null
+        },
+        {
+            "go_to": {
+                "return": null,
+                "selector": "body",
+                "dialog_node": "node_13_1470165424141"
+            },
+            "title": null,
+            "output": {
+                "text": ""
+            },
+            "parent": "node_4_1470936987501",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "@true",
+            "description": null,
+            "dialog_node": "node_6_1470956341170",
+            "previous_sibling": "node_1_1471096462470"
+        },
+        {
+            "go_to": {
+                "return": null,
+                "selector": "condition",
+                "dialog_node": "node_10_1488688903577"
+            },
+            "title": null,
+            "output": {},
+            "parent": "node_4_1492427282742",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "input.text=='1234'",
+            "description": null,
+            "dialog_node": "node_16_1488689741008",
+            "previous_sibling": null
+        },
+        {
+            "go_to": {
+                "return": null,
+                "selector": "condition",
+                "dialog_node": "node_10_1488688903577"
+            },
+            "title": null,
+            "output": {},
+            "parent": "node_9_1488687653575",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "input_text=='1234'",
+            "description": null,
+            "dialog_node": "node_7_1492428504448",
+            "previous_sibling": null
+        },
+        {
+            "go_to": {
+                "return": null,
+                "selector": "condition",
+                "dialog_node": "node_11_1492429161945"
+            },
+            "title": null,
+            "output": {},
+            "parent": "node_11_1492429161945",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "true",
+            "description": null,
+            "dialog_node": "node_10_1492429148857",
+            "previous_sibling": "node_9_1492429064822"
+        },
+        {
+            "go_to": {
+                "return": null,
+                "selector": "condition",
+                "dialog_node": "node_1_1484397808360"
+            },
+            "title": null,
+            "output": {},
+            "parent": null,
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "#recommend",
+            "description": null,
+            "dialog_node": "node_10_1488860595968",
+            "previous_sibling": "node_8_1488858811196"
+        },
+        {
+            "go_to": {
+                "return": null,
+                "selector": "condition",
+                "dialog_node": "node_1_1484397808360"
+            },
+            "title": null,
+            "output": {},
+            "parent": "node_16_1484424880569",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "$res=='Suggest Gifts'",
+            "description": null,
+            "dialog_node": "node_18_1484425792976",
+            "previous_sibling": "node_17_1484425768370"
+        },
+        {
+            "go_to": {
+                "return": null,
+                "selector": "condition",
+                "dialog_node": "node_1_1488552156109"
+            },
+            "title": null,
+            "output": {},
+            "parent": null,
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "conversation_start",
+            "description": null,
+            "dialog_node": "node_8_1470165051121",
+            "previous_sibling": null
+        },
+        {
+            "go_to": {
+                "return": null,
+                "selector": "condition",
+                "dialog_node": "node_1_1488861487981"
+            },
+            "title": null,
+            "output": {},
+            "parent": "node_2_1488861508413",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "@account_type:FD",
+            "description": null,
+            "dialog_node": "node_5_1488861632665",
+            "previous_sibling": "node_4_1488861599031"
+        },
+        {
+            "go_to": {
+                "return": null,
+                "selector": "condition",
+                "dialog_node": "node_12_1488861096661"
+            },
+            "title": null,
+            "output": {},
+            "parent": "node_2_1488861508413",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "@account_type:savings",
+            "description": null,
+            "dialog_node": "node_4_1488861599031",
+            "previous_sibling": "node_3_1488861573207"
+        },
+        {
+            "go_to": {
+                "return": null,
+                "selector": "condition",
+                "dialog_node": "node_13_1488861278433"
+            },
+            "title": null,
+            "output": {},
+            "parent": "node_2_1488861508413",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "@account_type:CC",
+            "description": null,
+            "dialog_node": "node_3_1488861573207",
+            "previous_sibling": null
+        },
+        {
+            "go_to": {
+                "return": null,
+                "selector": "condition",
+                "dialog_node": "node_16_1488862443960"
+            },
+            "title": null,
+            "output": {},
+            "parent": "node_16_1488862443960",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "true",
+            "description": null,
+            "dialog_node": "node_12_1488689286890",
+            "previous_sibling": "node_15_1488862411266"
+        },
+        {
+            "go_to": {
+                "return": null,
+                "selector": "condition",
+                "dialog_node": "node_21_1488701944999"
+            },
+            "title": null,
+            "output": {},
+            "parent": "node_2_1472263451798",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "@merchant:electricity",
+            "description": null,
+            "dialog_node": "node_45_1488725520904",
+            "previous_sibling": null
+        },
+        {
+            "go_to": {
+                "return": null,
+                "selector": "condition",
+                "dialog_node": "node_21_1488701944999"
+            },
+            "title": null,
+            "output": {},
+            "parent": "node_9_1488862187158",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "@merchant:electricity",
+            "description": null,
+            "dialog_node": "node_20_1488701818264",
+            "previous_sibling": "node_6_1484306356322"
+        },
+        {
+            "go_to": {
+                "return": null,
+                "selector": "condition",
+                "dialog_node": "node_2_1471282666366"
+            },
+            "title": null,
+            "output": {},
+            "parent": null,
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "#Viewtransactions",
+            "description": null,
+            "dialog_node": "node_6_1488814238117",
+            "previous_sibling": "node_4_1488814113326"
+        },
+        {
+            "go_to": {
+                "return": null,
+                "selector": "condition",
+                "dialog_node": "node_2_1472263451798"
+            },
+            "title": null,
+            "output": {},
+            "parent": "node_2_1472263451798",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "true",
+            "description": null,
+            "dialog_node": "node_48_1488725571868",
+            "previous_sibling": "node_11_1488862283858"
+        },
+        {
+            "go_to": {
+                "return": null,
+                "selector": "condition",
+                "dialog_node": "node_2_1477309376535"
+            },
+            "title": null,
+            "output": {},
+            "parent": "node_7_1484422796024",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "$res=='Savings' || $res=='Credit' || @account_type:savings || @account_type:(credit card)",
+            "description": null,
+            "dialog_node": "node_8_1484422827753",
+            "previous_sibling": null
+        },
+        {
+            "go_to": {
+                "return": null,
+                "selector": "condition",
+                "dialog_node": "node_2_1488861508413"
+            },
+            "title": null,
+            "output": {},
+            "parent": "node_2_1488861508413",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "true",
+            "description": null,
+            "dialog_node": "node_6_1488861691676",
+            "previous_sibling": "node_7_1488861714076"
+        },
+        {
+            "go_to": {
+                "return": null,
+                "selector": "condition",
+                "dialog_node": "node_2_1492588643560"
+            },
+            "title": null,
+            "output": {},
+            "parent": null,
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "#register",
+            "description": null,
+            "dialog_node": "node_11_1488861036277",
+            "previous_sibling": "node_10_1488860595968"
+        },
+        {
+            "go_to": {
+                "return": null,
+                "selector": "condition",
+                "dialog_node": "node_23_1486272574689"
+            },
+            "title": null,
+            "output": {},
+            "parent": null,
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "#define",
+            "description": null,
+            "dialog_node": "node_17_1486271988644",
+            "previous_sibling": "node_6_1488814238117"
+        },
+        {
+            "go_to": {
+                "return": null,
+                "selector": "condition",
+                "dialog_node": "node_24_1486267465775"
+            },
+            "title": null,
+            "output": {},
+            "parent": null,
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "#Access",
+            "description": null,
+            "dialog_node": "node_8_1488858811196",
+            "previous_sibling": "node_17_1486271988644"
+        },
+        {
+            "go_to": {
+                "return": null,
+                "selector": "condition",
+                "dialog_node": "node_24_1488702185350"
+            },
+            "title": null,
+            "output": {},
+            "parent": "node_25_1488702201751",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "input_text=='1234'",
+            "description": null,
+            "dialog_node": "node_26_1488702330203",
+            "previous_sibling": null
+        },
+        {
+            "go_to": {
+                "return": null,
+                "selector": "condition",
+                "dialog_node": "node_3_1484321114873"
+            },
+            "title": null,
+            "output": {},
+            "parent": null,
+            "context": {
+                "default_counter": "<?$default_counter+1?>"
+            },
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "#Ok",
+            "description": null,
+            "dialog_node": "node_4_1488686173932",
+            "previous_sibling": "node_5_1486279608967"
+        },
+        {
+            "go_to": {
+                "return": null,
+                "selector": "condition",
+                "dialog_node": "node_3_1484421385505"
+            },
+            "title": null,
+            "output": {},
+            "parent": "node_3_1484421385505",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "true",
+            "description": null,
+            "dialog_node": "node_6_1484421490894",
+            "previous_sibling": "node_5_1484421465129"
+        },
+        {
+            "go_to": {
+                "return": null,
+                "selector": "condition",
+                "dialog_node": "node_3_1491888457649"
+            },
+            "title": null,
+            "output": {},
+            "parent": null,
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "#branchInfo",
+            "description": null,
+            "dialog_node": "node_2_1491888443713",
+            "previous_sibling": "node_3_1484301409368"
+        },
+        {
+            "go_to": {
+                "return": null,
+                "selector": "condition",
+                "dialog_node": "node_3_1492427252795"
+            },
+            "title": null,
+            "output": {},
+            "parent": "node_11_1492429161945",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "input_text=='1111111111'",
+            "description": null,
+            "dialog_node": "node_9_1492429064822",
+            "previous_sibling": null
+        },
+        {
+            "go_to": {
+                "return": null,
+                "selector": "condition",
+                "dialog_node": "node_33_1488721904983"
+            },
+            "title": null,
+            "output": {},
+            "parent": "node_2_1472263451798",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "@merchant:mobile",
+            "description": null,
+            "dialog_node": "node_46_1488725555323",
+            "previous_sibling": "node_45_1488725520904"
+        },
+        {
+            "go_to": {
+                "return": null,
+                "selector": "condition",
+                "dialog_node": "node_33_1488721904983"
+            },
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        ""
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": "node_9_1488862187158",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "@merchant:mobile",
+            "description": null,
+            "dialog_node": "node_6_1484306356322",
+            "previous_sibling": null
+        },
+        {
+            "go_to": {
+                "return": null,
+                "selector": "condition",
+                "dialog_node": "node_36_1488722135841"
+            },
+            "title": null,
+            "output": {},
+            "parent": "node_37_1488722201463",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "input_text=='1234'",
+            "description": null,
+            "dialog_node": "node_38_1488722226209",
+            "previous_sibling": null
+        },
+        {
+            "go_to": {
+                "return": null,
+                "selector": "condition",
+                "dialog_node": "node_40_1488722397804"
+            },
+            "title": null,
+            "output": {},
+            "parent": "node_40_1488722397804",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "true",
+            "description": null,
+            "dialog_node": "node_6_1492427573795",
+            "previous_sibling": "node_42_1488722400612"
+        },
+        {
+            "go_to": {
+                "return": null,
+                "selector": "condition",
+                "dialog_node": "node_4_1470163952252"
+            },
+            "title": null,
+            "output": {},
+            "parent": "node_16_1484424880569",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "$res=='pay credit card'",
+            "description": null,
+            "dialog_node": "node_17_1484425768370",
+            "previous_sibling": null
+        },
+        {
+            "go_to": {
+                "return": null,
+                "selector": "condition",
+                "dialog_node": "node_4_1470163952252"
+            },
+            "title": null,
+            "output": {},
+            "parent": "node_9_1488862187158",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "@account_type:CC",
+            "description": null,
+            "dialog_node": "node_3_1488553866032",
+            "previous_sibling": "node_20_1488701818264"
+        },
+        {
+            "go_to": {
+                "return": null,
+                "selector": "condition",
+                "dialog_node": "node_4_1470936987501"
+            },
+            "title": null,
+            "output": {},
+            "parent": null,
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "#accountbalance",
+            "description": null,
+            "dialog_node": "node_4_1488814113326",
+            "previous_sibling": "node_5_1488686661668"
+        },
+        {
+            "go_to": {
+                "return": null,
+                "selector": "condition",
+                "dialog_node": "node_4_1477061147991"
+            },
+            "title": null,
+            "output": {},
+            "parent": "node_3_1484421385505",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "@acknowledgement:yes || $res=='YES'",
+            "description": null,
+            "dialog_node": "node_4_1484421421395",
+            "previous_sibling": null
+        },
+        {
+            "go_to": {
+                "return": null,
+                "selector": "condition",
+                "dialog_node": "node_4_1484321533426"
+            },
+            "title": null,
+            "output": {},
+            "parent": "node_4_1484321533426",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "true",
+            "description": null,
+            "dialog_node": "node_7_1484321827731",
+            "previous_sibling": "node_6_1484321816828"
+        },
+        {
+            "go_to": {
+                "return": null,
+                "selector": "condition",
+                "dialog_node": "node_4_1492427282742"
+            },
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": "node_9_1488687653575",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "true",
+            "description": null,
+            "dialog_node": "node_8_1492428617870",
+            "previous_sibling": "node_7_1492428504448"
+        },
+        {
+            "go_to": {
+                "return": null,
+                "selector": "condition",
+                "dialog_node": "node_5_1477061442047"
+            },
+            "title": null,
+            "output": {},
+            "parent": "node_3_1484421385505",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "@acknowledgement:no || $res=='NO'",
+            "description": null,
+            "dialog_node": "node_5_1484421465129",
+            "previous_sibling": "node_4_1484421421395"
+        },
+        {
+            "go_to": {
+                "return": null,
+                "selector": "condition",
+                "dialog_node": "node_6_1477061588435"
+            },
+            "title": null,
+            "output": {},
+            "parent": "node_4_1484321533426",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "@acknowledgement:yes",
+            "description": null,
+            "dialog_node": "node_5_1484321796325",
+            "previous_sibling": null
+        },
+        {
+            "go_to": {
+                "return": null,
+                "selector": "condition",
+                "dialog_node": "node_6_1486279642422"
+            },
+            "title": null,
+            "output": {},
+            "parent": null,
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "#Failed",
+            "description": null,
+            "dialog_node": "node_5_1486279608967",
+            "previous_sibling": "node_2_1486270517039"
+        },
+        {
+            "go_to": {
+                "return": null,
+                "selector": "condition",
+                "dialog_node": "node_7_1477061727761"
+            },
+            "title": null,
+            "output": {},
+            "parent": "node_4_1484321533426",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "@acknowledgement:no",
+            "description": null,
+            "dialog_node": "node_6_1484321816828",
+            "previous_sibling": "node_5_1484321796325"
+        },
+        {
+            "go_to": {
+                "return": null,
+                "selector": "condition",
+                "dialog_node": "node_7_1484422796024"
+            },
+            "title": null,
+            "output": {},
+            "parent": "node_7_1484422796024",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "true",
+            "description": null,
+            "dialog_node": "node_9_1484422893388",
+            "previous_sibling": "node_11_1484423113359"
+        },
+        {
+            "go_to": {
+                "return": null,
+                "selector": "condition",
+                "dialog_node": "node_7_1488687293538"
+            },
+            "title": null,
+            "output": {},
+            "parent": "node_16_1488862443960",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "@name:Rajesh || @name:Ramesh",
+            "description": null,
+            "dialog_node": "node_11_1488689243684",
+            "previous_sibling": null
+        },
+        {
+            "go_to": {
+                "return": null,
+                "selector": "condition",
+                "dialog_node": "node_8_1471019524106"
+            },
+            "title": null,
+            "output": {},
+            "parent": "node_4_1488814113326",
+            "context": {
+                "action": {
+                    "lookup": "balance",
+                    "account_type": "@account_type",
+                    "append_total": false,
+                    "append_response": false
+                }
+            },
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "@account_type:savings || @account_type:current || @account_type:FD || @account_type:CC",
+            "description": null,
+            "dialog_node": "node_4_1470936987501",
+            "previous_sibling": null
+        },
+        {
+            "go_to": {
+                "return": null,
+                "selector": "condition",
+                "dialog_node": "node_9_1471039584461"
+            },
+            "title": null,
+            "output": {},
+            "parent": null,
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "#payment",
+            "description": null,
+            "dialog_node": "node_2_1470163854173",
+            "previous_sibling": "node_1_1488370289351"
+        },
+        {
+            "go_to": {
+                "return": null,
+                "selector": "condition",
+                "dialog_node": "node_9_1471039584461"
+            },
+            "title": null,
+            "output": {},
+            "parent": "node_2_1472263451798",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "@account_type:CC",
+            "description": null,
+            "dialog_node": "node_47_1488725563664",
+            "previous_sibling": "node_46_1488725555323"
+        },
+        {
+            "go_to": {
+                "return": null,
+                "selector": "condition",
+                "dialog_node": "node_9_1486270876979"
+            },
+            "title": null,
+            "output": {},
+            "parent": null,
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "#comparison",
+            "description": null,
+            "dialog_node": "node_1_1488370289351",
+            "previous_sibling": "node_11_1488861036277"
+        },
+        {
+            "go_to": {
+                "return": null,
+                "selector": "condition",
+                "dialog_node": "OTP message"
+            },
+            "title": null,
+            "output": {},
+            "parent": "node_2_1477060382099",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "input_text=='1234'",
+            "description": null,
+            "dialog_node": "node_30_1488713081771",
+            "previous_sibling": null
+        },
+        {
+            "go_to": {
+                "return": null,
+                "selector": "user_input",
+                "dialog_node": "node_1_1470264172965"
+            },
+            "title": null,
+            "output": {
+                "text": "Please confirm your payment with a yes or no confirmation.  <br> <input type=\"submit\"  class=\"btn-primary\" onclick=\"accounType('YES')\" value=\"Yes\" />   <input type=\"submit\"  class=\"btn-primary\"  onclick=\"accounType('NO')\"   value=\"No\" />"
+            },
+            "parent": "node_4_1470163952252",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "true",
+            "description": null,
+            "dialog_node": "node_20_1470172185546",
+            "previous_sibling": "node_19_1470168688145"
+        },
+        {
+            "go_to": {
+                "return": null,
+                "selector": "user_input",
+                "dialog_node": "node_4_1470163952252"
+            },
+            "title": null,
+            "output": {},
+            "parent": "node_2_1470163854173",
+            "context": {
+                "action": {
+                    "lookup": "balance",
+                    "account_type": "@account_type"
+                }
+            },
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": "@account_type:CC",
+            "description": null,
+            "dialog_node": "node_9_1471039584461",
+            "previous_sibling": null
+        },
+        {
+            "type": "response_condition",
+            "go_to": null,
+            "title": null,
+            "output": {
+                "text": {
+                    "values": [
+                        "We offer home loans at the best interest rate of 8.25%. Would you like to proceed?<br> <input type=\"submit\"  class=\"btn-primary\" onclick=\"accounType('YES')\" value=\"Yes\" />   <input type=\"submit\"  class=\"btn-primary\"  onclick=\"accounType('NO')\"   value=\"No\" />"
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": "home loan",
+            "context": null,
+            "created": "2017-06-12T18:08:50.365Z",
+            "updated": "2017-06-12T18:08:50.365Z",
+            "metadata": null,
+            "conditions": null,
+            "description": null,
+            "dialog_node": "node_4_1488383770630",
+            "previous_sibling": null
+        }
+    ],
+    "workspace_id": "2c566981-41a6-41e3-9bd3-f69bc0c40599",
+    "counterexamples": []
+}
