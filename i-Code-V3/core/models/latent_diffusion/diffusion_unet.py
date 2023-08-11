@@ -533,6 +533,7 @@ class UNetModel2D(nn.Module):
                  channel_mult_connector=(1, 2, 4),
                  num_noattn_blocks_connector=(1, 1, 1),
                  with_connector=[True, True, True, False],
+                 connector_output_channel=1280,
                  num_heads=8,
                  use_checkpoint=True, 
                  use_video_architecture=False,
@@ -595,7 +596,13 @@ class UNetModel2D(nn.Module):
                             Downsample(
                                 current_channel, use_conv=True, 
                                 dims=2, out_channels=current_channel,)))
-            connector_out_channels = current_channel
+                    
+            out = TimestepEmbedSequential(
+                        *[normalization(current_channel),
+                        nn.SiLU(),
+                        nn.Conv2d(current_channel, connector_output_channel, 3, padding=1)],)
+            self.connecters_out.append(out)
+            connector_out_channels = connector_output_channel
 
         else:
             with_connector = [False] * len(with_connector)
@@ -913,6 +920,7 @@ class UNetModel0D_MultiDim(nn.Module):
                  num_noattn_blocks_connector=(1, 1, 1),
                  second_dim_connector=(4, 4, 4),
                  with_connector=[True, True, True, False],
+                 connector_output_channel=1280,
                  num_heads=8,
                  use_checkpoint=True,
                  init_connector=True):
@@ -962,7 +970,12 @@ class UNetModel0D_MultiDim(nn.Module):
                     self.connecters_out += [
                         TimestepEmbedSequential(
                             Linear_MultiDim(current_channel, current_channel, bias=True, ))]
-            connector_out_channels = current_channel[0]
+            out = TimestepEmbedSequential(
+                        *[normalization(current_channel[0]),
+                          nn.SiLU(),
+                          Linear_MultiDim(current_channel, [connector_output_channel, 1, 1], bias=True, )])
+            self.connecters_out.append(out)
+            connector_out_channels = connector_output_channel        
         else:
             with_connector = [False] * len(with_connector),
         
