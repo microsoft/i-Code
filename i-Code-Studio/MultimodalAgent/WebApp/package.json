@@ -1,0 +1,30 @@
+{
+  "name": "watson-voice-bot",
+  "version": "1.0.0",
+  "description": "Watson Voice Bot",
+  "main": "index.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/eslint static/scripts/script.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IBM/watson-voice-bot.git"
+  },
+  "author": "",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/IBM/watson-voice-bot/issues"
+  },
+  "homepage": "https://github.com/IBM/watson-voice-bot#readme",
+  "devDependencies": {
+    "eslint": "^8.6.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.5.1"
+  }
+}
