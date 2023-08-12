@@ -2,11 +2,8 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import numpy as np
-import copy
 import functools
 import itertools
-
-import matplotlib.pyplot as plt
 
 ########
 # unit #
