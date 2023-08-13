@@ -1,5 +1,7 @@
 tqdm
-einops
+easydict==1.9
+einops==0.6.1
+decord==0.6.0
 transformers==4.26.0
 pytorch-lightning==1.9.0
 timm==0.4.5
