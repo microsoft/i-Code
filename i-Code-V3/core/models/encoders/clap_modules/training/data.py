@@ -11,7 +11,6 @@ from .params import parse_args
 
 # import braceexpand
 import numpy as np
-import pandas as pd
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -82,25 +81,6 @@ def int16_to_float32(x):
 def float32_to_int16(x):
     x = np.clip(x, a_min=-1.0, a_max=1.0)
     return (x * 32767.0).astype(np.int16)
-
-class CsvDataset(Dataset):
-    def __init__(self, input_filename, transforms, img_key, caption_key, sep="\t"):
-        logging.debug(f"Loading csv data from {input_filename}.")
-        df = pd.read_csv(input_filename, sep=sep)
-
-        self.images = df[img_key].tolist()
-        self.captions = df[caption_key].tolist()
-        self.transforms = transforms
-        logging.debug("Done loading data.")
-
-    def __len__(self):
-        return len(self.captions)
-
-    def __getitem__(self, idx):
-        images = self.transforms(Image.open(str(self.images[idx])))
-        texts = tokenize([str(self.captions[idx])])[0]
-        return images, texts
-
 
 @dataclass
 class DataInfo:
