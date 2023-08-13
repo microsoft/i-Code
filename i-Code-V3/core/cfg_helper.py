@@ -6,7 +6,6 @@ import time
 import pprint
 import numpy as np
 import torch
-import matplotlib
 import argparse
 import json
 import yaml
