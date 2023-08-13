@@ -180,9 +180,9 @@ def load_video(video_path, sample_duration=8.0, num_frames=8):
         start, end = time_to_indices(vr, [s, t])
         end = min(video_frame_len-1, end)
         start = min(start, end-1)
-        downsamlp_indices = np.linspace(start, end, num_frames, endpoint=True).astype(np.int).tolist()
+        downsamlp_indices = np.linspace(start, end, num_frames, endpoint=True).astype(int).tolist()
     else:            
-        downsamlp_indices = np.linspace(0, video_frame_len-1, num_frames, endpoint=True).astype(np.int).tolist()
+        downsamlp_indices = np.linspace(0, video_frame_len-1, num_frames, endpoint=True).astype(int).tolist()
 
     video = vr.get_batch(downsamlp_indices).asnumpy()
     return video
