@@ -32,7 +32,7 @@ def mae_model(name, pretrained_weights, image_size, vocab_size, max_2d_position_
         'mae_vit_huge_patch14': mae_vit_huge_patch14,
     }
     
-    if name not in mae_models:
+    if name not in mae_models.keys():
         raise RuntimeError(f'{name} is not available')
     
     model = mae_models[name](image_size=image_size, vocab_size=vocab_size, max_2d_position_embeddings=max_2d_position_embeddings)
