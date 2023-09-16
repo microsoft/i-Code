@@ -124,7 +124,7 @@ def getConvResponse():
             # else:
             #     vis_output = vis_output1
             prompt = format_gpt3_prompt(context, query, vis_output)
-            print('*******************', prompt, '*****************')
+            print('*******************', prompt, '****************')
             response = gpt3(prompt)
             # response = chat_query(prompt)
         if response.startswith("AI: "):
