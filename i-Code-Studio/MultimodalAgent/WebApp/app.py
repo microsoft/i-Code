@@ -42,7 +42,7 @@ def chat_query(prompt):
         prompt=prompt,
         max_tokens=32,
         n=1,
-        temperature=0.5,
+        temperature=0.6,
     )
 
     message = completions.choices[0].text
