@@ -53,7 +53,6 @@ asr = SpeechToText()
 tts_service = TextToSpeech()
 cv = ComputerVisionWrapper()
 
-
 # Redirect http to https on CloudFoundry
 @app.before_request
 def before_request():
