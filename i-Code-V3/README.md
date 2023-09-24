@@ -43,7 +43,7 @@ pip install -r requirement.txt
 ## Inference
 Download checkpoints from [Hugginface Model](https://huggingface.co/ZinengTang/CoDi)
 
-|**Model Parts**|**Huggingface Weights Address**|**Huggingface Weights Address (fp16)**|
+|**Model Parts**|**Huggingface Weights Address**|**fp16 weights**|
 |:-------------:|:-------------:|:-------------:|
 |CoDi Encoders and VAEs|[CoDi_encoders.pth](https://huggingface.co/ZinengTang/CoDi/resolve/main/CoDi_encoders.pth)|[CoDi_encoders.pth](https://huggingface.co/ZinengTang/CoDi/resolve/main/checkpoints_fp16/CoDi_encoders.pth)|
 |CoDi Text Diffuser|[CoDi_text_diffuser.pth](https://huggingface.co/ZinengTang/CoDi/resolve/main/CoDi_text_diffuser.pth)|[CoDi_text_diffuser.pth](https://huggingface.co/ZinengTang/CoDi/resolve/main/checkpoints_fp16/CoDi_text_diffuser.pth)|
