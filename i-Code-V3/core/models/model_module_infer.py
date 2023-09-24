@@ -18,11 +18,13 @@ warnings.filterwarnings("ignore")
 
 
 class model_module(pl.LightningModule):
-    def __init__(self, data_dir='pretrained', pth=["CoDi_encoders.pth"]):
+    def __init__(self, data_dir='pretrained', pth=["CoDi_encoders.pth"], fp16=False):
         super().__init__()
         
         cfgm = model_cfg_bank()('codi')
         net = get_model()(cfgm)
+        if fp16:
+            net = net.half()
         for path in pth:
             net.load_state_dict(torch.load(os.path.join(data_dir, path), map_location='cpu'), strict=False)
         print('Load pretrained weight from {}'.format(pth))
