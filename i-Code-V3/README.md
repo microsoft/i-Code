@@ -43,14 +43,13 @@ pip install -r requirement.txt
 ## Inference
 Download checkpoints from [Hugginface Model](https://huggingface.co/ZinengTang/CoDi)
 
-|**Model Parts**|**Huggingface Weights Address**|
+|**Model Parts**|**Huggingface Weights Address**|**Huggingface Weights Address (fp16)**|
 |:-------------:|:-------------:|
-|CoDi Encoders and VAEs|[CoDi_encoders.pth](https://huggingface.co/ZinengTang/CoDi/resolve/main/CoDi_encoders.pth)|
-|CoDi Text Diffuser|[CoDi_text_diffuser.pth](https://huggingface.co/ZinengTang/CoDi/resolve/main/CoDi_text_diffuser.pth)|
-|CoDi Audio Diffuser|[CoDi_audio_diffuser_m.pth](https://huggingface.co/ZinengTang/CoDi/resolve/main/CoDi_audio_diffuser_m.pth)|
-|CoDi Vision Diffuser|[CoDi_video_diffuser_8frames.pth](https://huggingface.co/ZinengTang/CoDi/resolve/main/CoDi_video_diffuser_8frames.pth)|
+|CoDi Encoders and VAEs|[CoDi_encoders.pth](https://huggingface.co/ZinengTang/CoDi/resolve/main/CoDi_encoders.pth)|[CoDi_encoders.pth](https://huggingface.co/ZinengTang/CoDi/resolve/main/checkpoints_fp16/CoDi_encoders.pth)|
+|CoDi Text Diffuser|[CoDi_text_diffuser.pth](https://huggingface.co/ZinengTang/CoDi/resolve/main/CoDi_text_diffuser.pth)|[CoDi_text_diffuser.pth](https://huggingface.co/ZinengTang/CoDi/resolve/main/checkpoints_fp16/CoDi_text_diffuser.pth)|
+|CoDi Audio Diffuser|[CoDi_audio_diffuser_m.pth](https://huggingface.co/ZinengTang/CoDi/resolve/main/CoDi_audio_diffuser_m.pth)|[CoDi_audio_diffuser_m.pth](https://huggingface.co/ZinengTang/CoDi/resolve/main/checkpoints_fp16/CoDi_audio_diffuser_m.pth)|
+|CoDi Vision Diffuser|[CoDi_video_diffuser_8frames.pth](https://huggingface.co/ZinengTang/CoDi/resolve/main/CoDi_video_diffuser_8frames.pth)|[CoDi_video_diffuser_8frames.pth](https://huggingface.co/ZinengTang/CoDi/resolve/main/checkpoints_fp16/CoDi_video_diffuser_8frames.pth)|
 
-More coming soon ...
 
 ```
 !wget https://huggingface.co/ZinengTang/CoDi/resolve/main/CoDi_encoders.pth -P checkpoints/
