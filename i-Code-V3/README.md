@@ -52,18 +52,18 @@ Download checkpoints from [Hugginface Model](https://huggingface.co/ZinengTang/C
 
 
 ```
-!wget https://huggingface.co/ZinengTang/CoDi/resolve/main/CoDi_encoders.pth -P checkpoints/
-!wget https://huggingface.co/ZinengTang/CoDi/resolve/main/CoDi_text_diffuser.pth -P checkpoints/
-!wget https://huggingface.co/ZinengTang/CoDi/resolve/main/CoDi_audio_diffuser_m.pth -P checkpoints/
-!wget https://huggingface.co/ZinengTang/CoDi/resolve/main/CoDi_video_diffuser_8frames.pth -P checkpoints/
+wget https://huggingface.co/ZinengTang/CoDi/resolve/main/CoDi_encoders.pth -P checkpoints/
+wget https://huggingface.co/ZinengTang/CoDi/resolve/main/CoDi_text_diffuser.pth -P checkpoints/
+wget https://huggingface.co/ZinengTang/CoDi/resolve/main/CoDi_audio_diffuser_m.pth -P checkpoints/
+wget https://huggingface.co/ZinengTang/CoDi/resolve/main/CoDi_video_diffuser_8frames.pth -P checkpoints/
 ```
 
 ```
 # Or fp16 weights
-!wget https://huggingface.co/ZinengTang/CoDi/resolve/main/checkpoints_fp16/CoDi_encoders.pth -P checkpoints/
-!wget https://huggingface.co/ZinengTang/CoDi/resolve/main/checkpoints_fp16/CoDi_text_diffuser.pth -P checkpoints/
-!wget https://huggingface.co/ZinengTang/CoDi/resolve/main/checkpoints_fp16/CoDi_audio_diffuser_m.pth -P checkpoints/
-!wget https://huggingface.co/ZinengTang/CoDi/resolve/main/checkpoints_fp16/CoDi_video_diffuser_8frames.pth -P checkpoints/
+wget https://huggingface.co/ZinengTang/CoDi/resolve/main/checkpoints_fp16/CoDi_encoders.pth -P checkpoints/
+wget https://huggingface.co/ZinengTang/CoDi/resolve/main/checkpoints_fp16/CoDi_text_diffuser.pth -P checkpoints/
+wget https://huggingface.co/ZinengTang/CoDi/resolve/main/checkpoints_fp16/CoDi_audio_diffuser_m.pth -P checkpoints/
+wget https://huggingface.co/ZinengTang/CoDi/resolve/main/checkpoints_fp16/CoDi_video_diffuser_8frames.pth -P checkpoints/
 ```
 
 Run demo.ipynb
