@@ -1,0 +1,4 @@
+fschat
+openai
+numpy
+azure-ai-vision
