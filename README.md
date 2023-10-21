@@ -12,6 +12,9 @@ The ambition of the i-Code project is to build integrative and composable multim
 
 ## Multimodal Document Intelligence
 - [i-Code Doc (UDOP)](https://github.com/microsoft/i-Code/tree/main/i-Code-Doc): Unifying Vision, Text, and Layout for Universal Document Processing. CVPR 2023 Highlight, [paper link](https://arxiv.org/abs/2212.02623).
+- 
+## Knowledge-Based Visual Question Answering
+- [MM-Reasoner] MM-Reasoner: A Multi-Modal Knowledge-Aware Framework for Knowledge-Based Visual Question Answering. EMNLP 2023 Findings.
 
 ## Contributing
 
