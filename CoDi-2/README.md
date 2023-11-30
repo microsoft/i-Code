@@ -1,4 +1,4 @@
-<h1 class="title is-1 publication-title">CoDi-2: In-Context, Interleaved, and Interactive Any-to-Any Generation</h1>
+<h1 class="title is-1 publication-title" style="align:center">CoDi-2: In-Context, Interleaved, and Interactive Any-to-Any Generation</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
               <a href="https://zinengtang.github.io/">Zineng Tang</a><sup>1,4*</sup>,</span>
