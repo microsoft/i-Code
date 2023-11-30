@@ -26,6 +26,7 @@
 	<span class="author-block"><small><sup>*</sup> Work done at Microsoft and UNC Chapel Hill. <sup>‡</sup> Work done at Microsoft. <sup>†</sup>Corresponding Authors</span></small>
  </div>
 
+## Code Release Checklist [...coming soon...] 
 
 ## Introduction 
 
