@@ -19,7 +19,6 @@
           </div>
 <div class="is-size-5 publication-authors">
             <span class="author-block"><sup>1</sup>UC Berkeley</span>
-			<br>
 			<span class="author-block"><sup>2</sup>Microsoft Azure AI</span>
             <span class="author-block"><sup>3</sup>Zoom</span>
 			<span class="author-block"><sup>4</sup>UNC Chapel Hill</span>
