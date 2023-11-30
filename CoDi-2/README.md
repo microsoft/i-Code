@@ -1,5 +1,5 @@
-<h1 class="title is-1 publication-title">CoDi-2: In-Context, Interleaved, and Interactive<br> Any-to-Any Generation</h1>
-          <div class="is-size-5 publication-authors">
+<h1 align="center">CoDi-2: In-Context, Interleaved, and Interactive <br> Any-to-Any Generation</h1>
+          <div align="center">
             <span class="author-block">
               <a href="https://zinengtang.github.io/">Zineng Tang</a><sup>1,4*</sup>,</span>
             <span class="author-block">
@@ -17,7 +17,7 @@
               <a href="https://www.cs.unc.edu/~mbansal/">Mohit Bansal</a><sup>4†</sup>
             </span>
           </div>
-<div class="is-size-5 publication-authors">
+<div align="center">
 	<span class="author-block"><sup>1</sup>UC Berkeley</span>
 	<span class="author-block"><sup>2</sup>Microsoft Azure AI</span>
         <span class="author-block"><sup>3</sup>Zoom</span>
