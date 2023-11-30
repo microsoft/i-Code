@@ -1,4 +1,4 @@
-<h1 align="center">CoDi-2: In-Context, Interleaved, and Interactive Any-to-Any Generation</h1>
+<h1 align="center">CoDi-2: In-Context, Interleaved, and Interactive <br> Any-to-Any Generation</h1>
           <div align="center">
             <span class="author-block">
               <a href="https://zinengtang.github.io/">Zineng Tang</a><sup>1,4*</sup>,</span>
