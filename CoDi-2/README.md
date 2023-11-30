@@ -28,7 +28,7 @@
 
 ## Code Release Checklist [...code coming soon...] 
 
-- [ ] Code
+- [ ] Inference Pipelines
 - [ ] Checkpoints (7B)
 - [ ] Checkpoints (14B)
 - [ ] Demos
