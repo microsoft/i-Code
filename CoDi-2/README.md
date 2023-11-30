@@ -18,11 +18,11 @@
             </span>
           </div>
 <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1</sup>UC Berkeley</span>
-			<span class="author-block"><sup>2</sup>Microsoft Azure AI</span>
-            <span class="author-block"><sup>3</sup>Zoom</span>
-			<span class="author-block"><sup>4</sup>UNC Chapel Hill</span>
-			<span class="author-block"><small><sup>*</sup> Work done at Microsoft and UNC Chapel Hill. <sup>‡</sup> Work done at Microsoft. <sup>†</sup>Corresponding Authors</span></small>
+	<span class="author-block"><sup>1</sup>UC Berkeley</span>
+	<span class="author-block"><sup>2</sup>Microsoft Azure AI</span>
+        <span class="author-block"><sup>3</sup>Zoom</span>
+	<span class="author-block"><sup>4</sup>UNC Chapel Hill</span>
+	<span class="author-block"><small><sup>*</sup> Work done at Microsoft and UNC Chapel Hill. <sup>‡</sup> Work done at Microsoft. <sup>†</sup>Corresponding Authors</span></small>
  </div>
 
 [![arXiv](https://img.shields.io/badge/arXiv-2305.11846-brightgreen.svg?style=flat-square)](https://arxiv.org/abs/2305.11846)  [![githubio](https://img.shields.io/badge/GitHub.io-Project_Page-blue?logo=Github&style=flat-square)](https://codi-gen.github.io/)  [![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/ZinengTang/CoDi)
