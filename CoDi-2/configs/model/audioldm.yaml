@@ -1,0 +1,24 @@
+########################
+# audioldm autoencoder #
+########################
+
+
+audioldm_autoencoder:
+  type: audioldm_autoencoder
+  args:
+    embed_dim: 8
+    monitor: val/rec_loss
+    ddconfig:
+      double_z: True
+      z_channels: 8
+      resolution: 256
+      downsample_time: False
+      in_channels: 1
+      out_ch: 1
+      ch: 128
+      ch_mult: [1, 2, 4]
+      num_res_blocks: 2
+      attn_resolutions: []
+      dropout: 0.0
+    lossconfig:
+      target: torch.nn.Identity

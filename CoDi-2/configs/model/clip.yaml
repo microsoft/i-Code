@@ -1,0 +1,22 @@
+##############################
+# clip vision & text encoder #
+##############################
+
+clip:
+  symbol: clip
+  args: {}
+
+clip_frozen:
+  super_cfg: clip
+  type: clip_frozen
+  args: {}
+
+clip_text:
+  super_cfg: clip
+  type: clip_text
+  args: {}
+
+clip_vision:
+  super_cfg: clip
+  type: clip_vision
+  args: {}
