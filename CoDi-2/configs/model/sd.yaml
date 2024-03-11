@@ -1,0 +1,20 @@
+sd_autoencoder:
+  type: autoencoderkl
+  args:
+    embed_dim: 4
+    monitor: val/rec_loss
+    ddconfig:
+      double_z: true
+      z_channels: 4
+      resolution: 256
+      in_channels: 3
+      out_ch: 3
+      ch: 128
+      ch_mult: [1, 2, 4, 4]
+      num_res_blocks: 2
+      attn_resolutions: []
+      dropout: 0.0
+#       use_video_arch: true
+    lossconfig:
+      target: torch.nn.Identity
+  pth: pretrained/kl-f8.pth
