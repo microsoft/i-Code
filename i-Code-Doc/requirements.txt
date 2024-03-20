@@ -1,4 +1,4 @@
-transformers==4.30.0
+transformers==4.36.0
 torch>=1.10.0
 timm==0.4.12
 pytorch_lightning==1.6.5
