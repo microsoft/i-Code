@@ -156,11 +156,11 @@ class OpenLLAMAPEFTModel(nn.Module):
             target_modules=['q_proj', 'k_proj', 'v_proj', 'o_proj']
         )
 
-        self.llama_model = LlamaForCausalLM.from_pretrained(vicuna_ckpt_path, cache_dir=args['data_dir'], use_auth_token='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', torch_dtype=torch.float16, use_flash_attention_2=True)
+        self.llama_model = LlamaForCausalLM.from_pretrained(vicuna_ckpt_path, cache_dir=args['data_dir'], torch_dtype=torch.float16, use_flash_attention_2=True)
         self.llama_model = get_peft_model(self.llama_model, peft_config)
         self.llama_model.print_trainable_parameters()
 
-        self.llama_tokenizer = LlamaTokenizer.from_pretrained(vicuna_ckpt_path, use_fast=False, cache_dir=args['data_dir'], use_auth_token='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')
+        self.llama_tokenizer = LlamaTokenizer.from_pretrained(vicuna_ckpt_path, use_fast=False, cache_dir=args['data_dir'])
         self.llama_tokenizer.pad_token = self.llama_tokenizer.eos_token
         self.llama_tokenizer.padding_side = "right"
         print ('Language decoder initialized.')
